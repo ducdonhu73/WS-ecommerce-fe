@@ -1,0 +1,108 @@
+{
+  "common": {
+    "confirm": "Confirm",
+    "cancel": "Cancel"
+  },
+  "header": {
+    "title": "Welcome to react using react-i18next",
+    "menu": {
+      "home": "Home",
+      "car": "Sell my car",
+      "howItWorks": "How it works",
+      "contact": "Contact us",
+      "faq": "FAQ",
+      "more": "More",
+      "support": "Support",
+      "signIn": "Sign in",
+      "signUp": "Sign up"
+    }
+  },
+  "footer": {
+    "dealer": "If you are Dealer",
+    "company": {
+      "title": "Company",
+      "aboutUs": "About us",
+      "press": "Press",
+      "careers": "Careers"
+    },
+    "explore": {
+      "title": "Explore",
+      "sellMyCar": "Sell my car",
+      "cash": "Cash for cars",
+      "carValuation": "Car valuation"
+    },
+    "contact": {
+      "title": "Contact us",
+      "chat": "Chat with us",
+      "email": "Email us"
+    }
+  },
+  "home": {
+    "title1": "Sick of fees?",
+    "title2": "Sell your car for free",
+    "description": "Complete your car sale 100% online within 24 hours at Gear",
+    "getValuation": "Get valuation",
+    "joinOthers": "Join others who've sold their cars with Gear",
+    "service": {
+      "service1": {
+        "title": "Immediate car valuation",
+        "description": "Share your car details and you’ll receive an estimate for your vehicle instantly."
+      },
+      "service2": {
+        "title": "Get the best price",
+        "description": "We’ll deal with the dealers. No negotiation, tyre kickers or hassle."
+      },
+      "service3": {
+        "title": "Free home collection",
+        "description": "Complete your sale within 24 hours, get paid fast and have your car collected, without leaving home."
+      },
+      "service4": {
+        "title": "No hidden fees, 100% free",
+        "description": "The entire selling process is free for you! Only dealers pay a fee to buy your car."
+      }
+    },
+    "whyGear": {
+      "title": "“Got 99 problems, selling my car ain’t one, thanks to Gear Technologies”",
+      "description1": "NZ’s fastest growing car selling platform",
+      "description2": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online. It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
+      "description3": "It’s free, fast and easy."
+    },
+    "howItWorks": {
+      "title": "How it works",
+      "subTitle": "No hidden fees. 100% online process and free",
+      "subDescription": "We know adulting is hard, we help make selling your car as stress-free and seamless as possible.",
+      "step1": {
+        "title": "1. Get a valuation of your car",
+        "description": "Enter your car registration to get an immediate estimate sale price for your vehicle. We ensure your estimate is as accurate as possible and is based on the latest market data from using our smart valuation tech. The estimated sale price can change once you provide us with more specifications about your car in the following steps."
+      },
+      "step2": {
+        "title": "2. Profile your vehicle",
+        "description": "Create an online listing in minutes ready for dealers to start bidding. Profiling your car on the platform is simple and it can all be done from your smartphone. \n You’ll be guided through each step. From providing details about your car, its condition and service history - right through to taking photos and uploading them. \n We’ll prompt you on getting the right angles we require to ensure your car listing is looking top-notch."
+      },
+      "step3": {
+        "title": "3. Approve your reserve price",
+        "description": "Based on the completion of your car listing, we’ll assess the details of your vehicle (history, conditions and specifications) and agree on a reserve price with you. This may change from the original estimate we initially provided you, depending on the car details provided."
+      },
+      "step4": {
+        "title": "4. Connect you with dealers nationwide",
+        "description": "Now your profile is uploaded, we’ll connect you with 500 verified car dealers nationwide right at your fingertips. We’ll deal with the dealers who will compete online for your car and make the best offer. You don’t need to do any negotiation, deal with back and forth communication, or leave your house."
+      },
+      "step5": {
+        "title": "5. Get your highest offer",
+        "description": "We’ll find you the best price for your car and notify you of the highest offer. \n Once accepted, we’ll connect you with the car dealer purchasing your vehicle to complete the sale."
+      },
+      "step6": {
+        "title": "6. Get paid and free collection",
+        "description": "At the final stages of the sale, the dealer purchasing your vehicle will do a final check of your car against your profile to ensure it matches up. \n Within 24 hours, you’ll receive payment in your bank account and an arranged time to have your car collected at no cost."
+      }
+    },
+    "customer": "What customers are saying about us",
+    "carSellingPlatform": {
+      "title": "New Zealand’s fastest growing car selling platform",
+      "description1": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online",
+      "description2": "It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
+      "description3": "It’s free, fast and easy."
+    },
+    "learnMore": "Learn more"
+  }
+}

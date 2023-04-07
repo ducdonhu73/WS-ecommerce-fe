@@ -1,0 +1,108 @@
+@import url("./variables.css");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@font-face {
+  font-family: TTSupermolotNeue;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: TTSupermolotNeue;
+  font-weight: 500;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: TTSupermolotNeue;
+  font-weight: 600;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-DemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: TTSupermolotNeue;
+  font-weight: bold;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: TTSupermolotNeue;
+  font-weight: 800;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-ExtraBold.ttf") format("truetype");
+}
+
+/* @font-face {
+  font-family: TTSupermolotNeue;
+  font-weight: 900;
+  src: url("../assets/fonts/TTSupermolotNeue/TTSupermolotNeue-Black.ttf") format("truetype");
+} */
+
+@layer base {
+  html {
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-primary);
+  }
+
+  [type="text"],
+  [type="email"],
+  [type="password"],
+  [type="number"],
+  [multiple],
+  textarea,
+  select {
+    background-color: var(--color-background);
+  }
+  [type="checkbox"],
+  [type="radio"] {
+    background-color: var(--color-background);
+    color: var(--color-background);
+  }
+  [type="text"]:focus,
+  [type="email"]:focus,
+  [type="url"]:focus,
+  [type="password"]:focus,
+  [type="number"]:focus,
+  [type="date"]:focus,
+  [type="datetime-local"]:focus,
+  [type="month"]:focus,
+  [type="search"]:focus,
+  [type="tel"]:focus,
+  [type="time"]:focus,
+  [type="week"]:focus,
+  [multiple]:focus,
+  textarea:focus,
+  select:focus {
+    outline: none;
+    box-shadow: var(--color-background), var(--color-background), var(--color-background);
+    border-color: #999999;
+  }
+  [type="checkbox"]:focus,
+  [type="radio"]:focus {
+    outline: none;
+    box-shadow: var(--color-background), var(--color-background), var(--color-background);
+  }
+
+  [type="radio"]:checked:hover,
+  [type="radio"]:checked:focus {
+    border-color: #999999;
+  }
+  [type="checkbox"]:checked {
+    background-image: url("../assets/images/common/ic_checkbox_checked.jpg");
+  }
+  textarea {
+    resize: none;
+  }
+  textarea:focus {
+    border-color: #999999;
+  }
+
+  input[type="radio"]:checked {
+    border: 2px solid #999999;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='rgb(220, 94, 94)' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='4'/%3e%3c/svg%3e");
+  }
+}
+@layer components {
+  .layout-full {
+    @apply -mx-8 tablet:-mx-10 laptop:-mx-20 desktop:-mx-80;
+  }
+  .layout-padding {
+    @apply px-8 tablet:px-10 laptop:px-20 desktop:px-80;
+  }
+}

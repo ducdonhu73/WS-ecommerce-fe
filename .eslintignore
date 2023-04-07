@@ -1,0 +1,8 @@
+dist/
+node_modules/
+
+tailwind.config.js
+postcss.config.cjs
+tailwind.config.cjs
+prettier.config.js
+vite.config.ts

@@ -1,0 +1,38 @@
+/* https://stackoverflow.com/a/74574410/11723256 */
+:root {
+  --color-primary: #ef4b4b;
+  --color-primary-01: #fde8e8;
+  --color-primary-02: #f8abab;
+  --color-primary-03: #f37c7c;
+  --color-primary-04: #eb1e1e;
+  --color-primary-05: #c51111;
+  --color-primary-06: #960d0d;
+
+  --color-secondary-01: #e4eff0;
+  --color-secondary-02: #afd0db;
+  --color-secondary-03: #4b7196;
+  --color-secondary-04: #3c4f77;
+  --color-secondary-05: #2b3956;
+
+  --color-text-01: #f7f7f7;
+  --color-text-02: #e6e6e6;
+  --color-text-03: #cccccc;
+  --color-text-04: #b3b3b3;
+  --color-text-05: #999999;
+  --color-text-06: #808080;
+  --color-text-07: #666666;
+  --color-text-08: #4d4c4c;
+  --color-text-09: #333333;
+  --color-text-10: #1a1a1a;
+  --color-white: #ffffff;
+  --color-background: 255, 255, 255;
+  --color-background-01: #F4E1C2;
+  
+  --font-size-primary: 16px;
+  --font-size-secondary: 14px;
+
+  --max-width-primary: 1280px;
+
+  --font-family-primary: "Roboto", sans-serif;
+  --font-family-secondary: "TTSupermolotNeue";
+}
