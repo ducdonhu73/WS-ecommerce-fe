@@ -13,9 +13,18 @@ import {
   joinOthersList,
   serviceList,
 } from "./data";
+import { useProduct } from "queries/productQueries";
+import { useEffect } from "react";
 
 const HomePage = () => {
   const { t } = useTranslation("home");
+  const { mutate:getAllProduct } = useProduct();
+  
+  useEffect(() => {
+    getAllProduct({product_name:"34"}, {onSuccess:data => {
+      console.log(data);
+    }});
+  }, []);
   return (
     <div className="pt-[68px] laptop:pt-[72px]">
       <LayoutFull className="bg-background-1 py-8 laptop:pt-32 laptop:pb-24">

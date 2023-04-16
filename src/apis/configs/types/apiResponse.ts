@@ -2,7 +2,10 @@ export interface GearSellerApiResponse<T> {
   success: boolean;
   payload: T;
 }
-
+export interface ApiResponse<T> {
+  success: boolean;
+  payload: T;
+}
 export interface MetadataResponse {
   page: number;
   limit: number;
