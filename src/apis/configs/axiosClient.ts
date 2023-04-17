@@ -1,6 +1,7 @@
-import { HttpClient } from "./httpClient";
 import axios, { AxiosError } from "axios";
-import { buildAxiosRequestConfig, UrlRequest } from "./urlRequestConfig";
+
+import { HttpClient } from "./httpClient";
+import { UrlRequest, buildAxiosRequestConfig } from "./urlRequestConfig";
 
 axios.interceptors.request.use(
   config => {
@@ -16,8 +17,8 @@ axios.interceptors.request.use(
     // console.log("Requesting");
     // console.log(config.method?.toUpperCase(), config.url);
     // console.log("Headers", config.headers);
-    // if (config.data) console.log("Body   ", config.data);
-    // if (config.params) console.log("Params ", config.params);
+    if (config.data) console.log("Body   ", config.data);
+    if (config.params) console.log("Params ", config.params);
     return config;
   },
   error => {

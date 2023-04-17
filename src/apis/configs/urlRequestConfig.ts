@@ -43,27 +43,10 @@ interface RequestConfig<T, R> {
 export class UrlRequestBuilder {
   static defaultRequest<T, R>(config: RequestConfig<T, R>): UrlRequest<T, R> {
     const baseUrl = "http://localhost:8000";
-    const url = new URL(config.path, baseUrl).toJSON();
+    const url = `${baseUrl}/${config.path}`;
     const headers: RequestHeaders = {
       "Content-type": "application/json",
       "X-Auth-Token": ApiConfig.getInstance().accessToken ?? "",
-    };
-    return {
-      url,
-      method: config.method,
-      headers: { ...headers, ...config.headers },
-      body: config.body,
-      params: config.params,
-      timeout: 30000,
-    };
-  }
-
-  static epidemicRequest<T, R>(config: RequestConfig<T, R>): UrlRequest<T, R> {
-    const baseUrl = "https://partner-content-api-sandbox.epidemicsound.com";
-    const url = new URL("/v0" + config.path, baseUrl).toJSON();
-    const headers: RequestHeaders = {
-      "Content-type": "application/json",
-      Authorization: `Bearer ${ApiConfig.getInstance().musicToken ?? ""}`,
     };
     return {
       url,

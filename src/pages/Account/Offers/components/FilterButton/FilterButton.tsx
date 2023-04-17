@@ -1,4 +1,4 @@
-import { ReactElement, useState } from "react";
+import { useState } from "react";
 import { IconFilter, IconSort } from "assets/images/offerList";
 import { PrimaryButton } from "components";
 import OutsideClickWrapper from "components/OutsideClickWrapper";
@@ -10,11 +10,11 @@ interface FilterButtonProps {
   filterType: string;
   menu?: {
     title: string;
-    onClick?: () => void;
   }[];
+  onClick?: (type?: string) => void;
 }
 
-function FilterButton({ title, menu, filterType, className }: FilterButtonProps) {
+function FilterButton({ title, menu, onClick, filterType, className }: FilterButtonProps) {
   const [showMenu, setShowMenu] = useState<boolean>(false);
 
   const hanldeShowMenu = () => {
@@ -25,10 +25,15 @@ function FilterButton({ title, menu, filterType, className }: FilterButtonProps)
     setShowMenu(false);
   };
 
+  const handleSelectItem = (type?: string) => {
+    if (onClick) onClick(type);
+    setShowMenu(false);
+  };
+
   return (
     <div>
       <OutsideClickWrapper onClickOutside={handleCloseMenu}>
-        <div className="relative">
+        <div className="relative z-[1]">
           <PrimaryButton
             className={`w-fit border-[var(--color-text-02)] px-4 text-[14px] hover:bg-[none] ${
               showMenu ? "bg-[var(--color-primary)] text-[var(--color-white)]" : "text-[var(--color-text-05)]"
@@ -45,7 +50,13 @@ function FilterButton({ title, menu, filterType, className }: FilterButtonProps)
             }
             onClick={() => hanldeShowMenu()}
           />
-          {menu && showMenu && <Menu menuItems={menu} className={`top-[48px] left-[-28px] w-[114px] ${className}`} />}
+          {menu && showMenu && (
+            <Menu
+              onClick={handleSelectItem}
+              menuItems={menu}
+              className={`top-[48px] left-[-28px] w-[114px] ${className}`}
+            />
+          )}
         </div>
       </OutsideClickWrapper>
     </div>

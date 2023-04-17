@@ -2,5 +2,113 @@
   "common": {
     "confirm": "Confirm",
     "cancel": "Cancel"
+  },
+  "header": {
+    "title": "Welcome to react using react-i18next",
+    "menu": {
+      "home": "Home",
+      "car": "Sell my car",
+      "howItWorks": "How it works",
+      "aboutUs": "About us",
+      "contact": "Contact us",
+      "faq": "FAQ",
+      "more": "More",
+      "support": "Support",
+      "signIn": "Sign in",
+      "signUp": "Sign up"
+    }
+  },
+  "footer": {
+    "dealer": "If you are Dealer",
+    "company": {
+      "title": "Company",
+      "aboutUs": "About us",
+      "press": "Press",
+      "careers": "Careers"
+    },
+    "explore": {
+      "title": "Explore",
+      "sellMyCar": "Sell my car",
+      "cash": "Cash for cars",
+      "carValuation": "Car valuation"
+    },
+    "contact": {
+      "title": "Contact us",
+      "chat": "Chat with us",
+      "email": "Email us",
+      "sitemap": "Sitemap"
+    },
+    "policy": {
+      "title": "Policy",
+      "terms": "Term of service",
+      "privacy": "Privacy policy",
+      "cookie": "Cookies"
+    }
+  },
+  "home": {
+    "title1": "Sick of fees?",
+    "title2": "Sell your car for free",
+    "description": "Complete your car sale 100% online within 24 hours at Gear",
+    "getValuation": "Get valuation",
+    "joinOthers": "Join others who've sold their cars with Gear",
+    "service": {
+      "service1": {
+        "title": "Immediate car valuation",
+        "description": "Share your car details and you’ll receive an estimate for your vehicle instantly."
+      },
+      "service2": {
+        "title": "Get the best price",
+        "description": "We’ll deal with the dealers. No negotiation, tyre kickers or hassle."
+      },
+      "service3": {
+        "title": "Free home collection",
+        "description": "Complete your sale within 24 hours, get paid fast and have your car collected, without leaving home."
+      },
+      "service4": {
+        "title": "No hidden fees, 100% free",
+        "description": "The entire selling process is free for you! Only dealers pay a fee to buy your car."
+      }
+    },
+    "whyGear": {
+      "title": "“Got 99 problems, selling my car ain’t one, thanks to Gear Technologies”",
+      "description1": "NZ’s fastest growing car selling platform",
+      "description2": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online. It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
+      "description3": "It’s free, fast and easy."
+    },
+    "process": {
+      "title": "What’s the process",
+      "step1": {
+        "title": "1. Profile your car",
+        "description": "Enter the requested details.\n Get an immediate valuation of your car.\n Create an online listing ready for the dealers to start bidding."
+      },
+      "step2": {
+        "title": "2. Alert dealers nationwide",
+        "description": "We connect you with 500+ car dealers in NZ who will compete for your car to make their best offer."
+      },
+      "step3": {
+        "title": "3. Get the best deal",
+        "description": "We’ll notify you of the highest offer. Once accepted, car collection will be provided."
+      },
+      "step4": {
+        "title": "4. Get paid fast",
+        "description": "You’ll receive money in your account within 24 hours of collection. Too easy!"
+      }
+    },
+    "customer": "What customers are saying about us",
+    "carSellingPlatform": {
+      "title": "New Zealand’s fastest growing car selling platform",
+      "description1": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online.",
+      "description2": "It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
+      "description3": "It’s free, fast and easy."
+    },
+    "learnMore": "Learn more"
+  },
+  "contactUs": {
+    "contactUs": "Contact us",
+    "submitQuestion": "Submit a question",
+    "viewFaq": "View our FAQs",
+    "areCarDealership": "Are you a car dealership?",
+    "newsAndPress": "News, Press & Publications",
+    "submitQuestionDescription": "If you have any questions, or would like to get in touch with us, our team at Gear would be more than happy to help you.<br/>Please contact us at <1>hello@gear.co.nz</1>"
   }
 }

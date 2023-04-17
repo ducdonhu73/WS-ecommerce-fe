@@ -2,26 +2,39 @@ import { ReactElement } from "react";
 import { twMerge } from "tailwind-merge";
 
 interface Props {
+  keyInput?: string;
   label?: string | ReactElement;
   iconLeft?: string | ReactElement;
   className?: string;
+  labelClassName?: string;
+  inputClassName?: string;
   isChecked?: boolean;
-  onChange?: () => void;
+  onChange?: (value: boolean, key: string) => void;
 }
-function Checkbox({ label, className, isChecked, iconLeft, onChange }: Props) {
+function Checkbox({
+  label,
+  className,
+  labelClassName,
+  inputClassName,
+  isChecked,
+  iconLeft,
+  onChange,
+  keyInput,
+}: Props) {
   return (
     <div className={twMerge("flex items-center gap-x-3 ", className)}>
       <input
-        onChange={() => onChange && onChange()}
+        onChange={e => onChange && onChange(e.target.checked, keyInput ?? "")}
         type="checkbox"
-        className="rounded border-text-5"
+        className={twMerge("cursor-pointer rounded border-text-5", inputClassName)}
         checked={isChecked}
         readOnly
+        id={keyInput}
       />
-      <div className="flex items-center gap-x-2">
+      <label htmlFor={keyInput} className={twMerge("flex cursor-pointer items-center gap-x-2", labelClassName)}>
         {iconLeft}
         {label}
-      </div>
+      </label>
     </div>
   );
 }

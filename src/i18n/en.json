@@ -9,6 +9,7 @@
       "home": "Home",
       "car": "Sell my car",
       "howItWorks": "How it works",
+      "aboutUs": "About us",
       "contact": "Contact us",
       "faq": "FAQ",
       "more": "More",
@@ -34,7 +35,14 @@
     "contact": {
       "title": "Contact us",
       "chat": "Chat with us",
-      "email": "Email us"
+      "email": "Email us",
+      "sitemap": "Sitemap"
+    },
+    "policy": {
+      "title": "Policy",
+      "terms": "Term of service",
+      "privacy": "Privacy policy",
+      "cookie": "Cookies"
     }
   },
   "home": {
@@ -67,42 +75,51 @@
       "description2": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online. It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
       "description3": "It’s free, fast and easy."
     },
-    "howItWorks": {
-      "title": "How it works",
-      "subTitle": "No hidden fees. 100% online process and free",
-      "subDescription": "We know adulting is hard, we help make selling your car as stress-free and seamless as possible.",
+    "process": {
+      "title": "What’s the process",
       "step1": {
-        "title": "1. Get a valuation of your car",
-        "description": "Enter your car registration to get an immediate estimate sale price for your vehicle. We ensure your estimate is as accurate as possible and is based on the latest market data from using our smart valuation tech. The estimated sale price can change once you provide us with more specifications about your car in the following steps."
+        "title": "1. Profile your car",
+        "description": "Enter the requested details.\n Get an immediate valuation of your car.\n Create an online listing ready for the dealers to start bidding."
       },
       "step2": {
-        "title": "2. Profile your vehicle",
-        "description": "Create an online listing in minutes ready for dealers to start bidding. Profiling your car on the platform is simple and it can all be done from your smartphone. \n You’ll be guided through each step. From providing details about your car, its condition and service history - right through to taking photos and uploading them. \n We’ll prompt you on getting the right angles we require to ensure your car listing is looking top-notch."
+        "title": "2. Alert dealers nationwide",
+        "description": "We connect you with 500+ car dealers in NZ who will compete for your car to make their best offer."
       },
       "step3": {
-        "title": "3. Approve your reserve price",
-        "description": "Based on the completion of your car listing, we’ll assess the details of your vehicle (history, conditions and specifications) and agree on a reserve price with you. This may change from the original estimate we initially provided you, depending on the car details provided."
+        "title": "3. Get the best deal",
+        "description": "We’ll notify you of the highest offer. Once accepted, car collection will be provided."
       },
       "step4": {
-        "title": "4. Connect you with dealers nationwide",
-        "description": "Now your profile is uploaded, we’ll connect you with 500 verified car dealers nationwide right at your fingertips. We’ll deal with the dealers who will compete online for your car and make the best offer. You don’t need to do any negotiation, deal with back and forth communication, or leave your house."
-      },
-      "step5": {
-        "title": "5. Get your highest offer",
-        "description": "We’ll find you the best price for your car and notify you of the highest offer. \n Once accepted, we’ll connect you with the car dealer purchasing your vehicle to complete the sale."
-      },
-      "step6": {
-        "title": "6. Get paid and free collection",
-        "description": "At the final stages of the sale, the dealer purchasing your vehicle will do a final check of your car against your profile to ensure it matches up. \n Within 24 hours, you’ll receive payment in your bank account and an arranged time to have your car collected at no cost."
+        "title": "4. Get paid fast",
+        "description": "You’ll receive money in your account within 24 hours of collection. Too easy!"
       }
     },
     "customer": "What customers are saying about us",
     "carSellingPlatform": {
       "title": "New Zealand’s fastest growing car selling platform",
-      "description1": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online",
+      "description1": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online.",
       "description2": "It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
       "description3": "It’s free, fast and easy."
     },
     "learnMore": "Learn more"
+  },
+  "contactUs": {
+    "contactUs": "Contact us",
+    "submitQuestion": "Submit a question",
+    "viewFaq": "View our FAQs",
+    "areCarDealership": "Are you a car dealership?",
+    "newsAndPress": "News, Press & Publications",
+    "submitQuestionDescription": "If you have any questions, or would like to get in touch with us, our team at Gear would be more than happy to help you.<br/>Please contact us at <1>hello@gear.co.nz</1>",
+    "viewFaqDescription": "If you haven’t yet checked out our <1>FAQ Help Page</1>, we may be able to help answer your questions there.<br/>If you still need support from us, you can reach our Customer Service Support Team who willl aim to respond to all customer enquiries within 2 working days",
+    "areCarDealershipDescription": "If you’re a New Zealand car dealership interested in accelerating your vehicle stock direct from private car sellers, view our car <1>dealers</1> site here.",
+    "newsAndPressDescription": "We would be happy to comment and provide information on vehicle purchasing, industry updates or trends to local, nationwide and global news publishers.<br/>For press related questions, email <1>hello@gear.co.nz</1>",
+    "getValuation": "Get valuation"
+  },
+  "faq": {
+    "faq": "Question and answers",
+    "faqDescription": "Discover tips and tricks, find answers to common questions, and get help!"
+  },
+  "support": {
+    "support": "Support"
   }
 }

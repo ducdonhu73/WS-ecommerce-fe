@@ -1,12 +1,15 @@
-import { MouseEventHandler } from "react";
 import { twMerge } from "tailwind-merge";
 interface MenuProps {
   className?: string;
   menuItems: { title: string }[];
-  onClick?: MouseEventHandler<HTMLLIElement>;
+  onClick?: (type?: string) => void;
 }
 
 function Menu({ className, menuItems, onClick }: MenuProps) {
+  const handleSelectItem = (type: string) => {
+    if (onClick) onClick(type);
+  };
+
   return (
     <ul
       className={twMerge(
@@ -19,7 +22,7 @@ function Menu({ className, menuItems, onClick }: MenuProps) {
           key={index}
           className="relative z-[2] w-full cursor-pointer py-2 px-4 text-sm font-normal text-[var(--color-text-07)] hover:bg-[rgba(0,0,0,0.04)]"
           role="menuitem"
-          onClick={onClick}
+          onClick={() => handleSelectItem(item.title)}
         >
           {item.title}
         </li>

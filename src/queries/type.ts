@@ -1,3 +1,4 @@
 export interface AppQueryOptions {
-  enabled: boolean;
+  enabled?: boolean;
+  emulateFetch?: boolean;
 }

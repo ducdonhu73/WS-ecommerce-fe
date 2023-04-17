@@ -50,12 +50,3 @@ export interface SubNavModel {
   title: string;
   href: string;
 }
-
-export interface Address {
-  stress: string;
-  city: string;
-  country: string;
-  province: string;
-  postalCode: string;
-}
-

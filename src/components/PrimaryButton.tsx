@@ -7,10 +7,21 @@ interface Props {
   icon?: ReactElement;
   className?: string;
   disabled?: boolean;
+  loading?: boolean;
   buttonType?: "submit" | "reset" | "button" | undefined;
   form?: string;
 }
-function PrimaryButton({ text = "", onClick, type = "primary", icon, className, disabled, form, buttonType }: Props) {
+function PrimaryButton({
+  text = "",
+  onClick,
+  type = "primary",
+  icon,
+  className,
+  disabled,
+  loading,
+  form,
+  buttonType,
+}: Props) {
   let buttonStyle = "";
   let disabledStyle = "";
   switch (type) {
@@ -38,11 +49,26 @@ function PrimaryButton({ text = "", onClick, type = "primary", icon, className, 
         className,
       )}
       onClick={onClick}
-      disabled={disabled}
+      disabled={disabled || loading}
       type={buttonType}
     >
-      {icon}
-      {text}
+      {loading ? (
+        <div className="flex items-center justify-center">
+          <div
+            className="border-current inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
+            role="status"
+          >
+            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
+              Loading...
+            </span>
+          </div>
+        </div>
+      ) : (
+        <>
+          {icon}
+          {text}
+        </>
+      )}
     </button>
   );
 }

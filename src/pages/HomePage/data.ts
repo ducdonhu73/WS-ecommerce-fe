@@ -1,23 +1,20 @@
-import i18n from "i18n/i18next";
-const t = i18n.t;
-i18n.setDefaultNamespace("home");
-
 import {
+  customerAvatar,
+  joinOthersCar,
+  process1,
+  process2,
+  process3,
+  process4,
   service1,
   service2,
   service3,
   service4,
-  howItWorks1,
-  howItWorks2,
-  howItWorks3,
-  howItWorks4,
-  howItWorks5,
-  howItWorks6,
-  joinOthersCar,
-  customerAvatar,
 } from "assets/images";
-import { breakPoints } from "components/constants";
+import breakPoints from "constants/breakPoints";
+import i18n from "i18n/i18next";
 import { Settings } from "react-slick";
+const t = i18n.t;
+i18n.setDefaultNamespace("home");
 
 interface Item {
   title: string;
@@ -63,36 +60,26 @@ export const serviceList: Item[] = [
   },
 ];
 
-export const howItWorksList: Item[] = [
+export const processList: Item[] = [
   {
-    title: t("howItWorks.step1.title"),
-    description: t("howItWorks.step1.description"),
-    image: howItWorks1,
+    title: t("process.step1.title"),
+    description: t("process.step1.description"),
+    image: process1,
   },
   {
-    title: t("howItWorks.step2.title"),
-    description: t("howItWorks.step2.description"),
-    image: howItWorks2,
+    title: t("process.step2.title"),
+    description: t("process.step2.description"),
+    image: process2,
   },
   {
-    title: t("howItWorks.step3.title"),
-    description: t("howItWorks.step3.description"),
-    image: howItWorks3,
+    title: t("process.step3.title"),
+    description: t("process.step3.description"),
+    image: process3,
   },
   {
-    title: t("howItWorks.step4.title"),
-    description: t("howItWorks.step4.description"),
-    image: howItWorks4,
-  },
-  {
-    title: t("howItWorks.step5.title"),
-    description: t("howItWorks.step5.description"),
-    image: howItWorks5,
-  },
-  {
-    title: t("howItWorks.step6.title"),
-    description: t("howItWorks.step6.description"),
-    image: howItWorks6,
+    title: t("process.step4.title"),
+    description: t("process.step4.description"),
+    image: process4,
   },
 ];
 

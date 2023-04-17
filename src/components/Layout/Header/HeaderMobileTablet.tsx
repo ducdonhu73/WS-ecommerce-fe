@@ -1,7 +1,8 @@
-import { ArrowDown, Logo, IconBar, IconClose, IconChevronDown } from "assets/images";
+import { ArrowDown, IconBar, IconChevronDown, IconClose, Logo } from "assets/images";
 import Avatar from "components/Avatar";
 import OutsideClickWrapper from "components/OutsideClickWrapper";
 import { useAuth } from "hooks/useAuth";
+import initials from "initials";
 import { Fragment, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
@@ -9,7 +10,7 @@ import { twMerge } from "tailwind-merge";
 import { listMenuMobileWithoutLogin } from "./data";
 
 const HeaderMobileTablet = () => {
-  const { logout, isLoggedIn } = useAuth();
+  const { logout, isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
 
   const [isProfilePopoverVisible, setIsProfilePopoverVisible] = useState(false);
@@ -127,7 +128,11 @@ const HeaderMobileTablet = () => {
         <div className="relative">
           <div onClick={() => setIsProfilePopoverVisible(prev => !prev)}>
             <div className="flex cursor-pointer select-none flex-row items-center gap-x-3">
-              <Avatar image="http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQTBIkxproxJHBsj2ZOkeFr3CYyVJjrfW8qcovw9whTrkRjsqYnBRlprpmyAknfOsug43oiT9iqS9cJe6s" />
+              <div className="flex h-[32px] w-[32px] items-center justify-center rounded-[50%] bg-text-1">
+                <span className="select-none text-base font-bold uppercase text-primary">
+                  {initials(`${user?.firstName} ${user?.lastName}`)}
+                </span>
+              </div>
               <ArrowDown />
             </div>
             <div
@@ -136,7 +141,7 @@ const HeaderMobileTablet = () => {
                 isProfilePopoverVisible && "block",
               )}
             >
-              <Link to={"/account/profile"}>
+              <Link to={"/account"}>
                 <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Profile</div>
               </Link>
               <div

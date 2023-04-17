@@ -1,17 +1,15 @@
-import { Address } from "models";
-
 export enum SellerStatus {
-  ACTIVE = 'active',
-  INACTIVE = 'inactive',
-  DELETED = 'deleted',
+  ACTIVE = "active",
+  INACTIVE = "inactive",
+  DELETED = "deleted",
 }
-export interface User {
-  firstName: string;
-  lastName: string;
-  phoneNumber?: string;
-  email?: string;
-  password: string;
-  status: SellerStatus;
+
+export interface Address {
+  address?: string;
+  city?: string;
+  country?: string;
+  province?: string;
+  postalCode?: string;
 }
 
 export interface UserResponse {
@@ -23,4 +21,11 @@ export interface UserResponse {
   address?: Address;
   updatedAt: Date;
   createdAt: Date;
+}
+
+export interface UpdateUserRequest {
+  firstName?: string;
+  lastName?: string;
+  phoneNumber?: string;
+  address?: Address;
 }

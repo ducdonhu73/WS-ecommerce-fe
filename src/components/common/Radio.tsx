@@ -21,7 +21,7 @@ function Radio({ className, label, id, isChecked, onChange }: Props) {
         checked={isChecked}
         readOnly
       />
-      <div>{label}</div>
+      <div className={isChecked ? "text-primary" : "text-text-6"}>{label}</div>
     </div>
   );
 }

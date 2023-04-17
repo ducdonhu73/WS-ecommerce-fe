@@ -25,14 +25,17 @@
   --color-text-09: #333333;
   --color-text-10: #1a1a1a;
   --color-white: #ffffff;
+  --color-black: 0 0 0;
   --color-background: 255, 255, 255;
-  --color-background-01: #F4E1C2;
-  
+  --color-background-01: #f4e1c2;
+
+  --color-error: #f40202;
+
   --font-size-primary: 16px;
   --font-size-secondary: 14px;
 
   --max-width-primary: 1280px;
 
-  --font-family-primary: "Roboto", sans-serif;
+  --font-family-primary: "Lato", sans-serif;
   --font-family-secondary: "TTSupermolotNeue";
 }

@@ -14,7 +14,7 @@ export class AuthApi {
 
   async login(requestBody: AuthorizationRequest): Promise<GearSellerApiResponse<AuthorizationResponse>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "sellers/login",
+      path: "users/login",
       method: HttpMethod.POST,
       body: requestBody,
     });
@@ -23,7 +23,7 @@ export class AuthApi {
 
   async register(requestBody: RegisterRequest): Promise<GearSellerApiResponse<AuthorizationResponse>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "sellers/register",
+      path: "users/register",
       method: HttpMethod.POST,
       body: requestBody,
     });
@@ -32,7 +32,7 @@ export class AuthApi {
 
   async verify(requestBody: VerifyFirebaseRequest): Promise<GearSellerApiResponse<AuthorizationResponse>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "sellers/login-firebase",
+      path: "users/login-firebase",
       method: HttpMethod.POST,
       body: requestBody,
     });

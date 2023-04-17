@@ -1,7 +1,7 @@
 interface CarImagesProps {
   list?: {
     title?: string;
-    category?: {
+    listImages?: {
       img?: string;
     }[];
   }[];
@@ -12,11 +12,11 @@ function CarImages({ list }: CarImagesProps) {
     <div>
       {list?.map((item, index) => (
         <div key={index} className="mb-6 py-[14px] ">
-          <h3 className="mb-2 text-lg font-bold leading-6 text-[var(--color-secondary-04)] ">{item.title}</h3>
-          <div className="flex flex-wrap">
-            {item.category?.map((ele, index) => (
+          <h3 className="mb-2 text-lg font-bold leading-6 text-secondary-4 ">{item.title}</h3>
+          <div className="flex w-full flex-wrap">
+            {item.listImages?.map((ele, index) => (
               <div key={index}>
-                <img className="mr-6 mt-4 h-[146px] w-[146px] rounded " src={ele.img} alt="car_img" />
+                <img className=" mt-4 h-[146px] w-[146px] rounded tablet:mr-6 " src={ele.img} alt="car_img" />
               </div>
             ))}
           </div>

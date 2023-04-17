@@ -6,6 +6,7 @@ import { twMerge } from "tailwind-merge";
 export interface PropsInput {
   data: InputTypeModel;
   backgroundColor?: string;
+  containerClassName?: string;
   className?: string;
   isRequired?: boolean;
   onIcon?: () => void;
@@ -21,6 +22,7 @@ export interface PropsInput {
 function InputType({
   data,
   backgroundColor = "var(--color-background)",
+  containerClassName,
   className,
   isRequired = true,
   onIcon,
@@ -29,8 +31,8 @@ function InputType({
   value,
   defaultValue,
   disabled,
-  err="",
-  index=-1,
+  err = "",
+  index = -1,
 }: PropsInput) {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
@@ -43,10 +45,10 @@ function InputType({
 
   useEffect(() => {
     setError(err);
-  }, [err])
+  }, [err]);
 
   return (
-    <div>
+    <div className={containerClassName}>
       <fieldset
         className={twMerge(
           "flex items-center rounded border border-text-5 text-text-3",
@@ -74,11 +76,11 @@ function InputType({
           <div onClick={_onIcon}>
             {icon ??
               (isPassword &&
-                (show ? 
+                (show ? (
                   <EyeOff color={"#F40202"} />
-                 : 
-                  <EyeIcon color={error? "#F40202":""} width={20} height={20} />
-                ))}
+                ) : (
+                  <EyeIcon color={error ? "#F40202" : ""} width={20} height={20} />
+                )))}
           </div>
         </div>
       </fieldset>

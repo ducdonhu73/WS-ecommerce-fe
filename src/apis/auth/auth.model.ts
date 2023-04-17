@@ -16,12 +16,6 @@ export interface RegisterRequest {
   email: string;
 }
 
-export interface UpdateUserRequest {
-  firstName?: string;
-  lastName?: string;
-  email?: string;
-}
-
 export interface VerifyFirebaseRequest {
   token: string;
 }

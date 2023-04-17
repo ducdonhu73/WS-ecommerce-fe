@@ -4,7 +4,7 @@ import { UrlRequestBuilder } from "apis/configs/urlRequestConfig";
 
 import axiosClient from "../configs/axiosClient";
 import { HttpClient } from "../configs/httpClient";
-import { UserResponse } from "./user.model";
+import { UpdateUserRequest, UserResponse } from "./user.model";
 
 export class UserApi {
   private client: HttpClient;
@@ -15,8 +15,17 @@ export class UserApi {
 
   async getCurrentUser(): Promise<GearSellerApiResponse<UserResponse>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "/sellers/me",
+      path: "users/me",
       method: HttpMethod.GET,
+    });
+    return await this.client.request(request);
+  }
+
+  async updateUser(requestBody: UpdateUserRequest): Promise<GearSellerApiResponse<UserResponse>> {
+    const request = UrlRequestBuilder.defaultRequest({
+      path: "users/me",
+      method: HttpMethod.PUT,
+      body: requestBody,
     });
     return await this.client.request(request);
   }

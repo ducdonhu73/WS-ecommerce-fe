@@ -4,16 +4,32 @@ import { UserResponse } from "apis/user/user.model";
 import { auth } from "../firebase";
 import { useVerifyFirebaseToken, useGetCurrentUser } from "queries/sellerQueries";
 import { ReactNode, createContext, useCallback, useEffect, useState } from "react";
-import { FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
-
+import {
+  AuthCredential,
+  AuthError,
+  FacebookAuthProvider,
+  GoogleAuthProvider,
+  fetchSignInMethodsForEmail,
+  linkWithCredential,
+  onAuthStateChanged,
+  signInWithCredential,
+  signInWithPopup,
+  signInWithRedirect,
+  signOut,
+} from "firebase/auth";
+import { toast } from "react-toastify";
 
 type ContextType = {
   user: UserResponse | null;
   login: (token: string) => void;
   logout: () => void;
   isLoggedIn: boolean | undefined;
-  signInFirebase: (provider: "gg"|"fb") => void;
+  signInFirebase: (provider: "gg" | "fb") => void;
 };
+
+interface Error {
+  error: { message: string };
+}
 
 const AuthContext = createContext<ContextType>({} as ContextType);
 
@@ -61,49 +77,39 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
     await signOut(auth);
   }, []);
 
-  const signInFirebase = useCallback(async (providerFirebase: 'gg'|'fb') => {
+  const signInFirebase = useCallback(async (providerFirebase: "gg" | "fb") => {
     let provider;
-    if (providerFirebase === 'gg') provider = new GoogleAuthProvider();
-    else provider = new FacebookAuthProvider();
-    await signInWithPopup(auth, provider)
-    // .then((result) => {
-    //   const credential = providerFirebase === 'gg' ?
-    //     GoogleAuthProvider.credentialFromResult(result)
-    //     :
-    //     FacebookAuthProvider.credentialFromResult(result)
-    //   if (credential) {
-    //     console.log(credential.idToken)
-    //     verify(
-    //       { token: credential.idToken as string + (credential.accessToken as string)},
-    //       {
-    //         onSuccess: data => {
-    //           const token = data.accessToken;
-    //           login(token);
-    //         },
-    //         onError: async () => {
-    //           await signOut(auth);
-    //         }
-    //       },
-    //     )
-    //   }
-    // })
+    if (providerFirebase === "gg") provider = new GoogleAuthProvider();
+    else {
+      provider = new FacebookAuthProvider();
+    }
+    await signInWithPopup(auth, provider).catch((error: AuthError) => {
+      const email = error.customData.email;
+      const credential = FacebookAuthProvider.credentialFromError(error);
+      if (error.code === "auth/account-exists-with-different-credential" && email && credential) {
+        signInWithPopup(auth, new GoogleAuthProvider()).then(user => {
+          linkWithCredential(user.user, credential);
+        });
+      }
+    });
   }, []);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, currentUser => {
       if (currentUser && "accessToken" in currentUser) {
         verify(
-          { token: currentUser.accessToken as string},
+          { token: currentUser.accessToken as string },
           {
             onSuccess: data => {
               const token = data.accessToken;
               login(token);
             },
-            onError: async () => {
+            onError: async error => {
               await signOut(auth);
-            }
+              toast((error as Error).error.message);
+            },
           },
-        )
+        );
       }
     });
     return () => {
@@ -112,9 +118,7 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
   }, [onAuthStateChanged]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase }}>
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase }}>{children}</AuthContext.Provider>
   );
 };
 

@@ -1,6 +1,6 @@
 import axiosClient from "../configs/axiosClient";
 import { HttpClient } from "../configs/httpClient";
-import { UserResponse } from "./user.model";
+import { UpdateUserRequest, UserResponse } from "./user.model";
 import { UserApi } from "./userApi";
 
 class UserRepository {
@@ -12,6 +12,11 @@ class UserRepository {
 
   async getCurrentUser(): Promise<UserResponse> {
     const response = await this.userApi.getCurrentUser();
+    return response.payload;
+  }
+
+  async updateUser(request: UpdateUserRequest): Promise<UserResponse> {
+    const response = await this.userApi.updateUser(request);
     return response.payload;
   }
 }

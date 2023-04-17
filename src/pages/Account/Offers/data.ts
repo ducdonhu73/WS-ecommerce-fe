@@ -1,21 +1,26 @@
-const filterOptionBtn = {
+export const filterBiddingBtn = {
   title: "Filter",
   filterType: "category",
   menu: [{ title: "All" }, { title: "Sold" }, { title: "Processing" }, { title: "Bidding" }],
   className: "left-[-28px] w-[114px]",
 };
 
-const createdAtOptionBtn = {
+export const filterOfferBtn = {
+  title: "Filter",
+  filterType: "category",
+  menu: [{ title: "All" }, { title: "Active" }, { title: "Expired" }],
+  className: "left-[-28px] w-[114px]",
+};
+
+export const createdAtOptionBtn = {
   title: "Recently created",
   filterType: "time",
   menu: [{ title: "Recently created" }, { title: "Lastly created" }],
   className: "left-0 w-full",
 };
 
-const headerOffer = [{ title: "Offer" }, { title: "Bid" }];
+export const headerOffer = [{ title: "Offer" }, { title: "Bid" }];
 
-const headerOfferDetail = [{ title: "Thông tin xe" }, { title: "Ảnh xe" }];
+export const headerOfferDetail = [{ title: "Thông tin xe" }, { title: "Ảnh xe" }];
 
-const headerBiddingDetail = [{ title: "Thông tin người mua" }, { title: "Thông tin xe" }, { title: "Ảnh xe" }];
-
-export { filterOptionBtn, createdAtOptionBtn, headerOffer, headerBiddingDetail, headerOfferDetail };
+export const headerBiddingDetail = [{ title: "Thông tin người mua" }, { title: "Thông tin xe" }, { title: "Ảnh xe" }];

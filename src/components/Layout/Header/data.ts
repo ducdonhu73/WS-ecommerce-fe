@@ -5,6 +5,7 @@ interface Menu {
   key: string;
   text: string;
   path?: string;
+  scrollTo?: string;
   children?: SubMenu[];
 }
 
@@ -18,17 +19,22 @@ export const listMenu: Menu[] = [
   {
     key: "sellMyCar",
     text: t("menu.car"),
-    path: "sell-my-car",
+    path: "",
   },
   {
     key: "howItWorks",
-    text: t("menu.howItWorks"),
-    path: "how-it-works",
+    text: "Product",
+    path: "product",
   },
   {
     key: "more",
     text: t("menu.more"),
     children: [
+      {
+        key: "aboutUs",
+        text: t("menu.aboutUs"),
+        path: "about-us",
+      },
       {
         key: "faq",
         text: t("menu.faq"),

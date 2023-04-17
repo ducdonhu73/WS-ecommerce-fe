@@ -17,19 +17,18 @@ function Header({ listTitle, changeContent }: HeaderProps) {
   );
 
   return (
-    <div className="flex w-full">
+    <div className="m-0 flex w-full p-0">
       {listTitle.map((item, index) => {
         return (
           <div
             key={index}
-            className={`flex flex-1 justify-center border-b-[1px] border-solid border-[var(--color-text-04)] pb-[15px]
-            ${selectTab === index ? "border-b-[var(--color-primary)] " : ""}`}
+            className={`flex flex-1 justify-center border-b-[1px] border-solid border-text-4 pb-[15px]
+            ${selectTab === index ? "border-b-primary " : ""}`}
           >
             <span
               onClick={() => handleChangeTab(index)}
-              className={`w-full cursor-pointer text-center text-[var(${
-                selectTab === index ? "--color-primary" : ""
-              })] `}
+              className={`w-full cursor-pointer text-center 
+              ${selectTab === index ? "text-primary" : ""}`}
             >
               {item.title}
             </span>

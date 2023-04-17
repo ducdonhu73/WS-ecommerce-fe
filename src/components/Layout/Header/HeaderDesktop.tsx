@@ -2,6 +2,7 @@ import { ArrowDown, IconBell, IconChevronDown, Logo } from "assets/images";
 import Avatar from "components/Avatar";
 import PrimaryButton from "components/PrimaryButton";
 import { useAuth } from "hooks/useAuth";
+import initials from "initials";
 import { Fragment, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
@@ -9,28 +10,46 @@ import { twMerge } from "tailwind-merge";
 import { listMenu } from "./data";
 
 function HeaderDesktop() {
-  const { logout, isLoggedIn } = useAuth();
+  const { logout, isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
 
   const [isProfilePopoverVisible, setIsProfilePopoverVisible] = useState(false);
 
   return (
     <div className="header fixed top-0 left-0 z-10 flex w-full flex-wrap items-center justify-between bg-white py-4 px-9 shadow-[0_2_21_0_rgba(0,0,0,0.15)]">
-      <Link to={"/"}>
-        <Logo />
+      <Link className="text-[34px] text-[red]" to={"/"}>
+        N7
       </Link>
-      <div className="flex flex-wrap gap-x-36 font-semibold">
-        {listMenu.map(menu => {
+      <div className="flex flex-wrap gap-x-[92px] font-medium text-text-5 ">
+        {listMenu.map((menu, index) => {
           return (
             <Fragment key={menu.key}>
-              {menu.path ? (
+              {menu.scrollTo && (
+                <div
+                  key={index}
+                  className={twMerge("cursor-pointer hover:text-primary")}
+                  onClick={async () => {
+                    await navigate("/");
+                    if (menu.scrollTo) {
+                      const howGearWorksSection = document.querySelector(menu.scrollTo);
+                      if (howGearWorksSection) {
+                        howGearWorksSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }
+                  }}
+                >
+                  {menu.text}
+                </div>
+              )}
+              {menu.path && (
                 <NavLink
                   to={menu.path}
                   className={({ isActive }) => twMerge("cursor-pointer hover:text-primary", isActive && "text-primary")}
                 >
                   {menu.text}
                 </NavLink>
-              ) : (
+              )}
+              {menu.children && (
                 <div className={twMerge("group relative flex cursor-pointer gap-x-2")}>
                   <div>{menu.text}</div>
                   <div className="relative cursor-pointer px-1.5 py-2">
@@ -64,7 +83,7 @@ function HeaderDesktop() {
           <PrimaryButton
             text="Sign in"
             className="w-[132px] border-none bg-transparent px-8 text-text-5"
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/sign-in")}
           />
           <PrimaryButton text="Sign up" className="w-[132px] px-8" onClick={() => navigate("/sign-up")} />
         </div>
@@ -72,7 +91,11 @@ function HeaderDesktop() {
         <div className="relative">
           <div onClick={() => setIsProfilePopoverVisible(prev => !prev)}>
             <div className="flex cursor-pointer select-none flex-row items-center gap-x-3">
-              <Avatar image="http://t0.gstatic.com/licensed-image?q=tbn:ANd9GcQTBIkxproxJHBsj2ZOkeFr3CYyVJjrfW8qcovw9whTrkRjsqYnBRlprpmyAknfOsug43oiT9iqS9cJe6s" />
+              <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[50%] bg-text-1">
+                <span className="select-none text-lg font-bold uppercase text-primary">
+                  {initials(`${user?.firstName} ${user?.lastName}`)}
+                </span>
+              </div>
               <ArrowDown />
             </div>
             <div
@@ -81,7 +104,7 @@ function HeaderDesktop() {
                 isProfilePopoverVisible && "block",
               )}
             >
-              <Link to={"/account/profile"}>
+              <Link to={"/account"}>
                 <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Profile</div>
               </Link>
               <div
