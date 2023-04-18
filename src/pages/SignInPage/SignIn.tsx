@@ -71,7 +71,7 @@ const SignIn = () => {
           {({ isSubmitting }) => (
             <Form>
               <Field name="email" label="Email" />
-              <Field name="password" label="Password" inputType="password" icon={<EyeOff />} onIconClicked={() => {}} />
+              <Field name="password" label="Password" inputType="password" icon={<EyeOff />} />
               <div className="mb-10 mt-6 cursor-pointer text-right text-[16px] text-text-8">Forgot password</div>
               <PrimaryButton className="h-[42px]" text="Sign in" buttonType="submit" loading={isSubmitting} />
             </Form>

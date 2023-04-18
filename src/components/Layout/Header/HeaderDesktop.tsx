@@ -1,5 +1,4 @@
-import { ArrowDown, IconBell, IconChevronDown, Logo } from "assets/images";
-import Avatar from "components/Avatar";
+import { ArrowDown, IconChevronDown, LogoN7 } from "assets/images";
 import PrimaryButton from "components/PrimaryButton";
 import { useAuth } from "hooks/useAuth";
 import initials from "initials";
@@ -17,7 +16,7 @@ function HeaderDesktop() {
 
   return (
     <div className="header fixed top-0 left-0 z-10 flex w-full flex-wrap items-center justify-between bg-white py-4 px-9 shadow-[0_2_21_0_rgba(0,0,0,0.15)]">
-      <Link className="text-[34px] text-[red]" to={"/"}>
+      <Link className="text-[32px] font-black text-[red]" to={"/"}>
         N7
       </Link>
       <div className="flex flex-wrap gap-x-[92px] font-medium text-text-5 ">

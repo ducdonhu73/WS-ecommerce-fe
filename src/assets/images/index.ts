@@ -53,8 +53,10 @@ import EyeOff from "./ic_eye_off";
 import IconFB from "./ic_fb";
 import IconGG from "./ic_gg";
 import { ReactComponent as Logo } from "./Logo.svg";
+import LogoN7 from "./homePage/logo.png";
 
 export {
+  LogoN7,
   ArrowDown,
   Logo,
   AlertCircle,

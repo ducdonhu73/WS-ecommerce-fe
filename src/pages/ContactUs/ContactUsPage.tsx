@@ -1,36 +1,17 @@
-import { CarjamVehicleResponse } from "apis/carOffer/carOffer.model";
-import { PrimaryButton, TextTitle } from "components";
-import CarInformationModal from "pages/HomePage/components/CarInformationModal";
-import { useGetCarInfo } from "queries/carOfferQueries";
+import { PrimaryButton } from "components";
 import { useState } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 
 const ContactUsPage = () => {
   const { t } = useTranslation("contactUs");
-  const { mutate: getCarInfo, isLoading: isLoadingCarInfo } = useGetCarInfo();
 
   const [vinId, setVinId] = useState<string>();
-  const [carInfo, setCarInfo] = useState<CarjamVehicleResponse>();
-  const [showSelectCarModal, setShowSelectCarModal] = useState(false);
 
   const onSubmitVinId = () => {
     if (!vinId) {
       return;
     }
-    getCarInfo(
-      { vinId },
-      {
-        onSuccess: data => {
-          setCarInfo(data);
-          setShowSelectCarModal(true);
-        },
-        onError: () => {
-          toast.error("Invalid Plate or VIN");
-        },
-      },
-    );
   };
 
   return (
@@ -109,14 +90,9 @@ const ContactUsPage = () => {
             className="h-[56px] w-full text-xl font-black tablet:w-[485px]"
             text={t("getValuation")}
             onClick={onSubmitVinId}
-            loading={isLoadingCarInfo}
           />
         </div>
       </div>
-
-      {showSelectCarModal && carInfo && (
-        <CarInformationModal isOpen={showSelectCarModal} setIsOpen={setShowSelectCarModal} carInfo={carInfo} />
-      )}
     </div>
   );
 };

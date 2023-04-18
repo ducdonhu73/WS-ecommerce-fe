@@ -1,4 +1,3 @@
-import { CarjamVehicleResponse } from "apis/carOffer/carOffer.model";
 import {
   IconArrowRight,
   IconClose,
@@ -16,15 +15,11 @@ import LayoutFull from "components/Layout/LayoutFull";
 import Slider from "components/Slider/Slider";
 import breakPoints from "constants/breakPoints";
 import useWindowDimensions from "hooks/useWindowDimensions";
-import { useGetCarInfo } from "queries/carOfferQueries";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import { twMerge } from "tailwind-merge";
 
-import CarInformationModal from "./components/CarInformationModal";
-import { SubmitSuccessCarInfoModal } from "./components/SubmitSuccessCarInfoModal";
 import {
   customSettingCustomers,
   customSettingJoinOthersSlider,
@@ -37,38 +32,11 @@ import {
 const HomePage = () => {
   const { t } = useTranslation("home");
   const [vinId, setVinId] = useState<string>();
-  const { mutate: getCarInfo, isLoading: isLoadingCarInfo } = useGetCarInfo();
 
-  const [carInfo, setCarInfo] = useState<CarjamVehicleResponse>();
-  const [showSelectCarModal, setShowSelectCarModal] = useState(false);
-  const [showSubmitSucessModal, setShowSubmitSuccessModal] = useState(false);
   const [showVideoModal, setShowVideoModal] = useState(false);
 
   const dimensions = useWindowDimensions();
 
-  const onSubmitVinId = () => {
-    if (!vinId) {
-      return;
-    }
-    getCarInfo(
-      { vinId },
-      {
-        onSuccess: data => {
-          setCarInfo(data);
-          setShowSelectCarModal(true);
-        },
-        onError: () => {
-          toast.error("Invalid Plate or VIN");
-        },
-      },
-    );
-  };
-
-  // const onSubmitSelectVariant = (variantIndex: number) => {
-  //   setCarOfferRequest({ ...carOfferRequest, carjamVariantIndex: variantIndex });
-  //   setShowSelectCarModal(false);
-  //   setShowCarMileageModal(true);
-  // };
 
   return (
     <>
@@ -96,8 +64,6 @@ const HomePage = () => {
                 <PrimaryButton
                   className="h-[56px] max-w-[558px] text-xl"
                   text={t("getValuation")}
-                  onClick={onSubmitVinId}
-                  loading={isLoadingCarInfo}
                 />
               </div>
             </div>
@@ -310,15 +276,6 @@ const HomePage = () => {
           </div>
         </LayoutFull>
       </div>
-      {showSelectCarModal && carInfo && (
-        <CarInformationModal
-          isOpen={showSelectCarModal}
-          setIsOpen={setShowSelectCarModal}
-          carInfo={carInfo}
-          setSuccess={setShowSubmitSuccessModal}
-        />
-      )}
-      {<SubmitSuccessCarInfoModal isOpen={showSubmitSucessModal} setIsOpen={setShowSubmitSuccessModal} />}
     </>
   );
 };

@@ -1,8 +1,5 @@
 import AboutUs from "pages/AboutUs/AboutUs";
 import AccountLayout from "pages/Account/AccountLayout";
-import BiddingDetail from "pages/Account/Detail/BiddingDetail/BiddingDetail";
-import OfferDetail from "pages/Account/Detail/OfferDetail/OfferDetail";
-import Offers from "pages/Account/Offers/Offers";
 import Profile from "pages/Account/Profile";
 import ContactUsPage from "pages/ContactUs";
 import NotFoundPage from "pages/Error/NotFoundPage";
@@ -15,6 +12,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Layout from "../components/Layout";
 import Home from "../pages/HomePage";
 import ProtectedRoutes from "./ProtectedRoutes";
+import Product from "pages/Product";
 
 const routes = createBrowserRouter([
   {
@@ -64,18 +62,6 @@ const routes = createBrowserRouter([
                 index: true,
                 element: <Profile />,
               },
-              {
-                path: "offers",
-                element: <Offers />,
-              },
-              {
-                path: "offer-detail/:id",
-                element: <OfferDetail />,
-              },
-              {
-                path: "bidding/:id",
-                element: <BiddingDetail />,
-              },
             ],
           },
         ],
@@ -85,12 +71,8 @@ const routes = createBrowserRouter([
         element: <NotFoundPage />,
       },
       {
-        path: "login",
-        element: <SignIn />,
-      },
-      {
-        path: "sign-up",
-        element: <SignUp />,
+        path: "product",
+        element: <Product />,
       },
     ],
   },
