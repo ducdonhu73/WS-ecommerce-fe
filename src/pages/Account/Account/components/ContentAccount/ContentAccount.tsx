@@ -1,8 +1,8 @@
 import React from "react";
 import SubNav from "components/SubNav";
-import { NavAccount } from "pages/Account/components/NavAccount";
+import { NavAccount } from "../NavAccount";
 import { SubNavModel } from "models";
-import { listNavAccount } from "pages/Account/data";
+import { listNavAccount } from "../../data";
 
 interface ContentAccountProps {
   children?: React.ReactElement;

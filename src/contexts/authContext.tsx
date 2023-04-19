@@ -1,6 +1,6 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { ApiConfig } from "apis/configs/urlRequestConfig";
-import { UserResponse } from "apis/user/user.model";
+import { Role, UserResponse } from "apis/user/user.model";
 import { auth } from "../firebase";
 import { useVerifyFirebaseToken, useGetCurrentUser } from "queries/sellerQueries";
 import { ReactNode, createContext, useCallback, useEffect, useState } from "react";
@@ -25,6 +25,7 @@ type ContextType = {
   logout: () => void;
   isLoggedIn: boolean | undefined;
   signInFirebase: (provider: "gg" | "fb") => void;
+  isAdmin: boolean;
 };
 
 interface Error {
@@ -37,6 +38,7 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
   const queryClient = useQueryClient();
   const [user, setUser] = useState<UserResponse | null>(null); // User này sẽ được sử dụng ở tất cả các màn
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>();
+  const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const { data: userData } = useGetCurrentUser({ enabled: isLoggedIn != undefined && isLoggedIn });
   const { mutate: verify } = useVerifyFirebaseToken();
 
@@ -54,6 +56,11 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
     ApiConfig.getInstance().accessToken = token;
     setIsLoggedIn(true);
   }, []);
+
+  useEffect(() => {
+    if (userData?.role === Role.ADMIN) setIsAdmin(true);
+    if (userData?.role === Role.USER || !isLoggedIn) setIsAdmin(false);
+  }, [userData, isLoggedIn]);
 
   useEffect(() => {
     // Gọi API User => Set user info để sử dụng ở tất cả các màn
@@ -118,7 +125,9 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
   }, [onAuthStateChanged]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase }}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase, isAdmin }}>
+      {children}
+    </AuthContext.Provider>
   );
 };
 

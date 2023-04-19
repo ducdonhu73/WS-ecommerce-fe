@@ -4,6 +4,11 @@ export enum SellerStatus {
   DELETED = "deleted",
 }
 
+export enum Role {
+  ADMIN = "admin",
+  USER = "user",
+}
+
 export interface Address {
   address?: string;
   city?: string;
@@ -21,6 +26,7 @@ export interface UserResponse {
   address?: Address;
   updatedAt: Date;
   createdAt: Date;
+  role: Role;
 }
 
 export interface UpdateUserRequest {

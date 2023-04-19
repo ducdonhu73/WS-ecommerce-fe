@@ -8,74 +8,84 @@ import { twMerge } from "tailwind-merge";
 
 import { listMenu } from "./data";
 
-function HeaderDesktop() {
+interface Props {
+  admin?: boolean;
+}
+
+function HeaderDesktop({ admin = false }: Props) {
   const { logout, isLoggedIn, user } = useAuth();
   const navigate = useNavigate();
 
   const [isProfilePopoverVisible, setIsProfilePopoverVisible] = useState(false);
 
   return (
-    <div className="header fixed top-0 left-0 z-10 flex w-full flex-wrap items-center justify-between bg-white py-4 px-9 shadow-[0_2_21_0_rgba(0,0,0,0.15)]">
+    <div className="header fixed left-0 top-0 z-10 flex w-full flex-wrap items-center justify-between bg-white px-9 py-4 shadow-[0_2_21_0_rgba(0,0,0,0.15)]">
       <Link className="text-[32px] font-black text-[red]" to={"/"}>
         N7
       </Link>
       <div className="flex flex-wrap gap-x-[92px] font-medium text-text-5 ">
-        {listMenu.map((menu, index) => {
-          return (
-            <Fragment key={menu.key}>
-              {menu.scrollTo && (
-                <div
-                  key={index}
-                  className={twMerge("cursor-pointer hover:text-primary")}
-                  onClick={async () => {
-                    await navigate("/");
-                    if (menu.scrollTo) {
-                      const howGearWorksSection = document.querySelector(menu.scrollTo);
-                      if (howGearWorksSection) {
-                        howGearWorksSection.scrollIntoView({ behavior: "smooth" });
+        {admin ? (
+          <div></div>
+        ) : (
+          listMenu.map((menu, index) => {
+            return (
+              <Fragment key={menu.key}>
+                {menu.scrollTo && (
+                  <div
+                    key={index}
+                    className={twMerge("cursor-pointer hover:text-primary")}
+                    onClick={async () => {
+                      await navigate("/");
+                      if (menu.scrollTo) {
+                        const howGearWorksSection = document.querySelector(menu.scrollTo);
+                        if (howGearWorksSection) {
+                          howGearWorksSection.scrollIntoView({ behavior: "smooth" });
+                        }
                       }
-                    }
-                  }}
-                >
-                  {menu.text}
-                </div>
-              )}
-              {menu.path && (
-                <NavLink
-                  to={menu.path}
-                  className={({ isActive }) => twMerge("cursor-pointer hover:text-primary", isActive && "text-primary")}
-                >
-                  {menu.text}
-                </NavLink>
-              )}
-              {menu.children && (
-                <div className={twMerge("group relative flex cursor-pointer gap-x-2")}>
-                  <div>{menu.text}</div>
-                  <div className="relative cursor-pointer px-1.5 py-2">
-                    <IconChevronDown />
-                    <div className="invisible absolute right-0 top-[calc(100%+12px)] min-w-[128px] overflow-hidden rounded-sm bg-white opacity-0 shadow-2xl transition-opacity group-hover:visible group-hover:opacity-100">
-                      {menu.children?.map(child => (
-                        <NavLink
-                          to={child.path}
-                          className={({ isActive }) =>
-                            twMerge(
-                              "mb-1 block w-full cursor-pointer px-7 py-4 last:mb-0 hover:bg-primary hover:text-white",
-                              isActive && "bg-primary text-white",
-                            )
-                          }
-                          key={child.key}
-                        >
-                          {child.text}
-                        </NavLink>
-                      ))}
-                    </div>
+                    }}
+                  >
+                    {menu.text}
                   </div>
-                  <div className="absolute top-[100%] right-0 h-3 w-full bg-transparent"></div>
-                </div>
-              )}
-            </Fragment>
-          );
-        })}
+                )}
+                {menu.path && (
+                  <NavLink
+                    to={menu.path}
+                    className={({ isActive }) =>
+                      twMerge("cursor-pointer hover:text-primary", isActive && "text-primary")
+                    }
+                  >
+                    {menu.text}
+                  </NavLink>
+                )}
+                {menu.children && (
+                  <div className={twMerge("group relative flex cursor-pointer gap-x-2")}>
+                    <div>{menu.text}</div>
+                    <div className="relative cursor-pointer px-1.5 py-2">
+                      <IconChevronDown />
+                      <div className="invisible absolute right-0 top-[calc(100%+12px)] min-w-[128px] overflow-hidden rounded-sm bg-white opacity-0 shadow-2xl transition-opacity group-hover:visible group-hover:opacity-100">
+                        {menu.children?.map(child => (
+                          <NavLink
+                            to={child.path}
+                            className={({ isActive }) =>
+                              twMerge(
+                                "mb-1 block w-full cursor-pointer px-7 py-4 last:mb-0 hover:bg-primary hover:text-white",
+                                isActive && "bg-primary text-white",
+                              )
+                            }
+                            key={child.key}
+                          >
+                            {child.text}
+                          </NavLink>
+                        ))}
+                      </div>
+                    </div>
+                    <div className="absolute right-0 top-[100%] h-3 w-full bg-transparent"></div>
+                  </div>
+                )}
+              </Fragment>
+            );
+          })
+        )}
       </div>
       {!isLoggedIn ? (
         <div className="flex">

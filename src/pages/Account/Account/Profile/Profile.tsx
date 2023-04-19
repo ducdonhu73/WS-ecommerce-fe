@@ -3,8 +3,8 @@ import { PrimaryButton, TextTitle } from "components";
 import Field from "components/Field/Field";
 import { Form, Formik } from "formik";
 import initials from "initials";
-import ContentAccount from "pages/Account/components/ContentAccount";
-import { listSubNav } from "pages/Account/data";
+import ContentAccount from "../components/ContentAccount/ContentAccount";
+import { listSubNav } from "../data";
 import { useGetCurrentUser, useUpdateUser } from "queries/sellerQueries";
 import { toast } from "react-toastify";
 import * as Yup from "yup";
@@ -16,7 +16,7 @@ function Profile() {
   return (
     <div>
       <ContentAccount subnav={listSubNav}>
-        <div className="mt-10 mb-[88px] w-full tablet:mt-0">
+        <div className="mb-[88px] mt-10 w-full tablet:mt-0">
           {userData && (
             <div>
               <div className="flex items-center justify-center">

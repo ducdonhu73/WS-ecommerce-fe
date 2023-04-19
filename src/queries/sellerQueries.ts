@@ -24,24 +24,6 @@ export const useUpdateUser = () => {
   });
 };
 
-// export const useChangePassword = () =>
-//   useMutation(["dealer", "changePassword"], (request: ChangePasswordRequest) =>
-//     authRepository.resetPassword(request),
-//   );
-
-// export const useUploadDocument = () => {
-//   const queryClient = useQueryClient();
-//   return useMutation(
-//     ["dealer", "uploadDocument"],
-//     (request: FormData) => authRepository.uploadDocument(request),
-//     {
-//       onSuccess: () => {
-//         queryClient.invalidateQueries(["dealer", "me"]);
-//       },
-//     },
-//   );
-// };
-
 export const useGetCurrentUser = (options?: AppQueryOptions) =>
   useQuery(["user", "me"], () => userRepository.getCurrentUser(), {
     ...options,

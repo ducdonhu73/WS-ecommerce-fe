@@ -6,7 +6,7 @@ export interface GetAllProductQuery {
 }
 
 export interface ProductResponse {
-  id: string;
+  _id: string;
   category_id: string;
   category_name: string;
   product_name: string;
@@ -16,4 +16,8 @@ export interface ProductResponse {
   image?: string;
   updatedAt: Date;
   createdAt: Date;
+}
+
+export interface GetProductByIdRequest {
+  idProduct: string;
 }
