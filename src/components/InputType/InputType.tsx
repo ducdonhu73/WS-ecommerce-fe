@@ -10,7 +10,7 @@ export interface PropsInput {
   className?: string;
   isRequired?: boolean;
   onIcon?: () => void;
-  onChange?: (id?: string, text?: string | number) => void;
+  onChange?: (index: number, e: BaseSyntheticEvent) => void;
   onBlur?: (e: BaseSyntheticEvent, data: InputTypeModel, index: number) => void;
   value?: string | number;
   defaultValue?: string | number;
@@ -51,21 +51,21 @@ function InputType({
     <div className={containerClassName}>
       <fieldset
         className={twMerge(
-          "flex items-center rounded border border-text-5 text-text-3",
+          "flex h-14 items-center rounded border border-text-5 text-text-3",
           className,
           error && "border-[red]",
         )}
       >
-        <legend className={twMerge("ml-3 px-1 text-[14px]", error && "text-[#F40202]")}>{label}</legend>
+        <legend className={twMerge("ml-3 px-1 text-[17px]", error && "text-[#F40202]")}>{label}</legend>
         <div className={twMerge("flex w-full pr-3", error && "text-[#F40202]")}>
           <input
             disabled={disabled}
             defaultValue={defaultValue}
             value={value}
-            onChange={e => onChange && onChange(id, e.currentTarget.value)}
+            onChange={e => onChange && onChange(index, e)}
             required={isRequired}
             id={id}
-            className="w-full rounded border-0 pl-4  pb-2 pt-0 pr-1 text-[#4D4C4C]"
+            className="w-full rounded border-0 pb-2  pl-4 pr-1 pt-0 text-[#4D4C4C]"
             type={!show && isPassword ? "password" : data.typeInput}
             style={{ backgroundColor }}
             onInvalid={e => onBlur && onBlur(e, data, index)}

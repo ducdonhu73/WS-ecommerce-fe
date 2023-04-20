@@ -5,10 +5,12 @@ import { createdAtOptionBtn, filterOfferBtn } from "./data";
 import { useState, useEffect } from "react";
 import { useProduct } from "queries/productQueries";
 import { ProductResponse } from "apis/products/product.model";
+import { PrimaryButton } from "components";
+import { useNavigate } from "react-router";
 
 function ProductAdmin() {
-  const [listProduct, setListProduct] = useState<ProductResponse[]>([...Array(5)]);
-
+  const [listProduct, setListProduct] = useState<ProductResponse[]>([...Array<ProductResponse>(5)]);
+  const navigate = useNavigate();
   const { mutate: getProduct } = useProduct();
 
   useEffect(() => {
@@ -57,13 +59,12 @@ function ProductAdmin() {
         {listProduct.map((item, index) => {
           return (
             <div key={index}>
-              <ListItem
-                product={item}
-              />
+              <ListItem product={item} />
             </div>
           );
         })}
       </div>
+      <PrimaryButton text="Add product" onClick={() => navigate("add")} className="mb-16" />
     </div>
   );
 }
