@@ -18,6 +18,8 @@ import {
   signOut,
 } from "firebase/auth";
 import { toast } from "react-toastify";
+import { CartResponse } from "apis/carts/cart.model";
+import { useCarts } from "queries/cartQueries";
 
 type ContextType = {
   user: UserResponse | null;
@@ -26,6 +28,7 @@ type ContextType = {
   isLoggedIn: boolean | undefined;
   signInFirebase: (provider: "gg" | "fb") => void;
   isAdmin: boolean;
+  cart: CartResponse[] | undefined;
 };
 
 interface Error {
@@ -40,6 +43,7 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>();
   const [isAdmin, setIsAdmin] = useState<boolean>(false);
   const { data: userData } = useGetCurrentUser({ enabled: isLoggedIn != undefined && isLoggedIn });
+  const { data: cart } = useCarts();
   const { mutate: verify } = useVerifyFirebaseToken();
 
   useEffect(() => {
@@ -125,7 +129,7 @@ const AuthProvider = ({ children }: { children?: ReactNode }) => {
   }, [onAuthStateChanged]);
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase, isAdmin }}>
+    <AuthContext.Provider value={{ user, login, logout, isLoggedIn, signInFirebase, isAdmin, cart }}>
       {children}
     </AuthContext.Provider>
   );

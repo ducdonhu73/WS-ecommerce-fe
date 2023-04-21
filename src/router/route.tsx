@@ -18,6 +18,8 @@ import ProductAdmin from "pages/Admin/ProductAdmin";
 import HistoryAdmin from "pages/Admin/HistoryAdmin/HistoryAdmin";
 import OrderAdmin from "pages/Admin/OrderAdmin/OrderAdmin";
 import ProductDetailAdmin from "pages/Admin/ProductDetailAdmin/ProductDetailAdmin";
+import Test from "pages/test";
+import Cart from "pages/Cart";
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const routes = createBrowserRouter([
       {
         path: "sell-my-car",
         element: <Home />,
+      },
+      {
+        path: "test",
+        element: <Test />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
       },
       {
         path: "about-us",

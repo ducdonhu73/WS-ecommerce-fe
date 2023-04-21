@@ -24,7 +24,7 @@ import IconLinkedin from "./footer/ic_linkedin";
 import IconYoutube from "./footer/ic_youtube";
 import { ReactComponent as LogoFooter } from "./footer/LogoFooter.svg";
 import IconBar from "./header/ic_bar";
-import IconBell from "./header/ic_bell";
+// import IconBell from "./header/ic_bell";
 import carBanner from "./homePage/carBanner.png";
 import carSellingPlatform from "./homePage/carSellingPlatform.png";
 import customerAvatar from "./homePage/customerAvatar.png";
@@ -54,6 +54,8 @@ import IconFB from "./ic_fb";
 import IconGG from "./ic_gg";
 import { ReactComponent as Logo } from "./Logo.svg";
 import LogoN7 from "./homePage/logo.png";
+import { IconCart } from "./header";
+import IconBell from "./icon_bell";
 
 export {
   LogoN7,
@@ -112,4 +114,5 @@ export {
   IconArrowRight,
   IconUpload,
   IconPlayVideo,
+  IconCart,
 };

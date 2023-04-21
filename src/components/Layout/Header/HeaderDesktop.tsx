@@ -1,4 +1,4 @@
-import { ArrowDown, IconChevronDown, LogoN7 } from "assets/images";
+import { ArrowDown, IconBell, IconCart, IconChevronDown } from "assets/images";
 import PrimaryButton from "components/PrimaryButton";
 import { useAuth } from "hooks/useAuth";
 import initials from "initials";
@@ -7,16 +7,53 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { twMerge } from "tailwind-merge";
 
 import { listMenu } from "./data";
+import Cart from "../Cart";
 
 interface Props {
   admin?: boolean;
 }
 
-function HeaderDesktop({ admin = false }: Props) {
-  const { logout, isLoggedIn, user } = useAuth();
-  const navigate = useNavigate();
+export const notificationMessages: { isRead: boolean; title: string }[] = [
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+  {
+    isRead: true,
+    title: "day la thong bao",
+  },
+];
 
+function HeaderDesktop({ admin = false }: Props) {
+  const { logout, isLoggedIn, user, isAdmin } = useAuth();
+  const navigate = useNavigate();
   const [isProfilePopoverVisible, setIsProfilePopoverVisible] = useState(false);
+  const [displayNotification, setDisplayNotification] = useState(false);
+  const [displayCart, setDisplayCart] = useState(false);
 
   return (
     <div className="header fixed left-0 top-0 z-10 flex w-full flex-wrap items-center justify-between bg-white px-9 py-4 shadow-[0_2_21_0_rgba(0,0,0,0.15)]">
@@ -97,7 +134,54 @@ function HeaderDesktop({ admin = false }: Props) {
           <PrimaryButton text="Sign up" className="w-[132px] px-8" onClick={() => navigate("/sign-up")} />
         </div>
       ) : (
-        <div className="relative">
+        <div className="relative flex">
+          <div className="mr-1 translate-y-2">
+            <div onClick={() => setDisplayCart(pre => !pre)}>
+              <img className="h-8" src={IconCart} alt="" />
+            </div>
+            <div
+              onClick={() => {
+                navigate("/cart");
+                setDisplayCart(false);
+              }}
+            >
+              <Cart display={displayCart} />
+            </div>
+          </div>
+          <div className="flex items-center text-center">
+            <div className="mx-5 cursor-pointer text-[150px]" onClick={() => setDisplayNotification(pre => !pre)}>
+              <IconBell />
+              <div className="absolute right-[70%] h-[24px] w-12 bg-transparent"></div>
+            </div>
+            {displayNotification && (
+              <div>
+                <div className="absolute right-[57%] top-[80%] block border-[12px] border-[transparent] border-b-[#4D4C4C]"></div>
+                <div className="scroll-bar absolute right-[27%] top-[calc(100%+14px)] h-96 w-[377px] flex-col overflow-y-scroll rounded-md bg-text-9 text-white">
+                  {notificationMessages?.map((item, index) => (
+                    <div
+                      key={index}
+                      className={twMerge(
+                        "flex cursor-pointer items-center gap-4 border-t-[1px] border-[#666666] p-3 first:border-0 hover:bg-[#696868]",
+                        !item.isRead && "bg-[#675C5C]",
+                      )}
+                    >
+                      <div className="flex flex-col justify-between">
+                        <p className="mb-4 text-sm">{item.title}</p>
+                        <p className="text-xs text-text-5">2023</p>
+                      </div>
+                    </div>
+                  ))}
+                  {/* </ul> */}
+                  <Link
+                    to="/notification"
+                    className="cursor-pointer border-t border-text-7 py-3 text-center text-xs text-primary"
+                  >
+                    View all notification
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
           <div onClick={() => setIsProfilePopoverVisible(prev => !prev)}>
             <div className="flex cursor-pointer select-none flex-row items-center gap-x-3">
               <div className="flex h-[48px] w-[48px] items-center justify-center rounded-[50%] bg-text-1">
@@ -113,9 +197,20 @@ function HeaderDesktop({ admin = false }: Props) {
                 isProfilePopoverVisible && "block",
               )}
             >
-              <Link to={"/account"}>
-                <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Profile</div>
-              </Link>
+              {isAdmin ? (
+                <div>
+                  <Link to={"/admin"}>
+                    <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Admin page</div>
+                  </Link>
+                  <Link to={"/account"}>
+                    <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Profile</div>
+                  </Link>
+                </div>
+              ) : (
+                <Link to={"/account"}>
+                  <div className={twMerge("border-b-[1px] border-text-3 py-4 text-center")}>Profile</div>
+                </Link>
+              )}
               <div
                 className={twMerge("cursor-pointer py-4 text-center")}
                 onClick={() => {
