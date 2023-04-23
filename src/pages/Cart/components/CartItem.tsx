@@ -1,5 +1,5 @@
 import { useRemoveCart } from "queries/cartQueries";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "react-toastify";
 import { CartModel } from "../Cart";
 
@@ -26,15 +26,17 @@ const CartItem = ({ cart, callback }: { cart: CartModel; callback: (cart: CartMo
     if (quantity > 1) {
       setQuantity(pre => --pre);
       cart.setQuantity(quantity);
-      callback(cart);
     }
   };
 
   const handleAdd = () => {
     setQuantity(pre => ++pre);
+  };
+
+  useEffect(() => {
     cart.setQuantity(quantity);
     callback(cart);
-  };
+  }, [quantity]);
 
   return (
     <div className="hover:bg-gray-100 -mx-8 flex items-center px-6 py-5">

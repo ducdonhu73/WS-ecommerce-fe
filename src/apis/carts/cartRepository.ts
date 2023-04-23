@@ -1,7 +1,7 @@
 import axiosClient from "../configs/axiosClient";
 import { HttpClient } from "../configs/httpClient";
 import { CartApi } from "./cartApi";
-import { AddToCart, RemoveFromCart, GetAllCartQuery, CartResponse } from "./cart.model";
+import { AddToCart, RemoveFromCart, CartResponse, OrderRequest } from "./cart.model";
 
 class CartRepository {
   private cartApi: CartApi;
@@ -22,6 +22,11 @@ class CartRepository {
 
   async addToCart(request: AddToCart): Promise<boolean> {
     const response = await this.cartApi.addToCart(request);
+    return response.success;
+  }
+
+  async order(request: OrderRequest): Promise<boolean> {
+    const response = await this.cartApi.order(request);
     return response.success;
   }
 }

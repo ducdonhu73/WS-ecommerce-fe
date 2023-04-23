@@ -1,4 +1,4 @@
-import { InputTypeModel, SubNavModel } from "models";
+import { SubNavModel } from "models";
 
 export const listSubNav: SubNavModel[] = [
   {
@@ -13,8 +13,8 @@ export const offerListNav: SubNavModel[] = [
     title: "Account",
   },
   {
-    href: "account/offers",
-    title: "Offers",
+    href: "account/history",
+    title: "History",
   },
 ];
 
@@ -51,7 +51,7 @@ export const biddingListDetailNav: SubNavModel[] = [
 export const listNavAccount = [
   { title: "Personal information", href: "/account" },
   {
-    title: "Offer list",
-    href: "/account/offers",
+    title: "History",
+    href: "/account/history",
   },
 ];

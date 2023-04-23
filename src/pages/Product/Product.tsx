@@ -129,7 +129,9 @@ export const Product = () => {
     <div>
       <div className="mt-32">
         <div className="dark:bg-gray-900 bg-white pb-4">
-          <label className="sr-only">Search</label>
+          <label className="sr-only" htmlFor="ham">
+            Search
+          </label>
           <div className="relative mt-1">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
@@ -165,7 +167,7 @@ export const Product = () => {
           {listProduct.map((item, index) => (
             <div className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md" key={index}>
               <Link to={item._id}>
-                <img className="h-60 rounded-t-lg object-cover" src={item.image ?? ""} />
+                <img className="h-60 rounded-t-lg object-cover" src={item.image ?? ""} alt="" />
               </Link>
               <div className="mt-4 px-5 pb-5">
                 <Link to="#">

@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import CartItem from "./components/CartItem";
 import { ProductResponse } from "apis/products/product.model";
 import { UserResponse } from "apis/user/user.model";
+import { useOrder } from "queries/cartQueries";
+import { toast } from "react-toastify";
 
 export class CartModel implements CartResponse {
   _id: string;
@@ -34,6 +36,8 @@ function Cart() {
   const { cart } = useAuth();
   const [cartItems, setCartItems] = useState<CartModel[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+  const { mutate: checkout } = useOrder();
 
   useEffect(() => {
     if (cart) {
@@ -44,8 +48,9 @@ function Cart() {
 
   useEffect(() => {
     setTotalPrice(
-      cartItems.reduce((total, item) => (item.checked ? total + item.product.price * item.quantity : 0), 0),
+      cartItems.reduce((total, item) => (item.checked ? total + item.product.price * item.quantity : total), 0),
     );
+    setTotalItems(cartItems.reduce((total, item) => (item.checked ? ++total : total), 0));
   }, [cartItems]);
 
   const callback = (c: CartModel) => {
@@ -54,6 +59,22 @@ function Cart() {
         if (i._id === c._id) return c;
         return i;
       }),
+    );
+  };
+
+  const handCheckOut = () => {
+    checkout(
+      {
+        order: cartItems.map(c => {
+          return { product: c.product, quantity: c.quantity };
+        }),
+      },
+      {
+        onSuccess: () => toast("success"),
+        onError: () => {
+          toast("fail");
+        },
+      },
     );
   };
 
@@ -90,7 +111,7 @@ function Cart() {
             <div id="summary" className="w-1/4 px-8 py-10">
               <h1 className="border-b pb-8 text-2xl font-semibold">Order Summary</h1>
               <div className="mb-5 mt-10 flex justify-between">
-                <span className="text-sm font-semibold uppercase">Items 3</span>
+                <span className="text-sm font-semibold uppercase">Items {totalItems}</span>
                 <span className="text-sm font-semibold">{totalPrice}đ</span>
               </div>
               <div>
@@ -108,7 +129,10 @@ function Cart() {
                   <span>Total cost</span>
                   <span>{totalPrice}đ</span>
                 </div>
-                <button className="w-full bg-[#4c0082ea] py-3 text-sm font-semibold uppercase text-white hover:bg-[indigo]">
+                <button
+                  className="w-full bg-[#4c0082ea] py-3 text-sm font-semibold uppercase text-white hover:bg-[indigo]"
+                  onClick={handCheckOut}
+                >
                   Checkout
                 </button>
               </div>
