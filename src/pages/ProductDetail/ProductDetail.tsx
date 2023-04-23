@@ -32,6 +32,7 @@ const ProductDetail = () => {
           onSuccess: () => {
             toast("product has been added to cart");
           },
+          onError: () => toast("fail"),
         },
       );
   };

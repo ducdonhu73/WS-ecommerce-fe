@@ -3,13 +3,27 @@ import { useEffect, useState } from "react";
 import { ProductResponse } from "../../apis/products/product.model";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import { useAddToCart } from "queries/cartQueries";
+import { toast } from "react-toastify";
 
 export const Product = () => {
   const { mutate: getProduct } = useProduct();
   const [listProduct, setListProduct] = useState<ProductResponse[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const pageSize = 2;
-  console.log(listProduct.length);
+  const { mutate: addCart } = useAddToCart();
+  const pageSize = 6;
+
+  const addToCart = (id: string) => {
+    addCart(
+      { p_id: id, quantity: 1 },
+      {
+        onSuccess: () => {
+          toast("product has been added to cart");
+        },
+        onError: () => toast("fail"),
+      },
+    );
+  };
 
   const pageCount = Math.ceil(listProduct.length / pageSize); // tính số trang cần phân trang
   const handlePageClick = (pageNumber: { selected: number }) => {
@@ -138,9 +152,9 @@ export const Product = () => {
                   <p>
                     <span className="text-slate-900 text-2xl font-bold">{`$` + item.price}</span>
                   </p>
-                  <Link
-                    to={item._id}
+                  <div
                     className="focus:ring-blue-300 flex items-center rounded-md bg-[#000] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[gray] focus:outline-none focus:ring-4"
+                    onClick={() => addToCart(item._id)}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -157,7 +171,7 @@ export const Product = () => {
                       />
                     </svg>
                     Add to cart
-                  </Link>
+                  </div>
                 </div>
               </div>
             </div>
