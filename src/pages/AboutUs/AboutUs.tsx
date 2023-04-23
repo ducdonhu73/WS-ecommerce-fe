@@ -22,12 +22,7 @@ function AboutUs() {
             </div>
             <div className="mt-6 flex flex-col items-center justify-between gap-y-10 laptop:flex-row laptop:items-start">
               <p className="w-full text-base text-text-8 laptop:w-[420px]">
-                Gear Technologies is founded in 2022 with a mission to provide New Zealanders with an alternative option
-                to sell their vehicle online. We provide a new platform that utilises the power of technology to make
-                selling your vehicle much easier, faster and for free. It’s a fresh approach which makes it accessible
-                for everyone. Technology opens doors in how we can trade today, with minimal processes and contact. We
-                can now offer a better selling experience that will bring back more time to your day, remove stress from
-                your life and the entire process can be done without you having to leave your home.
+              Cosmetica Technologies is a newly founded company that aims to revolutionize the way people buy and sell cosmetics. We believe that everyone should have access to high-quality cosmetic products without having to break the bank. That's why we provide a platform that utilizes the power of technology to make buying and selling cosmetics much easier, faster, and affordable. Our innovative approach allows us to offer a wide range of cosmetics from the world's top brands, all in one place. We want to create a better shopping experience that will save you time, reduce stress, and allow you to shop from the comfort of your home. With Cosmetic Technologies, you can be confident that you're getting the best products at the best prices.
               </p>
               <div className="w-full max-w-[588px] tablet:w-[70%] laptop:w-[50%]">
                 <img className="rounded-[10px]" src={ImgCar} alt="car" />
@@ -49,13 +44,15 @@ function AboutUs() {
           </div>
           <div className="w-full laptop:w-[420px]">
             <div className="text-2xl font-semibold text-text-9 laptop:text-3xl">
-              Gear Technologies is the future of selling and buying vehicles in New Zealand
+            Cosmetica is a game-changer in the beauty industry, connecting you with a network of cosmetic brands and sellers nationwide.
             </div>
             <p className="mt-5 text-base text-text-8 laptop:mt-6 ">
-              We connect you with a network of car dealers nationwide at your fingertips who bid daily on your listed
-              vehicle. We have created a platform where our customers can complete a car sale 100% online within as
-              quick as 24 hours. {<br />} Our strong relationships with car dealers in the country are also supported by
-              us to ensure they grow their dealerships with new and the best vehicle stock possible.
+ 
+            Our platform offers a seamless and convenient way for you to buy and sell cosmetic products online, with a focus on quality and affordability.
+            We work closely with our network of sellers to ensure that they are able to offer the best products to our customers, while also growing their businesses.
+            With Cosmetica, you can complete a purchase or sale 100% online, in just a few clicks. 
+            We are committed to making the cosmetic buying and selling experience as easy and hassle-free as possible, 
+            so that you can focus on looking and feeling your best.
             </p>
           </div>
         </div>
@@ -70,7 +67,7 @@ function AboutUs() {
                 <img className="h-[206px] w-[206px]" src={ImgMember} alt="member" />
               </div>
               <div className="flex flex-col items-center justify-center ">
-                <p className="text-lg font-bold text-text-8">Brooklyn Simmons</p>
+                <p className="text-lg font-bold text-text-8">Nguyen Van A</p>
                 <span className="mt-2 text-lg font-normal text-text-6 ">CEO</span>
               </div>
             </div>
@@ -83,8 +80,8 @@ function AboutUs() {
           <div className="text-2xl font-semibold text-text-9 laptop:text-3xl">Careers</div>
           <div className="mt-5 tablet:mt-8 laptop:mt-[60px]">
             <p className="text-base text-text-8 ">
-              We value people and are always searching for talent who are driven to be a part of the Gear Technologies
-              team. Whether you’re a car fanatic, believe in what we’re offering and want to be a part of it. Get in
+              We value people and are always searching for talent who are driven to be a part of the Cosmetica Technologies
+              team. Whether you’re a cosmetic fanatic, believe in what we’re offering and want to be a part of it. Get in
               touch with us about joining the team, or check out our careers page to see current positions available.
             </p>
           </div>
@@ -99,7 +96,7 @@ function AboutUs() {
           <div className="text-2xl font-semibold text-text-9 laptop:text-3xl">Our investors</div>
         </div>
         <div className="mb-[30px] mt-5 tablet:mt-8 laptop:mt-[60px]">
-          <p className="text-text-8">Gear is grateful to be supported by some leading investors.</p>
+          <p className="text-text-8">Cosmetica is grateful to be supported by some leading investors.</p>
         </div>
         <div>
           {dimensions.width > breakPoints.tablet ? (
@@ -113,13 +110,13 @@ function AboutUs() {
       <div className="layout-full bg-background-1 py-8 tablet:py-16 laptop:py-[120px]">
         <div className="layout-padding">
           <div>
-            <div className="text-2xl font-semibold text-text-9 laptop:text-3xl">More about Gear</div>
+            <div className="text-2xl font-semibold text-text-9 laptop:text-3xl">More about Cosmetica</div>
           </div>
           <div className="flex flex-col items-center justify-between laptop:flex-row">
             <div className="mt-5 w-full border-t-[12px] border-t-primary bg-white px-5 pb-8 pt-5 tablet:mt-8 laptop:mr-20 laptop:mt-[60px] laptop:w-auto laptop:px-[30px] laptop:pb-[46px] laptop:pt-8">
-              <div className="text-2xl font-bold text-secondary-4">Are you a car dealer?</div>
+              <div className="text-2xl font-bold text-secondary-4">Are you a buyer?</div>
               <p className="mb-4 mt-4 text-lg font-normal text-text-8 tablet:mb-8 laptop:mb-[43px] laptop:text-base">
-                Cut the fuss and middleman by connecting with private car sellers directly. Better invest in your time
+                Cut the fuss and middleman by connecting with private sellers directly. Better invest in your time
                 and accelerate your reach nationwide and grow your dealership.
               </p>
               <div>

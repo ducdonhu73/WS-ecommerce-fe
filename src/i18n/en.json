@@ -46,60 +46,60 @@
     }
   },
   "home": {
-    "title1": "Sick of fees?",
-    "title2": "Sell your car for free",
-    "description": "Complete your car sale 100% online within 24 hours at Gear",
+    "title1": "Secret of Beauty.",
+    "title2": "Give your skin the love and care.",
+    "description": "Beauty is a state of mind, not a state of the body.",
     "getValuation": "Get valuation",
-    "joinOthers": "Join others who've sold their cars with Gear",
+    "joinOthers": "Join others who've purchased our products",
     "service": {
       "service1": {
-        "title": "Immediate car valuation",
-        "description": "Share your car details and you’ll receive an estimate for your vehicle instantly."
+        "title": "Clinique",
+        "description": "Clinique is well known for their philanthropic efforts in supporting women's health initiatives."
       },
       "service2": {
-        "title": "Get the best price",
-        "description": "We’ll deal with the dealers. No negotiation, tyre kickers or hassle."
+        "title": "Estée Lauder",
+        "description": "Estée Lauder is famous of their high-quality formulas, elegant packaging, and dedication to innovation in beauty."
       },
       "service3": {
-        "title": "Free home collection",
-        "description": "Complete your sale within 24 hours, get paid fast and have your car collected, without leaving home."
+        "title": "L'Oreal",
+        "description": "Founded in France in 1909, L'Oreal is known for their innovative formulas and commitment to sustainable beauty."
       },
       "service4": {
-        "title": "No hidden fees, 100% free",
-        "description": "The entire selling process is free for you! Only dealers pay a fee to buy your car."
+        "title": "MAC - MAC",
+        "description": "They are known for their high-quality, professional-grade makeup products that cater to a diverse range of skin tones and types."
       }
     },
     "whyGear": {
-      "title": "“Got 99 problems, selling my car ain’t one, thanks to Gear Technologies”",
-      "description1": "NZ’s fastest growing car selling platform",
-      "description2": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online. It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
-      "description3": "It’s free, fast and easy."
+      "title": "“Got 99 problems, but skincare ain't one, thanks to Cosmetica”",
+      "description1": "Cosmetica is the go-to destination for all your cosmetic needs.",
+      "description2": "Offering a wide range of products to help you achieve healthy and glowing skin. Our philosophy is to provide high-quality, affordable cosmetics without compromising on quality. We believe that everyone deserves to feel confident and beautiful in their own skin. Our user-friendly online platform makes shopping for cosmetics fast, easy, and stress-free, with the convenience of having your products delivered right to your doorstep.",
+      "description3": "Trust Cosmetica for all your cosmetic needs - because beauty should be effortless and accessible to all."
     },
     "process": {
       "title": "What’s the process",
       "step1": {
-        "title": "1. Profile your car",
-        "description": "Enter the requested details.\n Get an immediate valuation of your car.\n Create an online listing ready for the dealers to start bidding."
+        "title": "1.  Select Products",
+        "description": "Visit the website of the online cosmetic store and browse through the products available.\n Choose the products you wish to purchase by selecting the appropriate quantity and adding them to your shopping cart."
       },
       "step2": {
-        "title": "2. Alert dealers nationwide",
-        "description": "We connect you with 500+ car dealers in NZ who will compete for your car to make their best offer."
+        "title": "2. Check Out and Make Payment",
+        "description": "Once you have selected all the products you wish to purchase, proceed to checkout.\n Ensure that you review your order details before making the payment."
       },
       "step3": {
-        "title": "3. Get the best deal",
-        "description": "We’ll notify you of the highest offer. Once accepted, car collection will be provided."
+        "title": "3. Shipping and Delivery",
+        "description": "After successful payment, the online cosmetic store will process your order and dispatch it to your shipping address.\n You will receive an email confirmation with the expected delivery date and tracking details."
       },
       "step4": {
-        "title": "4. Get paid fast",
-        "description": "You’ll receive money in your account within 24 hours of collection. Too easy!"
+        "title": "4. Receive and Enjoy Your Products",
+        "description": "Once your order is delivered, inspect the products to ensure that they are in good condition.  If everything is in order, start using your new products and enjoy the benefits they offer!"
       }
     },
     "customer": "What customers are saying about us",
     "carSellingPlatform": {
-      "title": "New Zealand’s fastest growing car selling platform",
-      "description1": "Gear Technologies is founded on providing Kiwis with a new online platform that doesn’t charge huge fees to sell your car online.",
-      "description2": "It’s a fresh approach to selling your vehicle that will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
-      "description3": "It’s free, fast and easy."
+      "title": "Welcome to Cosmetica, The premier online platform for all your cosmetic needs.",
+      "description1": " Our platform offers a fresh approach to cosmetic shopping that lets you browse, compare, and purchase products from the comfort of your own home, without any hidden fees or additional charges.",
+      "description2": "Our goal is to provide you with a seamless experience will bring back more time to your day, reduce stress and the entire process is done online without you having to step out of your home.",
+      "description3": "It’s fast and easy. Join cosmetic shopping today!"
     },
     "learnMore": "Learn more"
   },
@@ -107,12 +107,12 @@
     "contactUs": "Contact us",
     "submitQuestion": "Submit a question",
     "viewFaq": "View our FAQs",
-    "areCarDealership": "Are you a car dealership?",
+    "areCarDealership": "Are you a cosmetic dealer?",
     "newsAndPress": "News, Press & Publications",
-    "submitQuestionDescription": "If you have any questions, or would like to get in touch with us, our team at Gear would be more than happy to help you.<br/>Please contact us at <1>hello@gear.co.nz</1>",
+    "submitQuestionDescription": "If you have any questions, or would like to get in touch with us, our team at Cosmetica would be more than happy to help you.<br/>Please contact us at <1>hello@cosmetica.co.nz</1>",
     "viewFaqDescription": "If you haven’t yet checked out our <1>FAQ Help Page</1>, we may be able to help answer your questions there.<br/>If you still need support from us, you can reach our Customer Service Support Team who willl aim to respond to all customer enquiries within 2 working days",
-    "areCarDealershipDescription": "If you’re a New Zealand car dealership interested in accelerating your vehicle stock direct from private car sellers, view our car <1>dealers</1> site here.",
-    "newsAndPressDescription": "We would be happy to comment and provide information on vehicle purchasing, industry updates or trends to local, nationwide and global news publishers.<br/>For press related questions, email <1>hello@gear.co.nz</1>",
+    "areCarDealershipDescription": "If you’re a cosmetic dealer interested in sellers, view our <1>website</1> site here.",
+    "newsAndPressDescription": "We would be happy to comment and provide information on Cosmetica, industry updates or trends to local, nationwide and global news publishers.<br/>For press related questions, email <1>hello@cosmetica.co.nz</1>",
     "getValuation": "Get valuation"
   },
   "faq": {
