@@ -1,4 +1,3 @@
-import { PrimaryButton } from "components";
 import { useOrder } from "queries/orderQueries";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";

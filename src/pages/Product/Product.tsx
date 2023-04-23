@@ -2,104 +2,21 @@ import { useProduct } from "queries/productQueries";
 import { useEffect, useState } from "react";
 import { ProductResponse } from "../../apis/products/product.model";
 import { Link } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 export const Product = () => {
-  const [listProduct, setListProduct] = useState<ProductResponse[]>([]);
   const { mutate: getProduct } = useProduct();
-  const abc = [
-    {
-      _id: "64400e237178e194b25d6e76",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Hadalabo dưỡng",
-      amount: 1000,
-      price: 74000,
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/hadalaboxanh.png?alt=media&token=164c8e07-1c30-41fc-8cce-33f55fcfae1f",
-      ngaysx: "2022-12-12T00:00:00.000Z",
-      hsd: "2025-05-16T00:00:00.000Z",
-      nhasx: "Hadalabo",
-      createdAt: "2023-04-19T15:52:03.782Z",
-      updatedAt: "2023-04-19T16:00:29.907Z",
-      __v: 0,
-    },
-    {
-      _id: "64400f8f6aedd46690c4f260",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Simple",
-      amount: 1000,
-      price: 76000,
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/sua-rua-mat-simple-giup-da-sach-thoang-150ml-1.jpg?alt=media&token=c137d094-65d3-4165-bddd-c0af61210469",
-      ngaysx: "2022-04-05T00:00:00.000Z",
-      hsd: "2024-01-29T00:00:00.000Z",
-      nhasx: "Simple",
-      createdAt: "2023-04-19T15:58:07.779Z",
-      updatedAt: "2023-04-19T15:58:07.779Z",
-      __v: 0,
-    },
-    {
-      _id: "64401676aced66a13f577ba6",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Hadalabo White",
-      amount: 737,
-      price: 68000,
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/hadalaboTrang.png?alt=media&token=2f1d0bac-2e61-418d-b481-722041e2bb7a",
-      ngaysx: "2022-03-09T00:00:00.000Z",
-      hsd: "2024-02-27T00:00:00.000Z",
-      nhasx: "Hadalabo",
-      createdAt: "2023-04-19T16:27:34.728Z",
-      updatedAt: "2023-04-19T16:27:34.728Z",
-      __v: 0,
-    },
-    {
-      _id: "64401757aced66a13f577ba9",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Hadalabo Red",
-      amount: 737,
-      price: 57000,
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/hadalaboRed.jpg?alt=media&token=68fd98c3-3c64-453d-82bd-129b47c8cc88",
-      ngaysx: "2023-02-01T00:00:00.000Z",
-      hsd: "2025-12-20T00:00:00.000Z",
-      nhasx: "Hadalabo",
-      createdAt: "2023-04-19T16:31:19.121Z",
-      updatedAt: "2023-04-19T16:31:19.121Z",
-      __v: 0,
-    },
-    {
-      _id: "6440191baced66a13f577bac",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Cetaphil 500ml",
-      amount: 500,
-      price: 269000,
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/cetaphil500.jpg?alt=media&token=6a4b335f-92ec-4555-a942-7b522d20a98c",
-      ngaysx: "2023-03-25T00:00:00.000Z",
-      hsd: "2025-12-28T00:00:00.000Z",
-      nhasx: "Cetaphil",
-      createdAt: "2023-04-19T16:38:51.250Z",
-      updatedAt: "2023-04-19T16:38:51.250Z",
-      __v: 0,
-    },
-    {
-      _id: "644019eaaced66a13f577baf",
-      category_id: "64400d377178e194b25d6e73",
-      product_name: "Sữa rửa mặt Oxy Deep Wash",
-      amount: 500,
-      price: 80000,
-      description:
-        " sữa rửa mặt Oxy Deep Wash có thành phần chính được làm từ nguyên liệu than tre với cấu trúc tổ ong siêu xốp giúp hấp thu dầu thừa và bụi bẩn sâu tận lỗ chân lông, giúp nam giới kiểm soát nhờn, dầu trong thời gian dài suốt cả ngày. Than vỏ trấu với công nghệ Triporous độc quyền tối ưu hóa khả năng làm sạch nhờ cơ chế hấp thu đa dạng các tạp chất. Ngoài ra, sản phẩm còn được bổ sung thêm vitamin B3 cùng chiết xuát tảo biển giúp tăng cường độ ẩm cho làn da nam giới tút da lại sáng mịn hơn.",
-      image:
-        "https://firebasestorage.googleapis.com/v0/b/btl-ws-n7.appspot.com/o/oxyden.jpg?alt=media&token=405454d7-9395-4741-b687-514b97755d5b",
-      ngaysx: "2023-01-25T00:00:00.000Z",
-      hsd: "2025-08-09T00:00:00.000Z",
-      nhasx: "Oxy",
-      createdAt: "2023-04-19T16:42:18.793Z",
-      updatedAt: "2023-04-19T16:42:18.793Z",
-      __v: 0,
-    },
-  ];
+  const [listProduct, setListProduct] = useState<ProductResponse[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 2;
+  console.log(listProduct.length);
+
+  const pageCount = Math.ceil(listProduct.length / pageSize); // tính số trang cần phân trang
+  const handlePageClick = (pageNumber: { selected: number }) => {
+    setCurrentPage(pageNumber.selected + 1);
+  };
+
+  const displayedProducts = listProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize); // lấy các sản phẩm tương ứng với trang hiện tại
   useEffect(() => {
     getProduct(
       {},
@@ -129,7 +46,7 @@ export const Product = () => {
     <div>
       <div className="mt-32">
         <div className="dark:bg-gray-900 bg-white pb-4">
-          <label className="sr-only" htmlFor="ham">
+          <label className="sr-only" htmlFor="hh">
             Search
           </label>
           <div className="relative mt-1">
@@ -148,30 +65,26 @@ export const Product = () => {
                 ></path>
               </svg>
             </div>
-            <form
-              onSubmit={e => {
-                e.preventDefault();
-                handleSreach((e.currentTarget.firstChild as HTMLInputElement).value);
-              }}
-            >
-              <input
-                type="text"
-                id="table-search"
-                className="text-gray-900 border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm dark:text-white"
-                placeholder="Search for items"
-              />
-            </form>
+            <input
+              type="text"
+              id="table-search"
+              className="text-gray-900 border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm dark:text-white"
+              placeholder="Search for items"
+              onChange={e => handleSreach(e.target.value)}
+            />
           </div>
         </div>
         <div className="flex flex-wrap">
-          {listProduct.map((item, index) => (
+          {displayedProducts.map((item, index) => (
             <div className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md" key={index}>
               <Link to={item._id}>
-                <img className="h-60 rounded-t-lg object-cover" src={item.image ?? ""} alt="" />
+                <img className="h-60 rounded-t-lg object-cover" src={item.image} alt="" />
               </Link>
               <div className="mt-4 px-5 pb-5">
                 <Link to="#">
-                  <h5 className="text-slate-900 text-xl font-semibold tracking-tight">{item.product_name}</h5>
+                  <h5 className="text-slate-900 hitespace-nowrap overflow-hidden text-ellipsis whitespace-nowrap text-xl font-semibold tracking-tight">
+                    {item.product_name}
+                  </h5>
                 </Link>
                 <div className="mb-5 mt-2.5 flex items-center">
                   <span className="mr-2 rounded bg-[#fde047] px-2.5 py-0.5 text-xs font-semibold">5.0</span>
@@ -251,6 +164,21 @@ export const Product = () => {
           ))}
         </div>
       </div>
+      <ReactPaginate
+        pageCount={pageCount}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
+        onPageChange={handlePageClick}
+        // containerClassName={'pagination'}
+        // activeClassName={'active'}
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageClassName={"bg-blue-500 rounded-full py-2 px-4 mx-2 mb-10"}
+        activeClassName={"bg-[gray] text-white"}
+        containerClassName={"flex justify-center mt-4"}
+        previousClassName={"rounded-full py-2 px-4 mx-2"}
+        nextClassName={"rounded-full py-2 px-4 mx-2"}
+      />
     </div>
   );
 };
