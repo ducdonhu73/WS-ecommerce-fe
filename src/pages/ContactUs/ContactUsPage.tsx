@@ -78,7 +78,7 @@ const ContactUsPage = () => {
         <div className="mb-8 w-full tablet:mb-6 tablet:w-[485px]">
           <input
             type="text"
-            placeholder="Enter Rego/Vin"
+            placeholder="Send a message"
             className="w-full max-w-[558px] border border-[rgba(0,0,0,0.23)] bg-white px-3 py-4 font-extrabold text-[rgba(0,0,0,0.6)]"
             onChange={e => setVinId(e.currentTarget.value)}
             value={vinId}

@@ -54,7 +54,7 @@ const HomePage = () => {
               <div className="mb-5 tablet:mb-6">
                 <input
                   type="text"
-                  placeholder="Enter Rego/Vin"
+                  placeholder="Product"
                   className="w-full max-w-[558px] border border-[rgba(0,0,0,0.23)] bg-white px-3 py-4 font-black text-[rgba(0,0,0,0.6)]"
                   onChange={e => setVinId(e.currentTarget.value)}
                   value={vinId}
