@@ -90,7 +90,7 @@ function Cart() {
             <div id="summary" className="w-1/4 px-8 py-10">
               <h1 className="border-b pb-8 text-2xl font-semibold">Order Summary</h1>
               <div className="mb-5 mt-10 flex justify-between">
-                <span className="text-sm font-semibold uppercase">Items 3</span>
+                <span className="text-sm font-semibold uppercase">Items</span>
                 <span className="text-sm font-semibold">{totalPrice}đ</span>
               </div>
               <div>
