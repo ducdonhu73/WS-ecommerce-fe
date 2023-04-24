@@ -85,62 +85,62 @@ export const processList: Item[] = [
 
 export const joinOthersList: JoinOthersItem[] = [
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Evelyn Tran",
+    content: "Maybelline Great Lash Mascara",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Toc Tien",
+    content: "NARS Radiant Creamy Concealer",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by My Linh",
+    content: "MAC Ruby Woo Lipstick",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Ngoc Ha",
+    content: "MAC Ruby Woo Lipstick",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Chau Bui",
+    content: "Urban Decay Palette",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Vu Tram",
+    content: "Anastasia Beverly Hills Dipbrow",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Maria",
+    content: "Estée Lauder Double Wear",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Thao Mai",
+    content: "Clinique Moisturizing Lotion",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Nhu Ngoc",
+    content: "NYX Soft Matte Lip Cream",
     time: "13 hours ago",
     image: joinOthersCar,
   },
   {
-    title: "Sold by Michael",
-    content: "Mitsubishi Eclipse, sold for £15,471.",
+    title: "Purchased by Bao An",
+    content: "Clinique Mascara",
     time: "13 hours ago",
     image: joinOthersCar,
   },
@@ -148,44 +148,44 @@ export const joinOthersList: JoinOthersItem[] = [
 
 export const customerList: CustomerItem[] = [
   {
-    name: "Mason Mount",
+    name: "Stephany Young",
     content:
-      "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
+      "I had an amazing experience at this store! The staff was incredibly helpful and knowledgeable about all the products. They went above and beyond to help me find the perfect shade of foundation and even gave me some great tips on how to apply it.",
     image: customerAvatar,
     rate: 4,
   },
   {
-    name: "Mason Mount",
+    name: "Mason Ngoc",
     content:
-      "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
+      "I had an amazing experience at this store! The staff was incredibly helpful and knowledgeable about all the products. They went above and beyond to help me find the perfect shade of foundation and even gave me some great tips on how to apply it.",
     image: customerAvatar,
     rate: 5,
   },
   {
-    name: "Mason Mount",
+    name: "Nhu Thanh",
     content:
-      "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
+      "My experience at this store was okay. The staff was friendly, but they didn't seem to know much about the products. The store had a limited selection of items, and I had trouble finding what I needed. The prices were also a bit high for the quality of the products.",
     image: customerAvatar,
     rate: 3,
   },
   {
-    name: "Mason Mount",
+    name: "Xuan Dieu",
     content:
       "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
     image: customerAvatar,
     rate: 2,
   },
   {
-    name: "Mason Mount",
+    name: "Evelyn Mount",
     content:
-      "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
+      "I had a great experience at this cosmetic store. The staff was knowledgeable and helped me find the perfect products for my skin type. The store was well-organized and had a good selection of products.",
     image: customerAvatar,
     rate: 4,
   },
   {
-    name: "Mason Mount",
+    name: "Ngoc Bich",
     content:
-      "Lorem ipsum dolor sit amet. Vel voluptas exercitationem est iusto exercitationem ut rerum magnam nam illo culpa eos eaque ipsum ut neque omnis et autem porro.",
+      "The store had a wide variety of high-quality products, and I was able to find everything I was looking for. I highly recommend this store to anyone looking for a great selection of cosmetics and top-notch customer service.",
     image: customerAvatar,
     rate: 5,
   },

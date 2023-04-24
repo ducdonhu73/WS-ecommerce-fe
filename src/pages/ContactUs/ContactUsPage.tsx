@@ -22,10 +22,10 @@ const ContactUsPage = () => {
           <p className="mb-3 text-xl font-semibold text-text-9 tablet:mb-5 laptop:text-2xl">{t("submitQuestion")}</p>
           <p className="text-text-7">
             <Trans t={t} i18nKey="submitQuestionDescription">
-              If you have any questions, or would like to get in touch with us, our team at Gear would be more than
+              If you have any questions, or would like to get in touch with us, our team at Cosmetica would be more than
               happy to help you. Please contact us at
               <a className="text-secondary-4 underline" href="mailto:hello@gear.co.nz">
-                hello@gear.co.nz
+                hello@Cosmetica.co.nz
               </a>
             </Trans>
           </p>
@@ -34,10 +34,9 @@ const ContactUsPage = () => {
           <p className="mb-3 text-xl font-semibold text-text-9 tablet:mb-5 laptop:text-2xl">{t("areCarDealership")}</p>
           <p className="text-text-7">
             <Trans t={t} i18nKey="areCarDealershipDescription">
-              If you’re a New Zealand car dealership interested in accelerating your vehicle stock direct from private
-              car sellers, view our car
-              <a className="text-secondary-4 underline" href="https://gear.teklabs.vn" target="_blank" rel="noreferrer">
-                dealers
+              If you’re a buyer interested in cosmetic stock direct from private sellers, view our products here at our
+              <a className="text-secondary-4 underline" href="https://cosmetica.teklabs.vn" target="_blank" rel="noreferrer">
+                website
               </a>
               site here.
             </Trans>
@@ -63,7 +62,7 @@ const ContactUsPage = () => {
               We would be happy to comment and provide information on vehicle purchasing, industry updates or trends to
               local, nationwide and global news publishers. For press related questions, email
               <a className="text-secondary-4 underline" href="mailto:hello@gear.co.nz">
-                hello@gear.co.nz
+                hello@Cosmetica.co.nz
               </a>
             </Trans>
           </p>
@@ -71,15 +70,15 @@ const ContactUsPage = () => {
       </div>
       <div className="layout-full flex flex-col items-center bg-background-1 px-6 py-10 tablet:py-16 laptop:px-0 laptop:py-32">
         <p className="mb-8 text-center text-2xl font-bold text-secondary-5 tablet:mb-5 tablet:text-[36px] tablet:leading-[48px]">
-          Complete your car sale 100% online within 24 hours at Gear Technologies.
+          Complete your  purchase 100% online within 24 hours at Cosmetica Technologies.
         </p>
         <p className="mb-8 text-lg font-medium tablet:mb-14">
-          Complete your car sale 100% online within 24 hours at Gear{" "}
+        Complete your  purchase 100% online within 24 hours at Cosmetica{" "}
         </p>
         <div className="mb-8 w-full tablet:mb-6 tablet:w-[485px]">
           <input
             type="text"
-            placeholder="Enter Rego/Vin"
+            placeholder="Send a message"
             className="w-full max-w-[558px] border border-[rgba(0,0,0,0.23)] bg-white px-3 py-4 font-extrabold text-[rgba(0,0,0,0.6)]"
             onChange={e => setVinId(e.currentTarget.value)}
             value={vinId}

@@ -30,13 +30,14 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
       </div>
       <SectionPrivacyContent title={""} isTopTitle>
         <span className="mb-3 block laptop:mb-5">
-          This Privacy Policy was last updated on XXXXX. Gear Technologies Ltd (“Gear”, “we” or “us”) is an online used
-          car marketplace. We offer sellers the ability to track the value of their vehicle over time and to sell their
-          vehicle to dealers who bid to compete (“Services”). We offer these Services through this website, gear.co.nz
-          (“Website”).
+        This Privacy Policy was last updated on XXXXX. At Cosmetica, we value your privacy and are committed to protecting your personal information.
+         As a provider of cosmetic products, we collect certain information from you to provide you with the best possible experience.
+          We understand that you entrust us with your personal information, and we take this responsibility seriously.
+           This policy outlines the types of personal information we collect, how we use it, who we share it with, and your rights regarding your personal information.
+            Please read this policy carefully and contact us if you have any questions.
         </span>
         <span className="mb-3 block laptop:mb-5">
-          In order to provide these Services, we require certain information about you and your car. This privacy policy
+          In order to provide these Services, we require certain information about you and your cosmetic. This privacy policy
           sets the types of personal information we collect and process about you, what we use them for, how we use
           them, who we share them with and why. Please read this policy carefully and contact us if you have any
           questions as set out below. If you disagree with any of the ways in which we might use your personal data in
@@ -50,12 +51,12 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
         <ul className="ulWithDotListStyle">
           <li>basic contact information which you provide to us;</li>
           <li>
-            information to enable our Car Buying Partners and/or any third party transport providers to collect and
-            inspect your car;
+            information to enable our Cosmetic Buying Partners and/or any third party transport providers to collect and
+            inspect your Cosmetic;
           </li>
-          <li>your account details and account profile; images, technical, and/or model information of your car;</li>
+          <li>your account details and account profile; images, technical, and/or model information of your Cosmetic;</li>
           <li>
-            photographs or scans of documents relating to the ownership and history of your car; records of how you use
+            photographs or scans of documents relating to the ownership and history of your Cosmetic; records of how you use
             our Services and/or your account;
           </li>
           <li>information we obtain from public sources (such as the NZTA);</li>
@@ -100,9 +101,9 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
         )}
       >
         <SectionPrivacyContent title="Basic contact information you provide to us">
-          If you decide to complete a valuation of your car (even if you don’t end up proceeding with a sale through our
+          If you decide to complete a valuation of your Cosmetic (even if you don’t end up proceeding with a sale through our
           platform), we will collect your name, postcode, email address, telephone number and information about your
-          car(see also ‘General vehicle information’ below). We also will use this information to create an account for
+          Cosmetic(see also ‘General vehicle information’ below). We also will use this information to create an account for
           you so you can come back to your valuation at any time. Your postcode will be used to generate an approximate
           location for you to enable us and our buying partners to estimate costs of collection.
         </SectionPrivacyContent>
@@ -111,32 +112,20 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           which forms part of your account, such as other vehicles you own, and other services you may be interested in.
         </SectionPrivacyContent>
         <SectionPrivacyContent title="General vehicle information">
-          Whether you are planning on selling your car through our platform or are merely looking to track the value of
-          your car through our valuation tracker, we will ask for certain information about your car. This may include
-          but is not limited to images of the car, the make, model, age, mileage, technical vehicle information, vehicle
-          registration number, and/or vehicle identifier number (usually found on the driver’s side door).
-        </SectionPrivacyContent>
-        <SectionPrivacyContent title="Sale documentation">
-          If you choose to sell your car through the Gear platform, we will use our document capture feature to collect
-          further information relating to your car, including photographs or scans of the following documents:
-          Certificate of registration, driving licence, proof of purchase invoice, and finance settlement letters. As
-          part of our fraud prevention efforts, we may also ask you to provide photographs or scans of the following
-          through our document capture feature: death certificate (if you are selling on behalf of a registered keeper
-          who is deceased), signed letter of consent from the registered keeper, driving licence of registered keeper,
-          and/or proof of address. The above documents may include the following categories of personal information:
-          name, address, date of birth, signature, photograph, and bank or credit card information.
+          Whether you are planning on selling your Cosmetic through our platform or are merely looking to track the value of
+          your Cosmetic through our valuation tracker, we will ask for certain information about your Cosmetic.
         </SectionPrivacyContent>
         <SectionPrivacyContent title="Your bank account details">
-          Once a sale is complete, we or the Car Buying Partner will transfer sale proceeds to you using your name,
+          Once a sale is complete, we or the Cosmetic Buying Partner will transfer sale proceeds to you using your name,
           account number and sort code which we will acquire from you using our document capture feature.
         </SectionPrivacyContent>
         <SectionPrivacyContent title="Records of how you use our Services">
           This may include details of your use of our website (captured through cookies and similar tracking
-          technologies), your car’s make, model and mileage, its valuations over time and, if you complete a sale
+          technologies), your Cosmetic make, model and mileage, its valuations over time and, if you complete a sale
           through our platform, a record of that sale.
         </SectionPrivacyContent>
         <SectionPrivacyContent title="Information we obtain from public sources">
-          We obtain information about your car and its ownership from the NZTA, such as WOF records.
+          We obtain information about your Cosmetic and its ownership from the NZTA, such as WOF records.
         </SectionPrivacyContent>
         <SectionPrivacyContent title="Records of communications you have with us">
           If you contact us with a question or query, or to provide us with feedback, we will keep a record of your
@@ -168,15 +157,8 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
       <SectionPrivacyContent title="How we use your personal information">
         <span>We use personal information about you for various purposes connected with our Services, including:</span>
         <ul className="ulWithDotListStyle">
-          <li>
-            to facilitate your use of our Services, which includes sharing your information, including your approximate
-            location, with: (i) our network of preferred car buying partners engaging through the Motorway auction
-            platform (“Dealer Partners”), and (ii) our preferred partners who provide car valuation and buying services
-            outside of the Motorway auction platform (“Online Car Buyers” and, together with Dealer Partners, “Car
-            Buying Partners”) to provide you with valuations and to connect you with them, and to create and manage your
-            account with us;
-          </li>
-          <li>to provide you with up-to-date valuations of your car;</li>
+
+          <li>to provide you with up-to-date valuations of your Cosmetic;</li>
           <li>for internal management, administrative and organisational reasons;</li>
           <li>
             to share information with our suppliers and other third parties in order to provide you with the Services
@@ -241,37 +223,26 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           <div className="mb-6 flex gap-12 tablet:mb-10 tablet:gap-16 laptop:mb-14 laptop:gap-28">
             <div className="flex w-[50%]">
               <SectionPrivacyContent title="To facilitate your use of our Services and to create and manage your account">
-                <span className="font-medium text-text-9">
-                  In order to provide you with the Services you have requested, we need to collect your information and,
-                  where you enquire about selling your car with us, we will share it with our Car Buying Partners in
-                  order to: confirm the identity of the registered owner of the relevant car; confirm details relating
-                  to your car (or the car for which you are using our services), including with respect to ownership;
-                  provide you with up-to-date valuations for your car, based on our latest valuation data; provide you
-                  with valuations from different Car Buying Partners who may be interested in purchasing your car (where
-                  you have agreed to put it up for sale through our platform);connect you with Car Buying Partners who
-                  are interested in purchasing your car, whether this is a preferred Car Buying Partner we choose as the
-                  most relevant for you, or a Car Buying Partner you have selected; and to create and manage your
-                  account so you can easily access your valuations.
-                </span>
+
               </SectionPrivacyContent>
             </div>
             <div className="flex w-[50%] flex-col gap-14">
               <div>
                 <SectionPrivacyContent title="Method of collection">
                   <span className="font-medium text-text-9">
-                    This information will be provided by you directly when you either (i) first complete a car valuation
+                    This information will be provided by you directly when you either (i) first complete a Cosmetic valuation
                     request, (ii) subscribe to our valuation tracker tool, (iii) set up an account with us, (iv) and
                     then during the course of using our Services. Some of this information will be collected via our
-                    valuation app (in the form of basic information and photos of your car), and via our document
+                    valuation app (in the form of basic information and photos of your Cosmetic), and via our document
                     capture feature, through which you will provide photographs or scans of documents relating to you
-                    and the car for which you are using our Services.
+                    and the Cosmetic for which you are using our Services.
                   </span>
                 </SectionPrivacyContent>
                 <SectionPrivacyContent title="Legal basis">
                   <span className="font-medium text-text-9">
                     We use this information because it is necessary for us to do so in order to provide the Services
                     which you have requested. In all other cases, it is in our legitimate business interest to provide
-                    efficient Services and to verify details relating to the cars being sold via our Services.
+                    efficient Services and to verify details relating to the Cosmetic being sold via our Services.
                   </span>
                 </SectionPrivacyContent>
               </div>
@@ -279,12 +250,12 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           </div>
           <div className="mb-6 flex gap-12 tablet:mb-10 tablet:gap-16 laptop:mb-14 laptop:gap-28">
             <SectionPrivacyContent
-              title="To confirm your authority to sell your car and to prevent fraud"
+              title="To confirm your authority to sell your Cosmetic and to prevent fraud"
               className="w-[50%]"
             >
               <span className="font-medium text-text-9">
                 In some cases, we will use the photographs or scans of documents which you submit to us to ascertain
-                your right to sell a given car, and to prevent fraud.
+                your right to sell a given Cosmetic, and to prevent fraud.
               </span>
             </SectionPrivacyContent>
             <div className="w-[50%]">
@@ -295,7 +266,7 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
               </SectionPrivacyContent>
               <SectionPrivacyContent title="Legal basis">
                 <span className="font-medium text-text-9">
-                  It is in our legitimate business interest to ensure sellers have the right to sell their cars via our
+                  It is in our legitimate business interest to ensure sellers have the right to sell their Cosmetic via our
                   Services, and to prevent fraudulent activity on our platform.
                 </span>
               </SectionPrivacyContent>
@@ -304,9 +275,9 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           <div className="mb-6 flex gap-12 tablet:mb-10 tablet:gap-16 laptop:mb-14 laptop:gap-28">
             <SectionPrivacyContent title="To facilitate payment to you" className="w-[50%]">
               <span className="font-medium text-text-9">
-                We will collect and share your bank account details with either the relevant Car Buying Partner or our
+                We will collect and share your bank account details with either the relevant Cosmetic Buying Partner or our
                 third party payments provider, in order to facilitate payment to you of the proceeds of the sale of your
-                car.
+                Cosmetic.
               </span>
             </SectionPrivacyContent>
             <div className="w-[50%]">
@@ -319,7 +290,7 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
               <SectionPrivacyContent title="Legal basis">
                 <span className="font-medium text-text-9">
                   This information is necessary for us to perform the contract we have with you where you have sold your
-                  car to a Car Buying Partner through our platform.
+                  Cosmetic to a Cosmetic Buying Partner through our platform.
                 </span>
               </SectionPrivacyContent>
             </div>
@@ -327,16 +298,16 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           <div className="mb-6 flex gap-12 tablet:mb-10 tablet:gap-16 laptop:mb-14 laptop:gap-28">
             <SectionPrivacyContent title="To communicate with you" className="w-[50%]">
               <span className="font-medium text-text-9">
-                We will provide confirmation of Car Buying Partners’ offers by email and text message after you complete
-                a valuation. We will remind you about your offers from Car Buying Partners for a set period following a
-                valuation, if you haven’t sold your car through our platform (note that offers expire after 7 days so
-                you will need to re-value your car to receive up-to-date offers).If you haven’t sold your car through
-                our platform, we will sometimes remind you to re-value your car, if we consider there to be preferential
-                offers or times to sell your car. If you have signed up for our valuation tracker, we will provide you
-                with regular updates as to the value of your car, including when might be a great time to sell. We will
+                We will provide confirmation of Cosmetic Buying Partners’ offers by email and text message after you complete
+                a valuation. We will remind you about your offers from Cosmetic Buying Partners for a set period following a
+                valuation, if you haven’t sold your Cosmetic through our platform (note that offers expire after 7 days so
+                you will need to re-value your Cosmetic to receive up-to-date offers).If you haven’t sold your Cosmetic through
+                our platform, we will sometimes remind you to re-value your Cosmetic, if we consider there to be preferential
+                offers or times to sell your Cosmetic. If you have signed up for our valuation tracker, we will provide you
+                with regular updates as to the value of your Cosmetic, including when might be a great time to sell. We will
                 provide you with customer support and answers and/or respond to any queries or feedback that you send to
                 us. To assist you with any technical problems you have with the Services or Website. To collect reviews
-                of our Services and those of our Car Buying Partners in order to improve our business. To update you
+                of our Services and those of our Cosmetic Buying Partners in order to improve our business. To update you
                 with any changes to our terms and conditions / other policies.
               </span>
             </SectionPrivacyContent>
@@ -360,16 +331,16 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
               className="w-[50%]"
             >
               <span className="font-medium text-text-9">
-                We will provide confirmation of Car Buying Partners’ offers by email and text message after you complete
-                a valuation. We will remind you about your offers from Car Buying Partners for a set period following a
-                valuation, if you haven’t sold your car through our platform (note that offers expire after 7 days so
-                you will need to re-value your car to receive up-to-date offers).If you haven’t sold your car through
-                our platform, we will sometimes remind you to re-value your car, if we consider there to be preferential
-                offers or times to sell your car. If you have signed up for our valuation tracker, we will provide you
-                with regular updates as to the value of your car, including when might be a great time to sell. We will
+                We will provide confirmation of Cosmetic Buying Partners’ offers by email and text message after you complete
+                a valuation. We will remind you about your offers from Cosmetic Buying Partners for a set period following a
+                valuation, if you haven’t sold your Cosmetic through our platform (note that offers expire after 7 days so
+                you will need to re-value your Cosmetic to receive up-to-date offers).If you haven’t sold your Cosmetic through
+                our platform, we will sometimes remind you to re-value your Cosmetic, if we consider there to be preferential
+                offers or times to sell your Cosmetic. If you have signed up for our valuation tracker, we will provide you
+                with regular updates as to the value of your Cosmetic, including when might be a great time to sell. We will
                 provide you with customer support and answers and/or respond to any queries or feedback that you send to
                 us. To assist you with any technical problems you have with the Services or Website. To collect reviews
-                of our Services and those of our Car Buying Partners in order to improve our business. To update you
+                of our Services and those of our Cosmetic Buying Partners in order to improve our business. To update you
                 with any changes to our terms and conditions / other policies.
               </span>
             </SectionPrivacyContent>
@@ -414,14 +385,14 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           <div className="flex gap-12 tablet:gap-16 laptop:gap-28">
             <SectionPrivacyContent title="To improve and develop our Services and Website" className="w-[50%]">
               <span className="font-medium text-text-9">
-                We conduct data analytics and benchmarking in order to understand, for example, the best performing Car
-                Buying Partners and the most relevant Car Buying Partner for given vehicles and customer types. This
+                We conduct data analytics and benchmarking in order to understand, for example, the best performing Cosmetic
+                Buying Partners and the most relevant Cosmetic Buying Partner for given vehicles and customer types. This
                 enables us to improve our Services and offer the best and most relevant offers to you and our other
                 customers. We conduct data analytics and benchmarking to understand how our Website and Services are
                 used; for example, which pages are visited and which elements of the page are interacted with. This
                 enables us to improve our Website and Services. We conduct data analytics on the vehicle data we
                 collect, for example to understand the most popular makes, models or fuel types of vehicle and their
-                values. This enables us to release information into the public domain about trends and changes in car
+                values. This enables us to release information into the public domain about trends and changes in Cosmetic
                 ownership.
               </span>
             </SectionPrivacyContent>
@@ -448,7 +419,7 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
       <SectionPrivacyContent title="Who do we share your information with and for what purposes?">
         <span>We may share your personal information with:</span>
         <ul className="ulWithDotListStyle">
-          <li>our Car Buying Partners;</li>
+          <li>our Cosmetic Buying Partners;</li>
           <li>
             service providers, such as data storage providers, content and data providers and customer management and
             support providers.
@@ -477,32 +448,32 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           showMoreContent["purposes"] && "visible max-h-[9999px] opacity-100",
         )}
       >
-        <SectionPrivacyContent title="Our Car Buying Partners">
+        <SectionPrivacyContent title="Our Cosmetic Buying Partners">
           <p>
-            When you request a car valuation, we share information about your vehicle (such as its registration number,
-            make, model and mileage) together with your postal code with our Car Buying Partners in order to provide you
-            with a valuation. This valuation is valid for 7 days. If you select a valuation offer provided by a Car
+            When you request a Cosmetic valuation, we share information about your vehicle (such as its registration number,
+            make, model and mileage) together with your postal code with our Cosmetic Buying Partners in order to provide you
+            with a valuation. This valuation is valid for 7 days. If you select a valuation offer provided by a Cosmetic
             Buying Partner, we will also share your name, email address and telephone number to enable them to contact
-            you about your car, so that you can proceed with your sale should you wish to do so. Further, if the
-            selected Car Buying Partner is a Dealer Partner, we will also share with them the information we collect via
+            you about your Cosmetic, so that you can proceed with your sale should you wish to do so. Further, if the
+            selected Cosmetic Buying Partner is a Dealer Partner, we will also share with them the information we collect via
             the document capture feature (see ‘Sales Documentation’ and ‘Your bank account details’ in ‘Information we
-            process about you’ above), in order to facilitate your sale to them. If the selected Car Buying Partner is
-            an Online Car Buyer, they will inform you of any further information required from you in order for them to
+            process about you’ above), in order to facilitate your sale to them. If the selected Cosmetic Buying Partner is
+            an Online Cosmetic Buyer, they will inform you of any further information required from you in order for them to
             progress the sale.
           </p>
           <p>
-            We also will share your information with our Car Buying Partners for analysis, reporting, billing and
-            debugging purposes. If you proceed with the sale of your car, we will receive certain information about your
-            transaction from the relevant Car Buying Partner, such as the date of your car sale and the final price you
+            We also will share your information with our Cosmetic Buying Partners for analysis, reporting, billing and
+            debugging purposes. If you proceed with the sale of your Cosmetic, we will receive certain information about your
+            transaction from the relevant Cosmetic Buying Partner, such as the date of your Cosmetic sale and the final price you
             were paid, for billing and reporting purposes.
           </p>
           <p>
-            We work with several Car Buying Partners. Each of these partners is a controller for any personal
-            information we share with them. We recommend that you refer to the relevant Car Buying Partner’s Privacy
+            We work with several Cosmetic Buying Partners. Each of these partners is a controller for any personal
+            information we share with them. We recommend that you refer to the relevant Cosmetic Buying Partner’s Privacy
             Policy for more information on how your information will be handled by them.
           </p>
           <p>
-            If you would like to receive a current list of our Car Buying Partners then you can get in touch with us
+            If you would like to receive a current list of our Cosmetic Buying Partners then you can get in touch with us
             using the details provided in the section <strong>‘Contact Information’</strong>, below.
           </p>
         </SectionPrivacyContent>
@@ -518,21 +489,21 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
             </li>
             <li>
               Content and data providers: Such providers assist us to, for example, verify your email address and
-              telephone number, use your town / city to calculate routes between you and our Car Buying Partners, obtain
+              telephone number, use your town / city to calculate routes between you and our Cosmetic Buying Partners, obtain
               your WOF records, and use your postcode to geocode your approximate location.
             </li>
             <li>
               Customer management and support providers: Such providers may support you with the sales process for your
-              car, over the phone. They may also deliver personalised email or SMS reminders to you in relation to your
-              car valuation, and collect customer reviews of our Services.
+              Cosmetic, over the phone. They may also deliver personalised email or SMS reminders to you in relation to your
+              Cosmetic valuation, and collect customer reviews of our Services.
             </li>
             <li>
-              Transport providers: Such providers may be engaged by us and/or our Car Buying Partners to carry out the
-              collection and transport of your car. In order to provide the transportation services, they will receive
+              Transport providers: Such providers may be engaged by us and/or our Cosmetic Buying Partners to carry out the
+              collection and transport of your Cosmetic. In order to provide the transportation services, they will receive
               your address, your contact details, details of the condition and appraisal of your vehicle, photographs of
               your vehicle, and scans of any vehicle-related documents.
             </li>
-            <li> Payment providers: Such providers ensure you receive the proceeds from the sale of your car.</li>
+            <li> Payment providers: Such providers ensure you receive the proceeds from the sale of your Cosmetic.</li>
           </ul>
           <div>
             If you would like to receive a full list of our suppliers and other third parties who we share your
@@ -559,12 +530,12 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
         </SectionPrivacyContent>
         <SectionPrivacyContent title="Storage of your personal information">
           <p>
-            Information about you may be transferred outside New Zealand to a country, territory or international
-            organisation that may not have New Zealand equivalent data protection standards.
+            Information about you may be transferred outside  Viet Nam to a country, territory or international
+            organisation that may not have Viet Nam equivalent data protection standards.
           </p>
           <p>
             This may be when we transfer your personal information to our trusted third party service providers (for the
-            purposes described above) outside of New Zealand.
+            purposes described above) outside of Viet Nam.
           </p>
           <p>
             In such cases, we will ensure that your personal information is protected by implementing appropriate
@@ -602,7 +573,7 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
           <li>the right to opt out from our using it for direct marketing;</li>
           <li>
             the right to lodge a complaint with the Privacy Commissioner’s Office, which is responsible for upholding
-            your data protection rights in New Zealand.
+            your data protection rights in  Viet Nam.
           </li>
         </ul>
         <div>
@@ -647,7 +618,7 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
               <span className="font-medium text-text-9">
                 This is included in this privacy policy. In particular: our name and contact details; the purposes of
                 our processing; the categories of personal information which we process and why; the categories of
-                persons with whom we share the information and, where any person is outside New Zealand, the appropriate
+                persons with whom we share the information and, where any person is outside  Viet Nam, the appropriate
                 safeguards for protecting the information; the sources of personal information, where we do not collect
                 it from you; and the criteria for determining the period for which we will store the information.
               </span>
@@ -728,9 +699,9 @@ const Privacy = ({ selectedSupport, showMoreContent, setShowMoreContent, setActi
         </div>
       </div>
       <SectionPrivacyContent title="Contact information">
-        For the purpose of New Zealand data protection laws, the controller of your personal information when you use
-        our Website and/or Services is Gear Technologies Ltd (Company Number 8140473 or NZBN 9429048794084). If you have
-        any questions, or wish to exercise your rights, please contact us at any time on privacy@gear.co.nz.
+        For the purpose of  Viet Nam data protection laws, the controller of your personal information when you use
+        our Website and/or Services is Cosmetica Technologies Ltd (Company Number 8140473 or NZBN 9429048794084). If you have
+        any questions, or wish to exercise your rights, please contact us at any time on privacy@Cosmetica.co.nz.
       </SectionPrivacyContent>
     </div>
   );
