@@ -18,7 +18,7 @@ export interface ProductResponse {
   hsd: Date;
   ngaysx: Date;
   updatedAt: Date;
-  createdAt: Date;
+  createdAt?: Date;
 }
 
 export interface GetProductByIdRequest {

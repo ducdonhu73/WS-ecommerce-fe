@@ -20,3 +20,12 @@ export interface CartResponse {
   product: ProductResponse;
   quantity: number;
 }
+
+export interface Order {
+  product: ProductResponse;
+  quantity: number;
+}
+
+export interface OrderRequest {
+  order: Order[];
+}

@@ -3,44 +3,35 @@ import { HttpClient } from "../configs/httpClient";
 import { ApiResponse } from "../configs/types/apiResponse";
 import { HttpMethod } from "../configs/types/httpMethod";
 import { UrlRequestBuilder } from "../configs/urlRequestConfig";
-import { AddToCart, CartResponse, OrderRequest, RemoveFromCart } from "./cart.model";
+import { OrderRequest, OrderResponse } from "./order.model";
 
-export class CartApi {
+export class OrderApi {
   private client: HttpClient;
 
   constructor(client: HttpClient) {
     this.client = client;
   }
 
-  async getAllCart(): Promise<ApiResponse<CartResponse[]>> {
+  async getAllOrder(): Promise<ApiResponse<OrderResponse[]>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "carts",
+      path: "orders",
       method: HttpMethod.GET,
     });
     return await this.client.request(request);
   }
 
-  async addToCart(body: AddToCart): Promise<ApiResponse<void>> {
+  async acceptOrder(body: OrderRequest): Promise<ApiResponse<void>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "carts/add-to-cart",
+      path: "orders/aprrove",
       method: HttpMethod.POST,
       body,
     });
     return await this.client.request(request);
   }
 
-  async removeFromCart(body: RemoveFromCart): Promise<ApiResponse<void>> {
+  async rejectOrder(body: OrderRequest): Promise<ApiResponse<void>> {
     const request = UrlRequestBuilder.defaultRequest({
-      path: "carts/remove",
-      method: HttpMethod.DELETE,
-      body,
-    });
-    return await this.client.request(request);
-  }
-
-  async order(body: OrderRequest): Promise<ApiResponse<void>> {
-    const request = UrlRequestBuilder.defaultRequest({
-      path: "payment",
+      path: "orders/reject",
       method: HttpMethod.POST,
       body,
     });
@@ -48,5 +39,5 @@ export class CartApi {
   }
 }
 
-const cartApi = new CartApi(axiosClient);
-export default cartApi;
+const orderApi = new OrderApi(axiosClient);
+export default orderApi;

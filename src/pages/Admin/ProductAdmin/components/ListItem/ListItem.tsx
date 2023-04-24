@@ -1,6 +1,5 @@
 import { ProductResponse } from "apis/products/product.model";
 import { DateFormat } from "constants/dateFormat";
-import { set } from "date-fns";
 import format from "date-fns/format";
 import { useDeleteProduct } from "queries/productQueries";
 import { useState } from "react";
@@ -43,21 +42,26 @@ function ListItem({ product }: ItemProps) {
           <div className="">
             <img className="h-[100px] max-w-[150px]" src={product?.image} alt="sss" />
           </div>
-          <div className="flex items-center laptop:flex-col laptop:items-start laptop:gap-y-6">
+          <div className="flex items-center laptop:flex-col laptop:items-start laptop:gap-y-2">
             <p className="text-base font-medium text-text-8 laptop:text-lg laptop:leading-6 ">
               {product?.product_name}
             </p>
-            <span className="hidden font-semibold laptop:block laptop:text-2xl laptop:leading-7">{product?.price}</span>
+            <span className="hidden laptop:block laptop:text-xl laptop:leading-7">Amount: {product?.amount}</span>
+            <span className="hidden font-semibold laptop:block laptop:text-2xl laptop:leading-7">
+              {product?.price}đ
+            </span>
           </div>
           <div className="ml-0 mt-3 flex flex-col justify-between laptop:ml-2 laptop:mt-0 laptop:items-end">
             <div className="flex justify-between laptop:justify-start">
               <p className="mr-2 text-base font-normal leading-6 text-text-6">Valid until</p>
               <p className="text-base font-bold text-text-8">
-                {status === "expired" ? "Expired" : format(new Date(), DateFormat.DATE_WITH_TEXT_MONTH)}
+                {status === "expired"
+                  ? "Expired"
+                  : format(new Date(product?.createdAt ?? "2022"), DateFormat.DATE_WITH_TEXT_MONTH)}
               </p>
             </div>
             <div className="mt-3 flex items-center justify-between">
-              <span className="text-2xl font-semibold laptop:hidden laptop:leading-7">{product?.price}</span>
+              <span className="text-2xl font-semibold laptop:hidden laptop:leading-7">{product?.price}đ</span>
               <div
                 className="mr-5 font-medium leading-6 text-[var(--color-primary)] laptop:text-base"
                 onClick={() => _delete(product._id)}

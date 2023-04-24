@@ -77,6 +77,11 @@ const routes = createBrowserRouter([
                 index: true,
                 element: <Profile />,
               },
+              {
+                index: true,
+                path: "history",
+                element: <HistoryAdmin />,
+              },
             ],
           },
         ],
@@ -108,7 +113,7 @@ const routes = createBrowserRouter([
         element: <ProductDetailAdmin />,
       },
       {
-        path: "history",
+        path: "statistic",
         element: <HistoryAdmin />,
       },
       {

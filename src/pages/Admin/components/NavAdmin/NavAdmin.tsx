@@ -8,8 +8,8 @@ export const listNav = [
     href: "product",
   },
   {
-    title: "History",
-    href: "history",
+    title: "Statistic",
+    href: "statistic",
   },
   {
     title: "Order",
