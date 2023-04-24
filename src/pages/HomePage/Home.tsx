@@ -8,6 +8,8 @@ import {
   carSellingPlatform,
   customerAvatar,
   whyGear,
+  anhbia,
+  cetaphil
 } from "assets/images";
 import { Modal, PrimaryButton } from "components";
 import { maxStarRate } from "components/constants/common";
@@ -46,7 +48,7 @@ const HomePage = () => {
             <div className="laptop:max-w-[482px]">
               <div className="mb-5 tablet:mb-8 laptop:mb-16">
                 <div className="mb-5 border-l-8 border-primary pl-3 text-3xl font-bold tablet:mb-8 laptop:mb-10 laptop:text-5xl laptop:font-black">
-                  <div>{t("title1")}</div>
+                  {/* <div>{t("title1")}</div> */}
                   <div>{t("title2")}</div>
                 </div>
                 <p className="text-lg font-medium text-[#141C1E]">{t("description")}</p>
@@ -68,7 +70,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="mb-10 scale-[0.9] tablet:mb-0 tablet:scale-[0.8] laptop:scale-100 desktop:-mr-32">
-              <img src={carBanner} alt="" />
+              <img src={cetaphil} alt="" />
             </div>
           </div>
         </LayoutFull>
