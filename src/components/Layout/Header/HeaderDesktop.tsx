@@ -137,7 +137,7 @@ function HeaderDesktop({ admin = false }: Props) {
         <div className="relative flex">
           <div className="mr-1 translate-y-2">
             <div onClick={() => setDisplayCart(pre => !pre)}>
-              <img className="h-8" src={IconCart} alt="" />
+              {!admin && <img className="h-8" src={IconCart} alt="" />}
             </div>
             <div
               onClick={() => {

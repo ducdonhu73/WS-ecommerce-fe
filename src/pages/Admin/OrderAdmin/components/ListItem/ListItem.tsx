@@ -7,35 +7,38 @@ import { toast } from "react-toastify";
 
 interface ItemProps {
   order: OrderResponse;
+  callback: (o: OrderResponse) => void;
 }
 
-function ListItem({ order }: ItemProps) {
+function ListItem({ order, callback }: ItemProps) {
   const [display, setDisplay] = useState(true);
   const { mutate: acceptOrder } = useAcceptOrder();
   const { mutate: rejectOrder } = useRejectOrder();
 
   const handldAccept = () => {
+    callback(order);
     acceptOrder(
       { orderId: order._id },
       {
         onSuccess: () => {
-          toast("accept success");
+          toast.success("accept success");
           setDisplay(false);
         },
-        onError: () => toast("fail"),
+        onError: () => toast.error("fail"),
       },
     );
   };
 
   const handleReject = () => {
+    callback(order);
     rejectOrder(
       { orderId: order._id },
       {
         onSuccess: () => {
-          toast("reject success");
+          toast.success("reject success");
           setDisplay(false);
         },
-        onError: () => toast("fail"),
+        onError: () => toast.error("fail"),
       },
     );
   };
@@ -66,7 +69,7 @@ function ListItem({ order }: ItemProps) {
               </span>
             </div>
           </div>
-          <div className="ml-4 flex flex-col">
+          <div className="ml-4 mt-2 flex flex-col">
             <span className="mr-10 text-xl font-semibold">
               Buyer: <br />
               {order.user.lastName + " " + order.user.firstName}
@@ -76,7 +79,7 @@ function ListItem({ order }: ItemProps) {
           <div className="absolute bottom-6 right-5">
             <span className="text-base font-normal leading-6 text-text-6">Date order: </span>
             <span className="text-base font-bold text-text-8">
-              {format(new Date(order.createdAt), DateFormat.DATE_WITH_TEXT_MONTH)}
+              {format(new Date(order.createdAt), DateFormat.DATE_WITH_TIME)}
             </span>
             <div className="absolute right-5 top-[-50px] flex">
               <div

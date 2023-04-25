@@ -5,18 +5,34 @@ import FilterButton from "./components/FilterButton/FilterButton";
 import { createdAtOptionBtn, filterOfferBtn } from "./data";
 import { OrderResponse } from "apis/orders/order.model";
 import ListItem from "./components/ListItem/ListItem";
+import ReactPaginate from "react-paginate";
 
 const OrderAdmin = () => {
   const { mutate: getOrders } = useOrder();
-  const [listOrder, setListOrder] = useState<OrderResponse[]>([]);
+  const [displayedOrder, setListDisplay] = useState<OrderResponse[]>([]);
+  const [list, setList] = useState<OrderResponse[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 5;
+
+  const pageCount = Math.ceil(displayedOrder.length / pageSize); // tính số trang cần phân trang
+  const handlePageClick = (pageNumber: { selected: number }) => {
+    setCurrentPage(pageNumber.selected + 1);
+  };
+
   useEffect(() => {
     getOrders(undefined, {
       onSuccess: data => {
-        setListOrder(data);
+        setList(data);
+        setListDisplay(data.slice((currentPage - 1) * pageSize, currentPage * pageSize));
       },
       onError: () => toast("fail"),
     });
   }, []);
+
+  const callback = (o: OrderResponse) => {
+    setList(pre => pre.filter(p => p._id !== o._id));
+    setListDisplay(list.filter(p => p._id !== o._id).slice((currentPage - 1) * pageSize, currentPage * pageSize));
+  };
 
   return (
     <div>
@@ -42,15 +58,29 @@ const OrderAdmin = () => {
       </div>
       {/* list offer */}
       <div>
-        {listOrder.map((item, index) => {
+        {displayedOrder.map((item, index) => {
           return (
             <div key={index}>
-              <ListItem order={item} />
+              <ListItem order={item} callback={callback} />
             </div>
           );
         })}
       </div>
-      {/* <PrimaryButton text="Add product" onClick={() => navigate("add")} className="mb-16" /> */}
+      <ReactPaginate
+        pageCount={pageCount}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
+        onPageChange={handlePageClick}
+        // containerClassName={'pagination'}
+        // activeClassName={'active'}
+        previousLabel={"Previous"}
+        nextLabel={"Next"}
+        pageClassName={"bg-blue-500 rounded-full py-2 px-4 mx-2 mb-10"}
+        activeClassName={"bg-[gray] text-white"}
+        containerClassName={"flex justify-center mt-4"}
+        previousClassName={"rounded-full py-2 px-4 mx-2"}
+        nextClassName={"rounded-full py-2 px-4 mx-2"}
+      />
     </div>
   );
 };

@@ -22,6 +22,8 @@ import Test from "pages/test";
 import Cart from "pages/Cart";
 import History from "pages/History/History";
 import PaymentSuccess from "pages/PaymentSuccess/NotFoundPage";
+import Category from "pages/Admin/Category/Category";
+import CategoryDetail from "pages/Admin/CategoryDetail/CategoryDetail";
 
 const routes = createBrowserRouter([
   {
@@ -117,6 +119,14 @@ const routes = createBrowserRouter([
       {
         path: "product/:id",
         element: <ProductDetailAdmin />,
+      },
+      {
+        path: "category",
+        element: <Category />,
+      },
+      {
+        path: "category/:id",
+        element: <CategoryDetail />,
       },
       {
         path: "statistic",

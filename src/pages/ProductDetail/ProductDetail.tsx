@@ -6,11 +6,13 @@ import { ProductResponse } from "apis/products/product.model";
 import { Link } from "react-router-dom";
 import { useAddToCart } from "queries/cartQueries";
 import { toast } from "react-toastify";
+import { TextTitle } from "components";
 const ProductDetail = () => {
   const { id } = useParams();
   const { mutate: getProduct } = useProductId();
   const [product, setProduct] = useState<ProductResponse>();
   const { mutate: addCart } = useAddToCart();
+  const [quantity, setQuantity] = useState(1);
   useEffect(() => {
     if (id) {
       getProduct(
@@ -22,17 +24,16 @@ const ProductDetail = () => {
         },
       );
     }
-    // setProduct(bcd)
   }, [id]);
   const addToCart = () => {
     if (id)
       addCart(
-        { p_id: id, quantity: 1 },
+        { p_id: id, quantity },
         {
           onSuccess: () => {
-            toast("product has been added to cart");
+            toast.success("product has been added to cart");
           },
-          onError: () => toast("fail"),
+          onError: () => toast.error("fail"),
         },
       );
   };
@@ -184,7 +185,7 @@ const ProductDetail = () => {
                 <p className="text-gray-500 ml-2 text-sm font-medium">1,209 Reviews</p>
               </div>
 
-              <h2 className="text-gray-900 mt-8 text-base">Coffee Type</h2>
+              <h2 className="text-gray-900 mt-8 text-base">Type</h2>
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
                 <label className="">
                   <input type="radio" name="type" value="Powder" className="peer sr-only" checked />
@@ -205,34 +206,10 @@ const ProductDetail = () => {
                   </p>
                 </label>
               </div>
-
-              <h2 className="text-gray-900 mt-8 text-base">Choose subscription</h2>
-              <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-                <label className="">
-                  <input type="radio" name="subscription" value="4 Months" className="peer sr-only" />
-                  <p className="rounded-lg border border-black px-6 py-2 font-bold peer-checked:bg-black peer-checked:text-white">
-                    4 Months
-                  </p>
-                  <span className="mt-1 block text-center text-xs">$80/mo</span>
-                </label>
-                <label className="">
-                  <input type="radio" name="subscription" value="8 Months" className="peer sr-only" checked />
-                  <p className="rounded-lg border border-black px-6 py-2 font-bold peer-checked:bg-black peer-checked:text-white">
-                    8 Months
-                  </p>
-                  <span className="mt-1 block text-center text-xs">$60/mo</span>
-                </label>
-                <label className="">
-                  <input type="radio" name="subscription" value="12 Months" className="peer sr-only" />
-                  <p className="rounded-lg border border-black px-6 py-2 font-bold peer-checked:bg-black peer-checked:text-white">
-                    12 Months
-                  </p>
-                  <span className="mt-1 block text-center text-xs">$40/mo</span>
-                </label>
-              </div>
+              <TextTitle className="my-6" variant="subtitle2" text={"Amount: " + product?.amount ?? 0} />
 
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
-                <div className="h-[30px] w-[30px]">
+                <div className="h-[30px] w-[30px]" onClick={() => setQuantity(pre => (pre > 1 ? --pre : pre))}>
                   <div className="h-full flex-1">
                     <div className="border-gray-400 flex h-full flex-1 items-center justify-center rounded-full border p-2">
                       <div className="relative">
@@ -245,9 +222,12 @@ const ProductDetail = () => {
                   </div>
                 </div>
                 <div className="mx-3 w-[80px] rounded bg-[#000] py-2 text-center text-[16px] font-medium text-[#fff]">
-                  10
+                  {quantity}
                 </div>
-                <div className="h-[30px] w-[30px]">
+                <div
+                  className="h-[30px] w-[30px]"
+                  onClick={() => setQuantity(pre => (pre < (product?.amount ?? 10) ? ++pre : pre))}
+                >
                   <div className="h-full flex-1">
                     <div className="border-gray-400 flex h-full flex-1 items-center justify-center rounded-full border p-2">
                       <div className="relative">

@@ -1,42 +1,42 @@
-import { useAddProduct, useDeleteProduct, useProductId, useUpdateLoad, useUpdateProduct } from "queries/productQueries";
+import { useUpdateLoad } from "queries/productQueries";
 import { useNavigate, useParams } from "react-router";
 import { BaseSyntheticEvent, useEffect, useRef, useState } from "react";
-import { ProductResponse } from "apis/products/product.model";
 import { InputType, PrimaryButton, TextTitle } from "components";
 import { InputTypeModel } from "models";
 import { toast } from "react-toastify";
+import { useAddCategory, useCategoryId, useDeleteCategory, useUpdateCategory } from "queries/categoryQueries";
+import { CategoryResponse } from "apis/categories/category.model";
 
 const listInput: InputTypeModel[] = [
   { type: "inputText", label: "name", typeInput: "text" },
-  { type: "inputText", label: "price", typeInput: "text" },
-  { type: "select", label: "category", typeInput: "text" },
-  { type: "inputText", label: "amount", typeInput: "text" },
+  // { type: "inputText", label: "price", typeInput: "text" },
+  // { type: "inputText", label: "category", typeInput: "text" },
+  // { type: "inputText", label: "amount", typeInput: "text" },
   { type: "inputText", label: "description", typeInput: "text" },
-  { type: "inputText", label: "provider", typeInput: "text" },
-  { type: "inputText", label: "date of manufacture", typeInput: "text" },
-  { type: "inputText", label: "expiration date", typeInput: "text" },
+  // { type: "inputText", label: "provider", typeInput: "text" },
+  // { type: "inputText", label: "date of manufacture", typeInput: "text" },
 ];
 
-const ProductDetailAdmin = () => {
+const CategoryDetail = () => {
   const { id } = useParams();
-  const { mutate: getProduct } = useProductId();
-  const { mutate: updateProduct } = useUpdateProduct();
-  const { mutate: deleteProduct } = useDeleteProduct();
-  const { mutate: addProduct } = useAddProduct();
+  const { mutate: getCategory } = useCategoryId();
+  const { mutate: updateCategory } = useUpdateCategory();
+  const { mutate: deleteCategory } = useDeleteCategory();
+  const { mutate: addCategory } = useAddCategory();
   const { mutate: uploadImg } = useUpdateLoad();
   const up = useRef<HTMLInputElement>(null);
-  const [product, setProduct] = useState<ProductResponse>();
+  const [category, setCategory] = useState<CategoryResponse>();
   const [add, setAdd] = useState(false);
   const [loaddingAdd, setLoaddingAdd] = useState(false);
-  const [value, setValue] = useState<string[]>([...Array<string>(9)]);
+  const [value, setValue] = useState<string[]>([...Array<string>(3)]);
   const navigate = useNavigate();
   useEffect(() => {
     if (id) {
-      getProduct(
-        { idProduct: id },
+      getCategory(
+        { id },
         {
           onSuccess: data => {
-            setProduct(data);
+            setCategory(data);
             _setValue(data);
           },
         },
@@ -53,54 +53,48 @@ const ProductDetailAdmin = () => {
   };
 
   const update = () => {
-    updateProduct(
+    updateCategory(
       {
-        product: {
-          product_name: value[0],
-          price: Number.parseInt(value[1]),
-          category_name: value[2],
-          amount: Number.parseInt(value[3]),
-          description: value[4],
-          nhasx: value[5],
-          ngaysx: new Date(value[6]),
-          hsd: new Date(value[7]),
-          image: value[8],
+        body: {
+          category_name: value[0],
+          description: value[1],
+          image: value[2],
         },
-        productId: id as string,
+        id: id as string,
       },
       {
         onSuccess: data => {
-          toast("update success");
-          setProduct(data);
+          toast.success("update success");
+          setCategory(data);
         },
         onError: err => {
           const e = err as { error: { message: string } };
-          toast(e.error.message);
+          toast.error(e.error.message);
         },
       },
     );
   };
 
   const _delete = () => {
-    deleteProduct(
-      { productId: id as string },
+    deleteCategory(
+      { id: id as string },
       {
         onSuccess: () => {
-          toast("delete success");
-          navigate("/admin/product");
+          toast.error("delete success");
+          navigate("/admin/category");
         },
         onError: err => {
           const e = err as { error: { message: string } };
-          toast(e.error.message);
+          toast.error(e.error.message);
         },
       },
     );
   };
 
   const cancel = () => {
-    if (id === "add" || add === false) navigate("/admin/product");
+    if (id === "add" || add === false) navigate("/admin/category");
     setAdd(false);
-    if (product) _setValue(product);
+    if (category) _setValue(category);
   };
 
   const _add = () => {
@@ -114,7 +108,7 @@ const ProductDetailAdmin = () => {
     uploadImg(formData, {
       onSuccess: data => {
         const v = [...value];
-        v[8] = data.link;
+        v[3] = data.link;
         // toast("upload image success");
         setValue(v);
         _addP(data.link);
@@ -123,27 +117,16 @@ const ProductDetailAdmin = () => {
   };
 
   const _addP = (image: string) => {
-    addProduct(
+    addCategory(
       {
-        product_name: value[0],
-        price: Number.parseInt(value[1]),
-        category_name: value[2],
-        amount: Number.parseInt(value[3]),
-        description: value[4],
-        nhasx: value[5],
-        ngaysx: new Date(value[6]),
-        hsd: new Date(value[7]),
-        image,
+        category_name: value[0],
+        description: value[1],
+        image: image,
       },
       {
-        onSuccess: data => {
-          setProduct(data);
+        onSuccess: () => {
           toast("add success");
           setLoaddingAdd(false);
-          setTimeout(() => {
-            if (data._id) navigate("/admin/product/" + data._id);
-            console.log(data._id);
-          }, 3000);
         },
         onError: err => {
           const e = err as { error: { message: string } };
@@ -160,18 +143,8 @@ const ProductDetailAdmin = () => {
     );
   };
 
-  const _setValue = (product: ProductResponse) => {
-    setValue([
-      product.product_name,
-      product.price.toString(),
-      product.category_name,
-      product.amount.toString(),
-      product.description ?? "",
-      product.nhasx,
-      product.ngaysx.toDateString(),
-      product.hsd.toDateString(),
-      product.image ?? "",
-    ]);
+  const _setValue = (category: CategoryResponse) => {
+    setValue([category.category_name, category.description as string, category.image as string]);
   };
 
   return (
@@ -188,7 +161,7 @@ const ProductDetailAdmin = () => {
             >
               <div>
                 <div>
-                  <TextTitle variant="subtitle2" text="Product information" className="text-[18px]" />
+                  <TextTitle variant="subtitle2" text="Category information" className="text-[18px]" />
                   <div className="mt-[30px]">
                     <div className="grid grid-cols-2 gap-5">
                       <div>
@@ -197,7 +170,11 @@ const ProductDetailAdmin = () => {
                         ))}
                       </div>
                       <div className="ml-20 mt-5">
-                        <img className="h-[400px] min-w-[300px] max-w-[400px]" src={product?.image} alt="sss" />
+                        <img
+                          className="h-[400px] min-w-[300px] max-w-[400px]"
+                          src={category?.image ?? value[3]}
+                          alt="category"
+                        />
                         <input type="file" id="file" name="file" required={id === "add"} ref={up}></input>
                       </div>
                     </div>
@@ -243,4 +220,4 @@ const ProductDetailAdmin = () => {
   );
 };
 
-export default ProductDetailAdmin;
+export default CategoryDetail;
