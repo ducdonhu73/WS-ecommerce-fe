@@ -57,7 +57,7 @@ import { ReactComponent as Logo } from "./Logo.svg";
 import LogoN7 from "./homePage/logo.png";
 import { IconCart } from "./header";
 import IconBell from "./icon_bell";
-import cetaphil from "./homePage/cetaphil.png";
+import _cetaphil from "./homePage/cetaphil.png";
 
 export {
   LogoN7,
@@ -118,5 +118,5 @@ export {
   IconPlayVideo,
   IconCart,
   anhbia,
-  cetaphil,
+  _cetaphil,
 };

@@ -1,11 +1,16 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 import { useProductId } from "queries/productQueries";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { ProductResponse } from "apis/products/product.model";
+import { Link } from "react-router-dom";
+import { useAddToCart } from "queries/cartQueries";
+import { toast } from "react-toastify";
 const ProductDetail = () => {
   const { id } = useParams();
   const { mutate: getProduct } = useProductId();
   const [product, setProduct] = useState<ProductResponse>();
+  const { mutate: addCart } = useAddToCart();
   useEffect(() => {
     if (id) {
       getProduct(
@@ -36,16 +41,16 @@ const ProductDetail = () => {
       <section className="sm:py-16 py-12">
         <div className="container mx-auto px-4">
           <nav className="flex">
-            <ol role="list" className="flex items-center">
+            <ul role="list" className="flex items-center">
               <li className="text-left">
                 <div className="-m-1">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     className="text-gray-600 focus:text-gray-900 hover:text-gray-800 rounded-md p-1 text-sm font-medium focus:shadow"
                   >
                     {" "}
                     Home{" "}
-                  </a>
+                  </Link>
                 </div>
               </li>
 
@@ -53,13 +58,13 @@ const ProductDetail = () => {
                 <div className="flex items-center">
                   <span className="text-gray-400 mx-2">/</span>
                   <div className="-m-1">
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-gray-600 focus:text-gray-900 hover:text-gray-800 rounded-md p-1 text-sm font-medium focus:shadow"
                     >
                       {" "}
                       Products{" "}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
@@ -68,17 +73,17 @@ const ProductDetail = () => {
                 <div className="flex items-center">
                   <span className="text-gray-400 mx-2">/</span>
                   <div className="-m-1">
-                    <a
-                      href="#"
+                    <Link
+                      to="#"
                       className="text-gray-600 focus:text-gray-900 hover:text-gray-800 rounded-md p-1 text-sm font-medium focus:shadow"
                       aria-current="page"
                     >
                       {product?.product_name}
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </li>
-            </ol>
+            </ul>
           </nav>
 
           <div className="lg:col-gap-12 xl:col-gap-16 lg:mt-12 lg:grid-cols-5 lg:gap-16 mt-8 flex grid-cols-1 flex-wrap gap-12">
@@ -225,12 +230,16 @@ const ProductDetail = () => {
                   <span className="mt-1 block text-center text-xs">$40/mo</span>
                 </label>
               </div>
+
               <div className="mt-3 flex select-none flex-wrap items-center gap-1">
                 <div className="h-[30px] w-[30px]">
                   <div className="h-full flex-1">
                     <div className="border-gray-400 flex h-full flex-1 items-center justify-center rounded-full border p-2">
                       <div className="relative">
-                        <img src="https://e7.pngegg.com/pngimages/255/159/png-clipart-plus-and-minus-signs-subtraction-meno-plus-minus-sign-mathematics-rectangle-black-thumbnail.png" />
+                        <img
+                          src="https://e7.pngegg.com/pngimages/255/159/png-clipart-plus-and-minus-signs-subtraction-meno-plus-minus-sign-mathematics-rectangle-black-thumbnail.png"
+                          alt=""
+                        />
                       </div>
                     </div>
                   </div>
@@ -250,9 +259,9 @@ const ProductDetail = () => {
                           stroke="currentColor"
                         >
                           <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                           />
                         </svg>
@@ -263,7 +272,7 @@ const ProductDetail = () => {
               </div>
               <div></div>
 
-              <div className="sm:flex-row sm:space-y-0  mt-4 flex items-center justify-between space-y-4 border-t border-b py-4">
+              <div className="sm:flex-row sm:space-y-0  mt-10 flex items-center justify-between space-y-4 border-b border-t py-4">
                 <div className="flex items-end">
                   <h1 className="text-3xl font-bold">{product?.price + "đ"}</h1>
                   {/* <span className="text-base">/month</span> */}
@@ -272,6 +281,7 @@ const ProductDetail = () => {
                 <button
                   type="button"
                   className="inline-flex items-center justify-center rounded-md border-2 border-transparent bg-[#000] bg-none px-12 py-3 text-center text-base font-bold text-white transition-all duration-200 ease-in-out hover:bg-[gray] focus:shadow"
+                  onClick={addToCart}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -279,13 +289,9 @@ const ProductDetail = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    stroke-width="2"
+                    strokeWidth="2"
                   >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                   </svg>
                   Add to cart
                 </button>
@@ -301,9 +307,9 @@ const ProductDetail = () => {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                       className=""
                     ></path>
@@ -320,9 +326,9 @@ const ProductDetail = () => {
                     stroke="currentColor"
                   >
                     <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
                       d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
                       className=""
                     ></path>
@@ -335,14 +341,14 @@ const ProductDetail = () => {
             <div className="lg:col-span-3">
               <div className="border-gray-300 border-b">
                 <nav className="flex gap-4">
-                  <a
-                    href="#"
+                  <Link
+                    to="#"
                     title=""
                     className="border-gray-900 text-gray-900 hover:border-gray-400 hover:text-gray-800 border-b-2 py-4 text-sm font-medium"
                   >
                     {" "}
                     Description{" "}
-                  </a>
+                  </Link>
 
                   {/* <a href="#" title="" className="inline-flex items-center border-b-2 border-transparent py-4 text-sm font-medium text-gray-600">
               Reviews
