@@ -4,10 +4,10 @@ import {
   IconPlayVideo,
   IconQuote,
   IconStar,
-  carBanner,
   carSellingPlatform,
   customerAvatar,
   whyGear,
+  _cetaphil,
 } from "assets/images";
 import { Modal, PrimaryButton } from "components";
 import { maxStarRate } from "components/constants/common";
@@ -64,7 +64,7 @@ const HomePage = () => {
               </div>
             </div>
             <div className="mb-10 scale-[0.9] tablet:mb-0 tablet:scale-[0.8] laptop:scale-100 desktop:-mr-32">
-              <img src={carBanner} alt="" />
+              <img src={_cetaphil} alt="" />
             </div>
           </div>
         </LayoutFull>

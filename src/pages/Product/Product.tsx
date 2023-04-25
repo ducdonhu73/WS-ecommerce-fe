@@ -24,7 +24,6 @@ export const Product = () => {
       },
     );
   };
-
   const pageCount = Math.ceil(listProduct.length / pageSize); // tính số trang cần phân trang
   const handlePageClick = (pageNumber: { selected: number }) => {
     setCurrentPage(pageNumber.selected + 1);
@@ -60,7 +59,7 @@ export const Product = () => {
     <div>
       <div className="mt-32">
         <div className="dark:bg-gray-900 bg-white pb-4">
-          <label className="sr-only" htmlFor="hh">
+          <label htmlFor="s" className="sr-only">
             Search
           </label>
           <div className="relative mt-1">
@@ -87,6 +86,102 @@ export const Product = () => {
               onChange={e => handleSreach(e.target.value)}
             />
           </div>
+        </div>
+        <div className="absolute left-10">
+          <div className="mb-4 text-[40px]">Price</div>
+
+          <ul className="text-gray-900 dark:bg-gray-700 dark:border-gray-600 w-72 rounded-lg bg-white text-[18px] font-medium dark:text-white">
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="vue-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label
+                  htmlFor="s"
+                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
+                >
+                  1000$-2000$
+                </label>
+              </div>
+            </li>
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="react-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label
+                  htmlFor="s"
+                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
+                >
+                  2000$-3000$
+                </label>
+              </div>
+            </li>
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="angular-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label
+                  htmlFor="s"
+                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
+                >
+                  4000$-5000$
+                </label>
+              </div>
+            </li>
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="laravel-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label
+                  htmlFor="s"
+                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
+                >
+                  6000$-7000$
+                </label>
+              </div>
+            </li>
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="laravel-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label htmlFor="s" className="text-md text-gray-900 dark:text-gray-300 ml-2 w-full py-3 font-medium">
+                  6000$-7000$
+                </label>
+              </div>
+            </li>
+            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
+              <div className="flex items-center pl-3">
+                <input
+                  id="laravel-checkbox"
+                  type="checkbox"
+                  value=""
+                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
+                />
+                <label htmlFor="s" className="text-md text-gray-900 dark:text-gray-300 ml-2 w-full py-3 font-medium">
+                  6000$-7000$
+                </label>
+              </div>
+            </li>
+          </ul>
         </div>
         <div className="flex flex-wrap">
           {displayedProducts.map((item, index) => (
@@ -183,13 +278,11 @@ export const Product = () => {
         pageRangeDisplayed={3}
         marginPagesDisplayed={2}
         onPageChange={handlePageClick}
-        // containerClassName={'pagination'}
-        // activeClassName={'active'}
+        containerClassName={"pagination"}
+        activeClassName={"active"}
         previousLabel={"Previous"}
         nextLabel={"Next"}
         pageClassName={"bg-blue-500 rounded-full py-2 px-4 mx-2 mb-10"}
-        activeClassName={"bg-[gray] text-white"}
-        containerClassName={"flex justify-center mt-4"}
         previousClassName={"rounded-full py-2 px-4 mx-2"}
         nextClassName={"rounded-full py-2 px-4 mx-2"}
       />
