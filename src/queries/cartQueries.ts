@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { AddToCart, OrderRequest, RemoveFromCart } from "apis/carts/cart.model";
+import { AddToCart, BuyRequest, OrderRequest, RemoveFromCart } from "apis/carts/cart.model";
 import cartRepository from "apis/carts/cartRepository";
 
 export const useCarts = () => useQuery(["cart", "all"], () => cartRepository.getAllCart());
@@ -29,4 +29,8 @@ export const useOrder = () => {
       queryClient.invalidateQueries(["cart", "all"]);
     },
   });
+};
+
+export const useBuy = () => {
+  return useMutation(["cart", "buy"], (request: BuyRequest) => cartRepository.buyInCart(request));
 };

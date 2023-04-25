@@ -42,7 +42,7 @@ interface RequestConfig<T, R> {
 
 export class UrlRequestBuilder {
   static defaultRequest<T, R>(config: RequestConfig<T, R>): UrlRequest<T, R> {
-    const baseUrl = "http://localhost:8000";
+    const baseUrl = "http://localhost:8001";
     const url = `${baseUrl}/${config.path}`;
     const headers: RequestHeaders = {
       "Content-type": "application/json",

@@ -20,6 +20,8 @@ import OrderAdmin from "pages/Admin/OrderAdmin/OrderAdmin";
 import ProductDetailAdmin from "pages/Admin/ProductDetailAdmin/ProductDetailAdmin";
 import Test from "pages/test";
 import Cart from "pages/Cart";
+import History from "pages/History/History";
+import PaymentSuccess from "pages/PaymentSuccess/NotFoundPage";
 
 const routes = createBrowserRouter([
   {
@@ -29,6 +31,10 @@ const routes = createBrowserRouter([
       {
         index: true,
         element: <Home />,
+      },
+      {
+        path: "payment-success",
+        element: <PaymentSuccess />,
       },
       {
         path: "sell-my-car",
@@ -80,7 +86,7 @@ const routes = createBrowserRouter([
               {
                 index: true,
                 path: "history",
-                element: <HistoryAdmin />,
+                element: <History />,
               },
             ],
           },

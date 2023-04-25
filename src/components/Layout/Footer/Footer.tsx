@@ -13,8 +13,8 @@ function Footer() {
         <div className="layout-padding flex flex-col justify-between gap-y-14 bg-text-7 py-14 text-white tablet:py-20 laptop:flex-row laptop:items-center laptop:gap-y-0 laptop:py-24">
           <div>
             <div className="mt-6">
-              Copyright ©2022 <span className="font-bold">N7</span>. All Rights Reserved.
-              <br /> Developed by TekLabs
+              Copyright ©2023 <span className="font-bold">N7</span>. All Rights Reserved.
+              <br /> Developed by ddn
             </div>
             <div className="mt-6 flex gap-x-12">
               <IconFacebook />

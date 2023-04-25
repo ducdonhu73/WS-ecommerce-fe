@@ -29,3 +29,7 @@ export interface Order {
 export interface OrderRequest {
   order: Order[];
 }
+
+export interface BuyRequest {
+  listCartId: string[];
+}

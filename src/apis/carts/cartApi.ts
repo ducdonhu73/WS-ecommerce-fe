@@ -3,7 +3,7 @@ import { HttpClient } from "../configs/httpClient";
 import { ApiResponse } from "../configs/types/apiResponse";
 import { HttpMethod } from "../configs/types/httpMethod";
 import { UrlRequestBuilder } from "../configs/urlRequestConfig";
-import { AddToCart, CartResponse, OrderRequest, RemoveFromCart } from "./cart.model";
+import { AddToCart, BuyRequest, CartResponse, OrderRequest, RemoveFromCart } from "./cart.model";
 
 export class CartApi {
   private client: HttpClient;
@@ -41,6 +41,15 @@ export class CartApi {
   async order(body: OrderRequest): Promise<ApiResponse<void>> {
     const request = UrlRequestBuilder.defaultRequest({
       path: "payment",
+      method: HttpMethod.POST,
+      body,
+    });
+    return await this.client.request(request);
+  }
+
+  async buyInCart(body: BuyRequest): Promise<ApiResponse<void>> {
+    const request = UrlRequestBuilder.defaultRequest({
+      path: "carts/buy",
       method: HttpMethod.POST,
       body,
     });

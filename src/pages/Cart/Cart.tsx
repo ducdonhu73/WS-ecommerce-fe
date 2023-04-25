@@ -1,11 +1,11 @@
 import { CartResponse } from "apis/carts/cart.model";
 import { useAuth } from "hooks/useAuth";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./components/CartItem";
 import { ProductResponse } from "apis/products/product.model";
 import { UserResponse } from "apis/user/user.model";
-import { useOrder } from "queries/cartQueries";
+import { useBuy, useOrder } from "queries/cartQueries";
 import { toast } from "react-toastify";
 
 export class CartModel implements CartResponse {
@@ -20,7 +20,7 @@ export class CartModel implements CartResponse {
     this.user = cart.user;
     this.product = cart.product;
     this.quantity = cart.quantity;
-    this.checked = true;
+    this.checked = false;
   }
 
   setChecked(checked: boolean) {
@@ -38,6 +38,8 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
   const { mutate: checkout } = useOrder();
+  const { mutate: buy } = useBuy();
+  const ref = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     if (cart) {
@@ -63,16 +65,31 @@ function Cart() {
   };
 
   const handCheckOut = () => {
-    checkout(
+    const listBuy = cartItems.filter(c => c.checked);
+    if (listBuy.length < 1) {
+      toast.warn("You have not selected any product!");
+      return;
+    }
+    buy(
+      { listCartId: listBuy.map(c => c._id) },
       {
-        order: cartItems.map(c => {
-          return { product: c.product, quantity: c.quantity };
-        }),
-      },
-      {
-        onSuccess: () => toast("success"),
+        onSuccess: () => {
+          checkout(
+            {
+              order: listBuy.map(c => {
+                return { product: c.product, quantity: c.quantity };
+              }),
+            },
+            {
+              onSuccess: () => ref.current?.click(),
+              onError: () => {
+                toast.error("failed");
+              },
+            },
+          );
+        },
         onError: () => {
-          toast("fail");
+          toast.error("fail");
         },
       },
     );
@@ -80,6 +97,7 @@ function Cart() {
 
   return (
     <div className="mt-24">
+      <Link ref={ref} to="http://localhost:8000/payment/"></Link>
       <body className="bg-gray-100">
         <div className="container mx-auto mt-10">
           <div className="my-10 flex shadow-md">

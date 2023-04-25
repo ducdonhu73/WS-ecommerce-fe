@@ -32,6 +32,6 @@ export interface UserResponse {
 export interface UpdateUserRequest {
   firstName?: string;
   lastName?: string;
-  phoneNumber?: string;
-  address?: Address;
+  address: Address;
+  phoneNumber: string;
 }

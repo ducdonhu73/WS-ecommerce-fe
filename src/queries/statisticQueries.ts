@@ -5,3 +5,7 @@ import statisticRepository from "apis/statistic/statisticRepository";
 export const useStatistic = () => {
   return useMutation(["statistic", "all"], (query: StatisticQuery) => statisticRepository.getStatistic(query));
 };
+
+export const useStatisticUser = () => {
+  return useMutation(["statistic", "user"], () => statisticRepository.getStatisticUser());
+};
