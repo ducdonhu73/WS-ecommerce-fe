@@ -26,6 +26,7 @@ import { ReactComponent as LogoFooter } from "./footer/LogoFooter.svg";
 import IconBar from "./header/ic_bar";
 // import IconBell from "./header/ic_bell";
 import carBanner from "./homePage/carBanner.png";
+import anhbia from "./homePage/anhbia.jpeg";
 import carSellingPlatform from "./homePage/carSellingPlatform.png";
 import customerAvatar from "./homePage/customerAvatar.png";
 import IconPlayVideo from "./homePage/ic_play_video";
@@ -56,6 +57,7 @@ import { ReactComponent as Logo } from "./Logo.svg";
 import LogoN7 from "./homePage/logo.png";
 import { IconCart } from "./header";
 import IconBell from "./icon_bell";
+import _cetaphil from "./homePage/cetaphil.png";
 
 export {
   LogoN7,
@@ -115,4 +117,6 @@ export {
   IconUpload,
   IconPlayVideo,
   IconCart,
+  anhbia,
+  _cetaphil,
 };

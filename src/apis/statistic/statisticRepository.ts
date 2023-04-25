@@ -14,6 +14,11 @@ class StatisticRepository {
     const response = await this.statisticApi.getStatistic(query);
     return response.payload;
   }
+
+  async getStatisticUser(): Promise<StatisticResponse[]> {
+    const response = await this.statisticApi.getStatisticUser();
+    return response.payload;
+  }
 }
 
 const statisticRepository = new StatisticRepository(axiosClient);

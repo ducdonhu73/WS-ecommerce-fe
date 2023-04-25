@@ -20,6 +20,14 @@ export class StatisticApi {
     });
     return await this.client.request(request);
   }
+
+  async getStatisticUser(): Promise<ApiResponse<StatisticResponse[]>> {
+    const request = UrlRequestBuilder.defaultRequest({
+      path: "statistic/user",
+      method: HttpMethod.GET,
+    });
+    return await this.client.request(request);
+  }
 }
 
 const statisticApi = new StatisticApi(axiosClient);

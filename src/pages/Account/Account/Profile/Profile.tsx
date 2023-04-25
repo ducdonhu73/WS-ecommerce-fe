@@ -52,7 +52,7 @@ function Profile() {
                       {
                         firstName: values.firstName,
                         lastName: values.lastName,
-                        phoneNumber: values.phoneNumber,
+                        phoneNumber: values.phoneNumber as string,
                         address: {
                           address: values.address,
                           city: values.city,

@@ -32,6 +32,7 @@ const ProductDetail = () => {
           onSuccess: () => {
             toast("product has been added to cart");
           },
+          onError: () => toast("fail"),
         },
       );
   };
@@ -229,6 +230,47 @@ const ProductDetail = () => {
                   <span className="mt-1 block text-center text-xs">$40/mo</span>
                 </label>
               </div>
+
+              <div className="mt-3 flex select-none flex-wrap items-center gap-1">
+                <div className="h-[30px] w-[30px]">
+                  <div className="h-full flex-1">
+                    <div className="border-gray-400 flex h-full flex-1 items-center justify-center rounded-full border p-2">
+                      <div className="relative">
+                        <img
+                          src="https://e7.pngegg.com/pngimages/255/159/png-clipart-plus-and-minus-signs-subtraction-meno-plus-minus-sign-mathematics-rectangle-black-thumbnail.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="mx-3 w-[80px] rounded bg-[#000] py-2 text-center text-[16px] font-medium text-[#fff]">
+                  10
+                </div>
+                <div className="h-[30px] w-[30px]">
+                  <div className="h-full flex-1">
+                    <div className="border-gray-400 flex h-full flex-1 items-center justify-center rounded-full border p-2">
+                      <div className="relative">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="text-gray-500 h-6 w-6"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div></div>
 
               <div className="sm:flex-row sm:space-y-0  mt-10 flex items-center justify-between space-y-4 border-b border-t py-4">
                 <div className="flex items-end">
