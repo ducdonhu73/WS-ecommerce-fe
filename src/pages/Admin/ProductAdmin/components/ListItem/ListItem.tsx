@@ -42,14 +42,13 @@ function ListItem({ product }: ItemProps) {
           <div className="">
             <img className="h-[100px] max-w-[150px]" src={product?.image} alt="sss" />
           </div>
-          <div className="flex items-center laptop:flex-col laptop:items-start laptop:gap-y-2">
+          <div className="flex flex-col items-start gap-y-1">
             <p className="text-base font-medium text-text-8 laptop:text-lg laptop:leading-6 ">
               {product?.product_name}
             </p>
-            <span className="hidden laptop:block laptop:text-xl laptop:leading-7">Amount: {product?.amount}</span>
-            <span className="hidden font-semibold laptop:block laptop:text-2xl laptop:leading-7">
-              {product?.price}đ
-            </span>
+            <span className="block text-[14px] leading-7">Category: {product?.category_name}</span>
+            <span className="block text-[14px] leading-7">Amount: {product?.amount}</span>
+            <span className="block text-[16px] font-semibold leading-7">{product?.price}đ</span>
           </div>
           <div className="ml-0 mt-3 flex flex-col justify-between laptop:ml-2 laptop:mt-0 laptop:items-end">
             <div className="flex justify-between laptop:justify-start">

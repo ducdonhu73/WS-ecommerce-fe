@@ -35,13 +35,10 @@ export const Product = () => {
       {},
       {
         onSuccess: data => {
-          data.push(...data);
-          console.log(data);
           setListProduct(data);
         },
       },
     );
-    // setListProduct(abc);
   }, []);
 
   const handleSreach = (key: string) => {
@@ -81,7 +78,7 @@ export const Product = () => {
             <input
               type="text"
               id="table-search"
-              className="text-black border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm"
+              className="border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm text-black"
               placeholder="Search for items"
               onChange={e => handleSreach(e.target.value)}
             />

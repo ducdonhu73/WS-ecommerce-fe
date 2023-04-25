@@ -17,7 +17,7 @@ const PaymentSuccess = () => {
     <div className="flex flex-col items-center justify-center pt-44 text-center">
       <div className="text-primary">Payment success</div>
       <div className="mt-20">Back to home after: {time / 2}</div>
-      <Link to="/">Continus shopping</Link>
+      <Link to="/">Continue shopping</Link>
     </div>
   );
 };

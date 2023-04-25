@@ -15,7 +15,10 @@ export const filterOfferBtn = {
 export const createdAtOptionBtn = {
   title: "Recently created",
   filterType: "time",
-  menu: [{ title: "Recently created" }, { title: "Lastly created" }],
+  menu: [
+    { title: "Recently created", id: "" },
+    { title: "Lastly created", id: "" },
+  ],
   className: "left-0 w-full",
 };
 

@@ -1,6 +1,6 @@
 import { CartResponse } from "apis/carts/cart.model";
 import { useAuth } from "hooks/useAuth";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 import CartItem from "./components/CartItem";
 import { ProductResponse } from "apis/products/product.model";
@@ -129,7 +129,6 @@ function Cart() {
             <div id="summary" className="w-1/4 px-8 py-10">
               <h1 className="border-b pb-8 text-2xl font-semibold">Order Summary</h1>
               <div className="mb-5 mt-10 flex justify-between">
-
                 <span className="text-sm font-semibold uppercase">Items</span>
 
                 <span className="text-sm font-semibold uppercase">Items {totalItems}</span>
@@ -151,10 +150,10 @@ function Cart() {
                   <span>{totalPrice}đ</span>
                 </div>
                 <button
-
                   className="w-full bg-[#4c0082ea] py-3 text-sm font-semibold uppercase text-white hover:bg-[indigo]"
                   onClick={handCheckOut}
-                >Checkout
+                >
+                  Checkout
                 </button>
               </div>
             </div>

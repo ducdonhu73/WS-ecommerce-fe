@@ -30,7 +30,7 @@ const CartItem = ({ cart, callback }: { cart: CartModel; callback: (cart: CartMo
   };
 
   const handleAdd = () => {
-    setQuantity(pre => ++pre);
+    setQuantity(pre => (pre < cart.product.amount ? ++pre : pre));
   };
 
   useEffect(() => {
@@ -62,9 +62,11 @@ const CartItem = ({ cart, callback }: { cart: CartModel; callback: (cart: CartMo
           className="mx-2 w-16 border text-center"
           type="text"
           value={quantity}
-          onChange={e =>
-            setQuantity(Number.parseInt(e.currentTarget.value) ? Number.parseInt(e.currentTarget.value) : 0)
-          }
+          onChange={e => {
+            const v = Number.parseInt(e.currentTarget.value);
+            if (v) setQuantity(v <= cart.product.amount ? v : cart.product.amount);
+            else setQuantity(0);
+          }}
         />
 
         <svg className="fill-current text-gray-600 w-3" viewBox="0 0 448 512" onClick={handleAdd}>

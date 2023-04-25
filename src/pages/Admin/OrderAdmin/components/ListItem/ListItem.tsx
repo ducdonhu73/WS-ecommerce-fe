@@ -88,7 +88,7 @@ function ListItem({ order, callback }: ItemProps) {
               >
                 Accept
               </div>
-              <div className="cursor-pointer1 font-medium leading-6 text-[var(--color-primary)]" onClick={handleReject}>
+              <div className="cursor-pointer font-medium leading-6 text-[var(--color-primary)]" onClick={handleReject}>
                 Reject
               </div>
             </div>

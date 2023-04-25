@@ -10,6 +10,7 @@ interface FilterButtonProps {
   filterType: string;
   menu?: {
     title: string;
+    id: string;
   }[];
   onClick?: (type?: string) => void;
 }

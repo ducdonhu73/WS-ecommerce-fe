@@ -221,9 +221,15 @@ const ProductDetail = () => {
                     </div>
                   </div>
                 </div>
-                <div className="mx-3 w-[80px] rounded bg-[#000] py-2 text-center text-[16px] font-medium text-[#fff]">
-                  {quantity}
-                </div>
+                <input
+                  onChange={e => {
+                    const v = Number.parseInt(e.currentTarget.value);
+                    if (v) setQuantity(v <= (product?.amount ?? 0) ? v : product?.amount ?? 0);
+                    else setQuantity(0);
+                  }}
+                  className="mx-3 w-[80px] rounded bg-[#000] py-2 text-center text-[16px] font-medium text-[#fff]"
+                  value={quantity}
+                />
                 <div
                   className="h-[30px] w-[30px]"
                   onClick={() => setQuantity(pre => (pre < (product?.amount ?? 10) ? ++pre : pre))}

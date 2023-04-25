@@ -10,6 +10,7 @@ import ReactPaginate from "react-paginate";
 const HistoryAdmin = () => {
   const { mutate: getOrders } = useStatistic();
   const [listOrder, setListOrder] = useState<OrderResponse[]>([]);
+  const [displayedCategories, setDisplayList] = useState<OrderResponse[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const pageSize = 5;
 
@@ -18,7 +19,10 @@ const HistoryAdmin = () => {
     setCurrentPage(pageNumber.selected + 1);
   };
 
-  const displayedCategories = listOrder.slice((currentPage - 1) * pageSize, currentPage * pageSize);
+  useEffect(() => {
+    setDisplayList(listOrder.slice((currentPage - 1) * pageSize, currentPage * pageSize));
+  }, [listOrder]);
+
   useEffect(() => {
     getOrders(
       {},
@@ -31,6 +35,44 @@ const HistoryAdmin = () => {
     );
   }, []);
 
+  const callbackU = (userId: string) => {
+    getOrders(
+      { userId },
+      {
+        onSuccess: data => {
+          setListOrder(data);
+        },
+        onError: () => toast.error("something went wrong"),
+      },
+    );
+  };
+
+  const callbackP = (productId: string) => {
+    getOrders(
+      { productId },
+      {
+        onSuccess: data => {
+          setListOrder(data);
+        },
+        onError: () => toast.error("something went wrong"),
+      },
+    );
+  };
+
+  const handleFilter = (t?: string) => {
+    if (t === "All") {
+      getOrders(
+        {},
+        {
+          onSuccess: data => {
+            setListOrder(data);
+          },
+          onError: () => toast.error("something went wrong"),
+        },
+      );
+    }
+  };
+
   return (
     <div>
       <div className="">
@@ -41,6 +83,7 @@ const HistoryAdmin = () => {
               filterType={filterOfferBtn.filterType}
               menu={filterOfferBtn.menu}
               className={filterOfferBtn.className}
+              onClick={handleFilter}
             />
           </div>
           <div className="ml-2.5">
@@ -58,7 +101,7 @@ const HistoryAdmin = () => {
         {displayedCategories.map((item, index) => {
           return (
             <div key={index}>
-              <ListItem order={item} />
+              <ListItem order={item} callbackP={callbackP} callbackU={callbackU} />
             </div>
           );
         })}
