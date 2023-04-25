@@ -1,9 +1,7 @@
 import { CartResponse } from "apis/carts/cart.model";
 import { useAuth } from "hooks/useAuth";
-import { useEffect, useState } from "react";
 import { Link, redirect } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import CartItem from "./components/CartItem";
 import { ProductResponse } from "apis/products/product.model";
 import { UserResponse } from "apis/user/user.model";
@@ -67,22 +65,6 @@ function Cart() {
   };
 
   const handCheckOut = () => {
-
-    // checkout(
-    //   {
-    //     order: cartItems.map(c => {
-    //       return { product: c.product, quantity: c.quantity };
-    //     }),
-    //   },
-    //   {
-    //     onSuccess: () => toast("success"),
-    //     onError: () => {
-    //       toast("fail");
-    //     },
-    //   },
-    // );
-    // redirect("http://localhost:8000/payment");
-
     const listBuy = cartItems.filter(c => c.checked);
     if (listBuy.length < 1) {
       toast.warn("You have not selected any product!");
@@ -115,7 +97,7 @@ function Cart() {
 
   return (
     <div className="mt-24">
-      <Link ref={ref} to="http://localhost:8000/payment/"></Link>
+      <Link ref={ref} to="http://localhost:8000/payment"></Link>
       <body className="bg-gray-100">
         <div className="container mx-auto mt-10">
           <div className="my-10 flex shadow-md">
@@ -171,8 +153,8 @@ function Cart() {
                 <button
 
                   className="w-full bg-[#4c0082ea] py-3 text-sm font-semibold uppercase text-white hover:bg-[indigo]"
-                  // onClick={handCheckOut}
-                ><a href="http://localhost:8000/payment">Checkout</a>
+                  onClick={handCheckOut}
+                >Checkout
                 </button>
               </div>
             </div>
