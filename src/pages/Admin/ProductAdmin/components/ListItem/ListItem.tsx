@@ -52,11 +52,11 @@ function ListItem({ product }: ItemProps) {
           </div>
           <div className="ml-0 mt-3 flex flex-col justify-between laptop:ml-2 laptop:mt-0 laptop:items-end">
             <div className="flex justify-between laptop:justify-start">
-              <p className="mr-2 text-base font-normal leading-6 text-text-6">Valid until</p>
+              <p className="mr-2 text-base font-normal leading-6 text-text-6">Created at</p>
               <p className="text-base font-bold text-text-8">
                 {status === "expired"
                   ? "Expired"
-                  : format(new Date(product?.createdAt ?? "2022"), DateFormat.DATE_WITH_TEXT_MONTH)}
+                  : format(new Date(product?.createdAt ?? "2022"), DateFormat.DATE_WITH_TIME)}
               </p>
             </div>
             <div className="mt-3 flex items-center justify-between">

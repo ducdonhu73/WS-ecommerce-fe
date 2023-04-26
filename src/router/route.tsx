@@ -24,6 +24,7 @@ import History from "pages/History/History";
 import PaymentSuccess from "pages/PaymentSuccess/NotFoundPage";
 import Category from "pages/Admin/Category/Category";
 import CategoryDetail from "pages/Admin/CategoryDetail/CategoryDetail";
+import Discount from "pages/Admin/Discount/Discount";
 
 const routes = createBrowserRouter([
   {
@@ -135,6 +136,10 @@ const routes = createBrowserRouter([
       {
         path: "order",
         element: <OrderAdmin />,
+      },
+      {
+        path: "discount",
+        element: <Discount />,
       },
     ],
   },

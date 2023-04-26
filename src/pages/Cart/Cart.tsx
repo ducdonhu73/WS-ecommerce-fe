@@ -7,6 +7,7 @@ import { ProductResponse } from "apis/products/product.model";
 import { UserResponse } from "apis/user/user.model";
 import { useBuy, useOrder } from "queries/cartQueries";
 import { toast } from "react-toastify";
+import { useDiscount } from "queries/discountQueries";
 
 export class CartModel implements CartResponse {
   _id: string;
@@ -36,10 +37,13 @@ function Cart() {
   const { cart } = useAuth();
   const [cartItems, setCartItems] = useState<CartModel[]>([]);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [total, setTotal] = useState(0);
   const [totalItems, setTotalItems] = useState(0);
   const { mutate: checkout } = useOrder();
+  const { mutate: discount } = useDiscount();
   const { mutate: buy } = useBuy();
   const ref = useRef<HTMLAnchorElement>(null);
+  const refDiscount = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (cart) {
@@ -47,6 +51,10 @@ function Cart() {
       setTotalPrice(cart.reduce((total, item) => total + item.product.price * item.quantity, 0));
     }
   }, [cart]);
+
+  useEffect(() => {
+    setTotal(totalPrice);
+  }, [totalPrice]);
 
   useEffect(() => {
     setTotalPrice(
@@ -95,6 +103,24 @@ function Cart() {
     );
   };
 
+  const handleApply = () => {
+    if (refDiscount.current?.value) {
+      discount(
+        { id: refDiscount.current?.value },
+        {
+          onSuccess: data => {
+            console.log(data);
+            toast.success("success");
+            if (data.discountRate) setTotal(pre => pre - (pre * data.discountRate) / 100);
+          },
+          onError: () => {
+            toast.error("discount code not exist");
+          },
+        },
+      );
+    }
+  };
+
   return (
     <div className="mt-24">
       <Link ref={ref} to="http://localhost:8000/payment"></Link>
@@ -141,13 +167,27 @@ function Cart() {
                 <label htmlFor="promo" className="mb-3 inline-block text-sm font-semibold uppercase">
                   Discount Code
                 </label>
-                <input type="text" id="promo" placeholder="Enter your code" className="w-full p-2 text-sm" />
+                <input
+                  type="text"
+                  id="promo"
+                  placeholder="Enter your code"
+                  className="w-full p-2 text-sm"
+                  ref={refDiscount}
+                />
               </div>
-              <button className="bg-[#f05b5b] px-5 py-2 text-sm uppercase text-white hover:bg-[red]">Apply</button>
+              <div className="flex justify-between">
+                <button
+                  className="bg-[#f05b5b] px-5 py-2 text-sm uppercase text-white hover:bg-[red]"
+                  onClick={handleApply}
+                >
+                  Apply
+                </button>
+                {totalPrice !== total && <div>-{totalPrice - total}đ</div>}
+              </div>
               <div className="mt-8 border-t">
-                <div className="flex justify-between py-6 text-sm font-semibold uppercase">
-                  <span>Total cost</span>
-                  <span>{totalPrice}đ</span>
+                <div className="flex justify-between py-6 text-sm font-semibold">
+                  <span>TOTAL COST</span>
+                  <span>{total}đ</span>
                 </div>
                 <button
                   className="w-full bg-[#4c0082ea] py-3 text-sm font-semibold uppercase text-white hover:bg-[indigo]"

@@ -19,6 +19,10 @@ export const listNav = [
     title: "Order",
     href: "order",
   },
+  {
+    title: "Discount",
+    href: "discount",
+  },
 ];
 
 const NavAdmin = () => {

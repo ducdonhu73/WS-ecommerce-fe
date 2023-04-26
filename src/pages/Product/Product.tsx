@@ -1,17 +1,47 @@
 import { useProduct } from "queries/productQueries";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductResponse } from "../../apis/products/product.model";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 import { useAddToCart } from "queries/cartQueries";
 import { toast } from "react-toastify";
+import FilterButton from "pages/Admin/ProductAdmin/components/FilterButton/FilterButton";
+import { useCategories } from "queries/categoryQueries";
+import { createdAtOptionBtn } from "pages/Admin/ProductAdmin/data";
+import { PrimaryButton } from "components";
 
 export const Product = () => {
   const { mutate: getProduct } = useProduct();
+  const { data: categories } = useCategories();
   const [listProduct, setListProduct] = useState<ProductResponse[]>([]);
+  const [displayedProducts, setListDisplay] = useState<ProductResponse[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const { mutate: addCart } = useAddToCart();
   const pageSize = 6;
+  const ref = useRef<HTMLInputElement>(null);
+  const refsd = useRef<HTMLInputElement>(null);
+  const refed = useRef<HTMLInputElement>(null);
+  const refmax = useRef<HTMLInputElement>(null);
+  const refmin = useRef<HTMLInputElement>(null);
+
+  const [filterOfferBtn, setFilter] = useState({
+    title: "Category",
+    filterType: "category",
+    menu: [{ title: "All", id: "" }],
+    className: "left-[-28px] w-[114px]",
+  });
+
+  useEffect(() => {
+    if (categories)
+      setFilter({
+        title: "Category",
+        filterType: "category",
+        menu: categories.map(c => {
+          return { title: c.category_name, id: c.id };
+        }),
+        className: "left-[-28px] w-[114px]",
+      });
+  }, [categories]);
 
   const addToCart = (id: string) => {
     addCart(
@@ -29,7 +59,10 @@ export const Product = () => {
     setCurrentPage(pageNumber.selected + 1);
   };
 
-  const displayedProducts = listProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize); // lấy các sản phẩm tương ứng với trang hiện tại
+  useEffect(() => {
+    setListDisplay(listProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize));
+  }, [listProduct]);
+
   useEffect(() => {
     getProduct(
       {},
@@ -52,13 +85,39 @@ export const Product = () => {
     );
   };
 
+  const handleFilterOfferByStatus = (id?: string) => {
+    getProduct(
+      { category: id },
+      {
+        onSuccess: data => setListProduct(data),
+      },
+    );
+  };
+
+  const handleFilterOfferByTime = () => {
+    console.log("");
+  };
+
+  const handleDate = () => {
+    // const filter = {};
+    // if (refsd.current?.value && refed.current?.value)
+    getProduct(
+      {
+        startDate: refsd.current?.value ? new Date(refsd.current?.value) : undefined,
+        endDate: refed.current?.value ? new Date(refed.current?.value) : undefined,
+        maxPrice: refmax.current?.value ? Number.parseInt(refmax.current?.value) : undefined,
+        minPrice: refmin.current?.value ? Number.parseInt(refmin.current?.value) : undefined,
+      },
+      {
+        onSuccess: data => setListProduct(data),
+      },
+    );
+  };
+
   return (
     <div>
       <div className="mt-32">
         <div className="dark:bg-gray-900 bg-white pb-4">
-          <label htmlFor="s" className="sr-only">
-            Search
-          </label>
           <div className="relative mt-1">
             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
               <svg
@@ -75,111 +134,58 @@ export const Product = () => {
                 ></path>
               </svg>
             </div>
-            <input
-              type="text"
-              id="table-search"
-              className="border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm text-black"
-              placeholder="Search for items"
-              onChange={e => handleSreach(e.target.value)}
-            />
+            <form
+              onSubmit={e => {
+                e.preventDefault();
+                if (ref.current?.value) handleSreach(ref.current?.value);
+              }}
+            >
+              <input
+                type="text"
+                id="table-search"
+                className="border-gray-300 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 block w-80 rounded-lg border p-2 pl-10 text-sm text-black"
+                placeholder="Search for items"
+                onChange={e => handleSreach(e.target.value)}
+                ref={ref}
+              />
+            </form>
+          </div>
+          <div className="">
+            <div className="mb-10 mt-8 flex items-center justify-end tablet:my-10 ">
+              <form
+                className="mr-5 grid grid-cols-9 gap-5"
+                onSubmit={e => {
+                  e.preventDefault();
+                  handleDate();
+                }}
+              >
+                <input ref={refsd} type="datetime-local" placeholder="start date" className="col-span-2 rounded" />
+                <input ref={refed} type="datetime-local" placeholder="end date" className="col-span-2 rounded" />
+                <input ref={refmin} type="text" placeholder="min price" className="col-span-2 rounded" />
+                <input ref={refmax} type="text" placeholder="max price" className="col-span-2 rounded" />
+                <PrimaryButton text="Filter"></PrimaryButton>
+              </form>
+              <div>
+                <FilterButton
+                  title={filterOfferBtn.title}
+                  filterType={filterOfferBtn.filterType}
+                  menu={filterOfferBtn.menu}
+                  className={filterOfferBtn.className}
+                  onClick={handleFilterOfferByStatus}
+                />
+              </div>
+              <div className="ml-2.5">
+                <FilterButton
+                  title={createdAtOptionBtn.title}
+                  filterType={createdAtOptionBtn.filterType}
+                  menu={createdAtOptionBtn.menu}
+                  className={createdAtOptionBtn.className}
+                  onClick={handleFilterOfferByTime}
+                />
+              </div>
+            </div>
           </div>
         </div>
-        {/* <div className="absolute left-10">
-          <div className="mb-4 text-[40px]">Price</div>
-
-          <ul className="text-gray-900 dark:bg-gray-700 dark:border-gray-600 w-72 rounded-lg bg-white text-[18px] font-medium dark:text-white">
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="vue-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label
-                  htmlFor="s"
-                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
-                >
-                  1000$-2000$
-                </label>
-              </div>
-            </li>
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="react-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label
-                  htmlFor="s"
-                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
-                >
-                  2000$-3000$
-                </label>
-              </div>
-            </li>
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="angular-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label
-                  htmlFor="s"
-                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
-                >
-                  4000$-5000$
-                </label>
-              </div>
-            </li>
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="laravel-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label
-                  htmlFor="s"
-                  className="text-gray-900 dark:text-gray-300 ml-2 w-full py-3 text-[18px] font-medium"
-                >
-                  6000$-7000$
-                </label>
-              </div>
-            </li>
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="laravel-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label htmlFor="s" className="text-md text-gray-900 dark:text-gray-300 ml-2 w-full py-3 font-medium">
-                  6000$-7000$
-                </label>
-              </div>
-            </li>
-            <li className="border-inherit dark:border-gray-600 w-full rounded-t-lg border-b pb-3">
-              <div className="flex items-center pl-3">
-                <input
-                  id="laravel-checkbox"
-                  type="checkbox"
-                  value=""
-                  className="text-blue-600 bg-gray-100 focus:ring-blue-500 dark:focus:ring-blue-600  dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 dark:bg-gray-600 dark:border-gray-500 h-4 w-4 rounded focus:ring-2"
-                />
-                <label htmlFor="s" className="text-md text-gray-900 dark:text-gray-300 ml-2 w-full py-3 font-medium">
-                  6000$-7000$
-                </label>
-              </div>
-            </li>
-          </ul>
-        </div> */}
         <div className="flex flex-wrap">
           {displayedProducts.map((item, index) => (
             <div className="relative m-10 w-full max-w-xs overflow-hidden rounded-lg bg-white shadow-md" key={index}>

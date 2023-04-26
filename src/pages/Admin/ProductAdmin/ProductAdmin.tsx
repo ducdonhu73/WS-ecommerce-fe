@@ -1,7 +1,7 @@
 import ListItem from "./components/ListItem/ListItem";
 import FilterButton from "./components/FilterButton/FilterButton";
 import { createdAtOptionBtn } from "./data";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useProduct } from "queries/productQueries";
 import { ProductResponse } from "apis/products/product.model";
 import { PrimaryButton } from "components";
@@ -23,6 +23,25 @@ function ProductAdmin() {
     menu: [{ title: "All", id: "" }],
     className: "left-[-28px] w-[114px]",
   });
+  const refsd = useRef<HTMLInputElement>(null);
+  const refed = useRef<HTMLInputElement>(null);
+  const refmax = useRef<HTMLInputElement>(null);
+  const refmin = useRef<HTMLInputElement>(null);
+  const handleDate = () => {
+    // const filter = {};
+    // if (refsd.current?.value && refed.current?.value)
+    getProduct(
+      {
+        startDate: refsd.current?.value ? new Date(refsd.current?.value) : undefined,
+        endDate: refed.current?.value ? new Date(refed.current?.value) : undefined,
+        maxPrice: refmax.current?.value ? Number.parseInt(refmax.current?.value) : undefined,
+        minPrice: refmin.current?.value ? Number.parseInt(refmin.current?.value) : undefined,
+      },
+      {
+        onSuccess: data => setListProduct(data),
+      },
+    );
+  };
 
   useEffect(() => {
     if (categories)
@@ -70,6 +89,19 @@ function ProductAdmin() {
   return (
     <div>
       <div className="">
+        <form
+          className="mr-5 grid grid-cols-9 gap-5"
+          onSubmit={e => {
+            e.preventDefault();
+            handleDate();
+          }}
+        >
+          <input ref={refsd} type="datetime-local" placeholder="start date" className="col-span-2 rounded" />
+          <input ref={refed} type="datetime-local" placeholder="end date" className="col-span-2 rounded" />
+          <input ref={refmin} type="text" placeholder="min price" className="col-span-2 rounded" />
+          <input ref={refmax} type="text" placeholder="max price" className="col-span-2 rounded" />
+          <PrimaryButton text="Filter"></PrimaryButton>
+        </form>
         <div className="mb-10 mt-8 flex items-center justify-end tablet:my-10 ">
           <div>
             <FilterButton

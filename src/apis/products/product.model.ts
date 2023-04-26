@@ -3,6 +3,10 @@ export interface GetAllProductQuery {
   product_name?: string;
   limit?: number;
   page?: number;
+  minPrice?: number | undefined;
+  maxPrice?: number | undefined;
+  startDate?: Date | undefined;
+  endDate?: Date | undefined;
 }
 
 export interface ProductResponse {
