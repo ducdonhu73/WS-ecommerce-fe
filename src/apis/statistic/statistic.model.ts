@@ -13,4 +13,8 @@ export interface StatisticResponse {
 export interface StatisticQuery {
   userId?: string;
   productId?: string;
+  startDate?: Date | undefined;
+  endDate?: Date | undefined;
+  maxPrice?: number | undefined;
+  minPrice?: number | undefined;
 }
