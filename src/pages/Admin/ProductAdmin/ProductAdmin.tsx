@@ -62,7 +62,7 @@ function ProductAdmin() {
 
   useEffect(() => {
     if (listProduct) setDisplayList(listProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize));
-  }, [listProduct]);
+  }, [listProduct, currentPage]);
 
   useEffect(() => {
     getProduct(

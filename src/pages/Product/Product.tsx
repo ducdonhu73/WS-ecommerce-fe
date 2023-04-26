@@ -61,7 +61,7 @@ export const Product = () => {
 
   useEffect(() => {
     setListDisplay(listProduct.slice((currentPage - 1) * pageSize, currentPage * pageSize));
-  }, [listProduct]);
+  }, [listProduct, currentPage]);
 
   useEffect(() => {
     getProduct(

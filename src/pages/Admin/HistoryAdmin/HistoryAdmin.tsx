@@ -47,7 +47,7 @@ const HistoryAdmin = () => {
   useEffect(() => {
     setDisplayList(listOrder.slice((currentPage - 1) * pageSize, currentPage * pageSize));
     setTotal(listOrder.reduce((total, item) => total + item.total, 0));
-  }, [listOrder]);
+  }, [listOrder, currentPage]);
 
   useEffect(() => {
     getOrders(
